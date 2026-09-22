@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <base target="_top">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <title>Presensi Mahasiswa</title>
+
+  <?!= include('CSS'); ?>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+  <div class="card">
+
+
+    <div class="header">
+
+      <h1>Presensi Mahasiswa</h1>
+
+      <p>Sistem Komputer</p>
+
+    </div>
+
+
+    <!-- =========================================
+         NIM
+    ========================================== -->
+
+    <label for="nim">
+      NIM
+    </label>
+
+    <div class="input-group">
+
+      <input
+        type="text"
+        id="nim"
+        placeholder="Masukkan NIM"
+        autocomplete="off">
+
+      <button
+        id="btnCari"
+        onclick="cariMahasiswa()">
+
+        Cek
+
+      </button>
+
+    </div>
+
+
+    <!-- =========================================
+         DATA MAHASISWA
+    ========================================== -->
+
+    <div
+      id="dataMahasiswa"
+      class="hidden">
+
+
+      <div class="info-box">
+
+        <div class="info-row">
+
+          <span>Nama</span>
+
+          <strong id="nama">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="info-row">
+
+          <span>NIM</span>
+
+          <strong id="nimTampil">
+            -
+          </strong>
+
+        </div>
+
+
+        <div class="info-row">
+
+          <span>Program Studi</span>
+
+          <strong id="prodi">
+            -
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- =======================================
+           DOSEN
+      ======================================== -->
+
+      <label for="dosen">
+
+        Dosen
+
+      </label>
+
+
+      <select id="dosen">
+
+        <option value="">
+
+          Pilih Dosen
+
+        </option>
+
+      </select>
+
+
+      <!-- =======================================
+           TANGGAL
+      ======================================== -->
+
+      <label>
+
+        Tanggal
+
+      </label>
+
+      <div
+        class="display-box"
+        id="tanggal">
+
+        -
+
+      </div>
+
+
+      <!-- =======================================
+           WAKTU
+      ======================================== -->
+
+      <label>
+
+        Waktu
+
+      </label>
+
+      <div
+        class="display-box waktu"
+        id="waktu">
+
+        -
+
+      </div>
+
+
+      <!-- =======================================
+           LOKASI
+      ======================================== -->
+
+      <label>
+
+        Lokasi
+
+      </label>
+
+
+      <div
+        class="location-status"
+        id="statusLokasi">
+
+        <span id="iconLokasi">
+          📍
+        </span>
+
+        <span id="textLokasi">
+
+          Menunggu GPS...
+
+        </span>
+
+      </div>
+
+
+      <!-- =======================================
+           MAP
+      ======================================== -->
+
+      <div class="map-container">
+
+        <iframe
+          id="mapFrame"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+
+      <!-- =======================================
+           JARAK
+      ======================================== -->
+
+      <div
+        class="distance"
+        id="jarak">
+
+        Jarak dari kampus: -
+
+      </div>
+
+
+      <!-- =======================================
+           BUTTON PRESENSI
+      ======================================== -->
+
+      <button
+        id="btnPresensi"
+        class="btn-presensi"
+        onclick="presensi()"
+        disabled>
+
+        PRESENSI SEKARANG
+
+      </button>
+
+
+    </div>
+
+
+    <!-- =========================================
+         PESAN
+    ========================================== -->
+
+    <div
+      id="pesan"
+      class="pesan hidden">
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+<?!= include('JS'); ?>
+
+
+</body>
+
+</html>
