@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <base target="_top">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Presensi Mahasiswa</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+      background: linear-gradient(
+        135deg,
+        #0d47a1,
+        #1976d2
+      );
+
+      color: white;
+      padding: 18px 20px;
+
+      box-shadow:
+        0 4px 15px rgba(0,0,0,.15);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,.18);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 25px;
+    }
+
+    .header-title {
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .header-subtitle {
+      margin-top: 4px;
+      font-size: 12px;
+      opacity: .85;
+    }
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+
+      margin: 25px auto;
+
+      padding: 0 15px;
+    }
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+      background: white;
+
+      border-radius: 18px;
+
+      padding: 22px;
+
+      margin-bottom: 18px;
+
+      box-shadow:
+        0 5px 25px rgba(0,0,0,.07);
+
+      border: 1px solid #edf0f5;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+
+      margin-bottom: 17px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 9px;
+    }
+
+    .card-title-icon {
+      width: 34px;
+      height: 34px;
+
+      border-radius: 10px;
+
+      background: #e8f1ff;
+
+      color: #1565c0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 17px;
+    }
+
+    /* =========================
+       NIM
+    ========================= */
+
+    .nim-area {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input {
+      width: 100%;
+
+      height: 50px;
+
+      border: 1px solid #dce2eb;
+
+      border-radius: 12px;
+
+      padding: 0 15px;
+
+      font-size: 16px;
+
+      outline: none;
+
+      transition: .2s;
+    }
+
+    .input:focus {
+      border-color: #1976d2;
+
+      box-shadow:
+        0 0 0 3px rgba(25,118,210,.1);
+    }
+
+    .btn {
+      height: 50px;
+
+      border: none;
+
+      border-radius: 12px;
+
+      padding: 0 22px;
+
+      background: #1976d2;
+
+      color: white;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: .2s;
+
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: #0d5eb7;
+      transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+      background: #aab4c3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* =========================
+       MAHASISWA
+    ========================= */
+
+    .student-card {
+      display: none;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f5f9ff,
+          #eef5ff
+        );
+
+      border: 1px solid #dceaff;
+
+      border-radius: 15px;
+
+      padding: 18px;
+
+      margin-top: 18px;
+    }
+
+    .student-profile {
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background: #1976d2;
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 20px;
+
+      font-weight: bold;
+    }
+
+    .student-name {
+      font-size: 17px;
+      font-weight: 700;
+
+      margin-bottom: 5px;
+    }
+
+    .student-info {
+      color: #687386;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       DOSEN
+    ========================= */
+
+    .form-label {
+      display: block;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      color: #5e6878;
+
+      margin-bottom: 8px;
+    }
+
+    .select {
+      width: 100%;
+
+      height: 50px;
+
+      border: 1px solid #dce2eb;
+
+      border-radius: 12px;
+
+      padding: 0 13px;
+
+      background: white;
+
+      font-size: 14px;
+
+      outline: none;
+    }
+
+    /* =========================
+       WAKTU
+    ========================= */
+
+    .time-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .time-box {
+      background: #f7f9fc;
+
+      border-radius: 14px;
+
+      padding: 15px;
+
+      text-align: center;
+
+      border: 1px solid #edf0f5;
+    }
+
+    .time-label {
+      font-size: 11px;
+
+      color: #788395;
+
+      text-transform: uppercase;
+
+      letter-spacing: .5px;
+
+      margin-bottom: 7px;
+    }
+
+    .time-value {
+      font-size: 20px;
+
+      font-weight: 700;
+
+      color: #172033;
+    }
+
+    /* =========================
+       LOCATION
+    ========================= */
+
+    .location-status {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 15px;
+
+      border-radius: 14px;
+
+      background: #f7f9fc;
+
+      border: 1px solid #edf0f5;
+
+      margin-bottom: 15px;
+    }
+
+    .location-icon {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 12px;
+
+      background: #fff3e0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 20px;
+    }
+
+    .location-title {
+      font-size: 14px;
+
+      font-weight: 700;
+
+      margin-bottom: 3px;
+    }
+
+    .location-description {
+      font-size: 12px;
+
+      color: #788395;
+    }
+
+    .status-ok {
+      background: #e8f7ee;
+
+      border-color: #c9efd8;
+    }
+
+    .status-ok .location-icon {
+      background: #d9f5e4;
+    }
+
+    .status-error {
+      background: #fff0f0;
+
+      border-color: #ffd1d1;
+    }
+
+    .status-error .location-icon {
+      background: #ffe0e0;
+    }
+
+    /* =========================
+       MAP
+    ========================= */
+
+    .map-container {
+      width: 100%;
+
+      height: 280px;
+
+      border-radius: 15px;
+
+      overflow: hidden;
+
+      background: #eef1f5;
+
+      border: 1px solid #e1e6ed;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* =========================
+       DISTANCE
+    ========================= */
+
+    .distance-box {
+      display: none;
+
+      margin-top: 14px;
+
+      padding: 15px;
+
+      border-radius: 14px;
+
+      background: #f5f9ff;
+
+      border: 1px solid #dceaff;
+
+      text-align: center;
+    }
+
+    .distance-label {
+      font-size: 11px;
+
+      color: #748096;
+
+      text-transform: uppercase;
+
+      margin-bottom: 5px;
+    }
+
+    .distance-value {
+      font-size: 24px;
+
+      font-weight: 800;
+
+      color: #1565c0;
+    }
+
+    /* =========================
+       PRESENSI BUTTON
+    ========================= */
+
+    .attendance-button {
+      width: 100%;
+
+      height: 58px;
+
+      border: none;
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1565c0,
+          #1976d2
+        );
+
+      color: white;
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+      letter-spacing: .3px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 7px 18px rgba(21,101,192,.25);
+
+      transition: .2s;
+    }
+
+    .attendance-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 10px 25px rgba(21,101,192,.32);
+    }
+
+    .attendance-button:disabled {
+      background: #adb7c5;
+
+      box-shadow: none;
+
+      cursor: not-allowed;
+
+      transform: none;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    .message {
+      display: none;
+
+      padding: 14px 16px;
+
+      border-radius: 13px;
+
+      margin-bottom: 18px;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+    }
+
+    .message.success {
+      display: block;
+
+      background: #e8f7ee;
+
+      border: 1px solid #c8ecd7;
+
+      color: #176b3a;
+    }
+
+    .message.error {
+      display: block;
+
+      background: #fff0f0;
+
+      border: 1px solid #ffd0d0;
+
+      color: #a02020;
+    }
+
+    .message.info {
+      display: block;
+
+      background: #edf5ff;
+
+      border: 1px solid #d2e5ff;
+
+      color: #14559b;
+    }
+
+    /* =========================
+       LOADING
+    ========================= */
+
+    .loading {
+      display: none;
+
+      text-align: center;
+
+      padding: 15px;
+
+      color: #6d7888;
+
+      font-size: 13px;
+    }
+
+    .spinner {
+      display: inline-block;
+
+      width: 18px;
+      height: 18px;
+
+      border: 2px solid #dbe4f0;
+
+      border-top-color: #1976d2;
+
+      border-radius: 50%;
+
+      animation: spin .8s linear infinite;
+
+      vertical-align: middle;
+
+      margin-right: 7px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      text-align: center;
+
+      padding: 10px 10px 25px;
+
+      color: #8993a3;
+
+      font-size: 11px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .header {
+        padding: 15px;
+      }
+
+      .header-title {
+        font-size: 18px;
+      }
+
+      .container {
+        margin-top: 15px;
+        padding: 0 10px;
+      }
+
+      .card {
+        padding: 17px;
+
+        border-radius: 15px;
+      }
+
+      .nim-area {
+        flex-direction: column;
+      }
+
+      .nim-area .btn {
+        width: 100%;
+      }
+
+      .map-container {
+        height: 250px;
+      }
+
+      .time-value {
+        font-size: 17px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+  <div class="header-inner">
+
+    <div class="logo">
+      📍
+    </div>
+
+    <div>
+
+      <div class="header-title">
+        Presensi Mahasiswa
+      </div>
+
+      <div class="header-subtitle">
+        Sistem Presensi Berbasis Lokasi
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     CONTENT
+========================= -->
+
+<main class="container">
+
+
+  <!-- PESAN -->
+
+  <div id="message"
+       class="message">
+  </div>
+
+
+  <!-- NIM -->
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <div class="card-title-icon">
+        🎓
+      </div>
+
+      Identitas Mahasiswa
+
+    </div>
+
+
+    <div class="nim-area">
+
+      <input
+        type="text"
+        id="nim"
+        class="input"
+        placeholder="Masukkan NIM"
+        autocomplete="off">
+
+      <button
+        id="btnCek"
+        class="btn"
+        onclick="cekMahasiswa()">
+
+        Cek Data
+
+      </button>
+
+    </div>
+
+
+    <!-- DATA MAHASISWA -->
+
+    <div
+      id="studentCard"
+      class="student-card">
+
+      <div class="student-profile">
+
+        <div
+          id="avatar"
+          class="avatar">
+
+          M
+
+        </div>
+
+        <div>
+
+          <div
+            id="namaMahasiswa"
+            class="student-name">
+
+            -
+
+          </div>
+
+          <div
+            id="infoMahasiswa"
+            class="student-info">
+
+            -
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- DOSEN -->
+
+  <div
+    id="dosenCard"
+    class="card"
+    style="display:none;">
+
+    <div class="card-title">
+
+      <div class="card-title-icon">
+        👨‍🏫
+      </div>
+
+      Dosen Pengampu
+
+    </div>
+
+    <label class="form-label">
+      Pilih Dosen
+    </label>
+
+    <select
+      id="dosen"
+      class="select">
+
+      <option value="">
+        Memuat data dosen...
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <!-- WAKTU -->
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <div class="card-title-icon">
+        🕐
+      </div>
+
+      Waktu Presensi
+
+    </div>
+
+
+    <div class="time-grid">
+
+      <div class="time-box">
+
+        <div class="time-label">
+          Tanggal
+        </div>
+
+        <div
+          id="tanggal"
+          class="time-value">
+
+          -
+
+        </div>
+
+      </div>
+
+
+      <div class="time-box">
+
+        <div class="time-label">
+          Waktu
+        </div>
+
+        <div
+          id="waktu"
+          class="time-value">
+
+          -
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- LOKASI -->
+
+  <div class="card">
+
+    <div class="card-title">
+
+      <div class="card-title-icon">
+        📍
+      </div>
+
+      Verifikasi Lokasi
+
+    </div>
+
+
+    <div
+      id="locationStatus"
+      class="location-status">
+
+      <div
+        id="locationIcon"
+        class="location-icon">
+
+        📡
+
+      </div>
+
+      <div>
+
+        <div
+          id="locationTitle"
+          class="location-title">
+
+          Menunggu lokasi
+
+        </div>
+
+        <div
+          id="locationDescription"
+          class="location-description">
+
+          Tekan "Cek Data" untuk memulai verifikasi lokasi.
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MAP -->
+
+    <div class="map-container">
+
+      <iframe
+        id="map"
+        src="https://www.google.com/maps?q=Indonesia&output=embed"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+
+    <!-- DISTANCE -->
+
+    <div
+      id="distanceBox"
+      class="distance-box">
+
+      <div class="distance-label">
+        Jarak dari kampus
+      </div>
+
+      <div
+        id="distance"
+        class="distance-value">
+
+        -
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- LOADING -->
+
+  <div
+    id="loading"
+    class="loading">
+
+    <span class="spinner"></span>
+
+    Memproses...
+
+  </div>
+
+
+  <!-- PRESENSI -->
+
+  <div
+    id="attendanceCard"
+    class="card"
+    style="display:none;">
+
+    <button
+      id="btnPresensi"
+      class="attendance-button"
+      onclick="presensi()">
+
+      ✓ PRESENSI SEKARANG
+
+    </button>
+
+  </div>
+
+
+</main>
+
+
+<div class="footer">
+
+  Sistem Presensi Mahasiswa
+  <br>
+  Berbasis GPS & Google Maps
+
+</div>
+
+
+<script>
+
+  let mahasiswa = null;
+  let lokasiValid = false;
+
+  let latitude = null;
+  let longitude = null;
+  let jarak = null;
+
+
+  /* =========================
+     INITIAL
+  ========================= */
+
+  window.onload = function() {
+
+    loadDosen();
+
+    updateServerTime();
+
+    setInterval(updateServerTime, 1000);
+
+  };
+
+
+  /* =========================
+     PESAN
+  ========================= */
+
+  function showMessage(text, type) {
+
+    const el =
+      document.getElementById("message");
+
+    el.className =
+      "message " + type;
+
+    el.innerHTML = text;
+
+  }
+
+
+  function hideMessage() {
+
+    const el =
+      document.getElementById("message");
+
+    el.className = "message";
+
+    el.innerHTML = "";
+
+  }
+
+
+  /* =========================
+     LOADING
+  ========================= */
+
+  function loading(status) {
+
+    document.getElementById("loading")
+      .style.display =
+      status ? "block" : "none";
+
+  }
+
+
+  /* =========================
+     SERVER TIME
+  ========================= */
+
+  function updateServerTime() {
+
+    google.script.run
+
+      .withSuccessHandler(function(data) {
+
+        if (!data) return;
+
+        document.getElementById("tanggal")
+          .innerText = data.tanggal;
+
+        document.getElementById("waktu")
+          .innerText = data.waktu;
+
+      })
+
+      .getServerTime();
+
+  }
+
+
+  /* =========================
+     LOAD DOSEN
+  ========================= */
+
+  function loadDosen() {
+
+  google.script.run
+
+    .withSuccessHandler(function(data) {
+
+      const select =
+        document.getElementById("dosen");
+
+      select.innerHTML =
+        '<option value="">-- Pilih Dosen --</option>';
+
+      if (!data || data.length === 0) {
+
+        select.innerHTML =
+          '<option value="">Tidak ada dosen aktif</option>';
+
+        return;
+      }
+
+      data.forEach(function(dosen) {
+
+        const option =
+          document.createElement("option");
+
+        // VALUE yang dikirim ke server = NIDN
+        option.value =
+          String(dosen.nidn).trim();
+
+        // YANG DITAMPILKAN ke mahasiswa = NAMA
+        option.textContent =
+          dosen.nama;
+
+        select.appendChild(option);
+
+      });
+
+    })
+
+    .withFailureHandler(function(error) {
+
+      console.error(error);
+
+      document.getElementById("dosen")
+        .innerHTML =
+        '<option value="">Gagal memuat dosen</option>';
+
+    })
+
+    .getDosen();
+
+}
+
+
+  /* =========================
+     CEK MAHASISWA
+  ========================= */
+
+  function cekMahasiswa() {
+
+    const nim =
+      document.getElementById("nim")
+        .value.trim();
+
+    if (!nim) {
+
+      showMessage(
+        "Silakan masukkan NIM terlebih dahulu.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    hideMessage();
+
+    loading(true);
+
+    document.getElementById("studentCard")
+      .style.display = "none";
+
+    document.getElementById("dosenCard")
+      .style.display = "none";
+
+    document.getElementById("attendanceCard")
+      .style.display = "none";
+
+
+    google.script.run
+
+      .withSuccessHandler(function(data) {
+
+        loading(false);
+
+
+        if (!data) {
+
+          showMessage(
+            "NIM tidak ditemukan. Silakan periksa kembali NIM Anda.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        mahasiswa = data;
+
+
+        document.getElementById("namaMahasiswa")
+          .innerText = data.nama;
+
+        document.getElementById("infoMahasiswa")
+          .innerText =
+          data.nim + " • " + data.prodi;
+
+
+        document.getElementById("avatar")
+          .innerText =
+          data.nama.charAt(0).toUpperCase();
+
+
+        document.getElementById("studentCard")
+          .style.display = "block";
+
+
+        document.getElementById("dosenCard")
+          .style.display = "block";
+
+
+        cekPresensiHariIni(data.nim);
+
+        cekGPS();
+
+      })
+
+      .withFailureHandler(function(error) {
+
+        loading(false);
+
+        showMessage(
+          "Terjadi kesalahan: " +
+          error.message,
+          "error"
+        );
+
+      })
+
+      .getMahasiswa(nim);
+
+  }
+
+
+  /* =========================
+     CEK SUDAH PRESENSI
+  ========================= */
+
+  function cekPresensiHariIni(nim) {
+
+  google.script.run
+
+    .withSuccessHandler(function(data) {
+
+      if (!data) {
+        return;
+      }
+
+
+      if (data.sudah === true) {
+
+        showMessage(
+
+          "Mahasiswa ini sudah melakukan " +
+          "presensi hari ini pada pukul " +
+          data.waktu +
+          ".",
+
+          "info"
+
+        );
+
+
+        document.getElementById(
+          "attendanceCard"
+        ).style.display = "none";
+
+      }
+
+    })
+
+    .withFailureHandler(function(error) {
+
+      console.error(
+        "Gagal cek presensi:",
+        error
+      );
+
+    })
+
+    .cekPresensiHariIni(nim);
+
+}
+
+
+  /* =========================
+     GPS
+  ========================= */
+
+  function cekGPS() {
+
+    const status =
+      document.getElementById("locationStatus");
+
+    const icon =
+      document.getElementById("locationIcon");
+
+    const title =
+      document.getElementById("locationTitle");
+
+    const desc =
+      document.getElementById("locationDescription");
+
+
+    status.className =
+      "location-status";
+
+
+    icon.innerText = "📡";
+
+    title.innerText =
+      "Mendeteksi lokasi...";
+
+    desc.innerText =
+      "Mohon izinkan akses lokasi pada browser.";
+
+
+    if (!navigator.geolocation) {
+
+      status.className =
+        "location-status status-error";
+
+      icon.innerText = "❌";
+
+      title.innerText =
+        "GPS tidak tersedia";
+
+      desc.innerText =
+        "Perangkat Anda tidak mendukung GPS.";
+
+      return;
+
+    }
+
+
+    navigator.geolocation.getCurrentPosition(
+
+      function(position) {
+
+        latitude =
+          position.coords.latitude;
+
+        longitude =
+          position.coords.longitude;
+
+
+        cekLokasiServer();
+
+      },
+
+      function(error) {
+
+        status.className =
+          "location-status status-error";
+
+        icon.innerText = "⚠️";
+
+        title.innerText =
+          "Lokasi tidak dapat diakses";
+
+        if (error.code === 1) {
+
+          desc.innerText =
+            "Izin lokasi ditolak. Silakan aktifkan GPS dan izinkan browser mengakses lokasi.";
+
+        } else {
+
+          desc.innerText =
+            "Gagal mendapatkan lokasi perangkat.";
+
+        }
+
+      },
+
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0
+      }
+
+    );
+
+  }
+
+
+  /* =========================
+     CEK LOKASI SERVER
+  ========================= */
+
+  function cekLokasiServer() {
+
+    google.script.run
+
+      .withSuccessHandler(function(result) {
+
+        const status =
+          document.getElementById("locationStatus");
+
+        const icon =
+          document.getElementById("locationIcon");
+
+        const title =
+          document.getElementById("locationTitle");
+
+        const desc =
+          document.getElementById("locationDescription");
+
+
+        jarak = result.jarak;
+
+
+        document.getElementById("distanceBox")
+          .style.display = "block";
+
+
+        document.getElementById("distance")
+          .innerText =
+          formatJarak(result.jarak);
+
+
+        if (result.valid) {
+
+          lokasiValid = true;
+
+
+          status.className =
+            "location-status status-ok";
+
+          icon.innerText = "✓";
+
+          title.innerText =
+            "Lokasi Valid";
+
+          desc.innerText =
+            "Anda berada di dalam area kampus.";
+
+
+          document.getElementById("attendanceCard")
+            .style.display = "block";
+
+        } else {
+
+          lokasiValid = false;
+
+
+          status.className =
+            "location-status status-error";
+
+          icon.innerText = "✕";
+
+          title.innerText =
+            "Di Luar Area Kampus";
+
+          desc.innerText =
+            "Anda berada di luar radius presensi.";
+
+          document.getElementById("attendanceCard")
+            .style.display = "none";
+
+        }
+
+
+        tampilkanPeta(
+          latitude,
+          longitude
+        );
+
+      })
+
+      .withFailureHandler(function(error) {
+
+        console.error(error);
+
+        showMessage(
+          "Gagal memverifikasi lokasi.",
+          "error"
+        );
+
+      })
+
+      .cekLokasi(
+        latitude,
+        longitude
+      );
+
+  }
+
+
+  /* =========================
+     FORMAT JARAK
+  ========================= */
+
+  function formatJarak(meter) {
+
+    if (meter < 1000) {
+
+      return Math.round(meter) + " meter";
+
+    }
+
+    return (
+      (meter / 1000)
+        .toFixed(2)
+      + " km"
+    );
+
+  }
+
+
+  /* =========================
+     MAP
+  ========================= */
+
+  function tampilkanPeta(lat, lng) {
+
+    const url =
+      "https://www.google.com/maps?q=" +
+      lat +
+      "," +
+      lng +
+      "&output=embed";
+
+    document.getElementById("map")
+      .src = url;
+
+  }
+
+
+  /* =========================
+     PRESENSI
+  ========================= */
+
+  function presensi() {
+
+  if (!mahasiswa) {
+
+    showMessage(
+      "Data mahasiswa belum tersedia.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  if (!lokasiValid) {
+
+    showMessage(
+      "Lokasi Anda berada di luar area kampus.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  const selectDosen =
+    document.getElementById("dosen");
+
+
+  const nidn =
+    String(selectDosen.value || "").trim();
+
+
+  if (!nidn) {
+
+    showMessage(
+      "Silakan pilih dosen terlebih dahulu.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  const button =
+    document.getElementById("btnPresensi");
+
+
+  button.disabled = true;
+
+  button.innerText =
+    "⏳ MENYIMPAN PRESENSI...";
+
+
+  loading(true);
+
+  hideMessage();
+
+
+  /*
+   * KIRIM NIM + NIDN + GPS
+   */
+
+  const data = {
+
+    nim:
+      mahasiswa.nim,
+
+    nidn:
+      nidn,
+
+    latitude:
+      latitude,
+
+    longitude:
+      longitude
+
+  };
+
+
+  console.log("Data presensi:", data);
+
+
+  google.script.run
+
+    .withSuccessHandler(function(result) {
+
+      loading(false);
+
+
+      if (!result) {
+
+        button.disabled = false;
+
+        button.innerText =
+          "✓ PRESENSI SEKARANG";
+
+        showMessage(
+          "Server tidak memberikan hasil.",
+          "error"
+        );
+
+        return;
+      }
+
+
+      /*
+       * Kode.gs menggunakan:
+       * sukses: true
+       */
+
+      if (result.sukses) {
+
+        showMessage(
+
+          "✓ Presensi berhasil disimpan.<br><br>" +
+
+          "<b>Nama:</b> " +
+          result.nama +
+          "<br>" +
+
+          "<b>NIM:</b> " +
+          result.nim +
+          "<br>" +
+
+          "<b>Dosen:</b> " +
+          result.dosen +
+          "<br>" +
+
+          "<b>Waktu:</b> " +
+          result.waktu +
+          "<br>" +
+
+          "<b>Jarak:</b> " +
+          result.jarak +
+          " meter",
+
+          "success"
+
+        );
+
+
+        button.disabled = true;
+
+        button.innerText =
+          "✓ PRESENSI SUDAH TERCATAT";
+
+
+      } else {
+
+        button.disabled = false;
+
+        button.innerText =
+          "✓ PRESENSI SEKARANG";
+
+
+        showMessage(
+
+          result.message ||
+          "Presensi gagal disimpan.",
+
+          "error"
+
+        );
+
+      }
+
+    })
+
+    .withFailureHandler(function(error) {
+
+      loading(false);
+
+      button.disabled = false;
+
+      button.innerText =
+        "✓ PRESENSI SEKARANG";
+
+
+      console.error(
+        "ERROR SIMPAN PRESENSI:",
+        error
+      );
+
+
+      showMessage(
+
+        "Gagal menyimpan presensi:<br>" +
+
+        error.message,
+
+        "error"
+
+      );
+
+    })
+
+    .simpanPresensi(data);
+
+}
+
+  /* =========================
+     ENTER NIM
+  ========================= */
+
+  document.getElementById("nim")
+    .addEventListener(
+      "keypress",
+      function(event) {
+
+        if (event.key === "Enter") {
+
+          cekMahasiswa();
+
+        }
+
+      }
+    );
+
+</script>
+
+</body>
+</html>
