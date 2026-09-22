@@ -1,0 +1,822 @@
+<script>
+
+
+let mahasiswa = null;
+
+let posisi = null;
+
+let lokasiValid = false;
+
+let lokasiSedangDiproses = false;
+
+
+/* ==================================================
+   SAAT HALAMAN DIBUKA
+================================================== */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
+
+    ambilWaktuServer();
+
+    setInterval(
+      ambilWaktuServer,
+      1000
+    );
+
+    ambilDosen();
+
+  }
+);
+
+
+/* ==================================================
+   WAKTU
+================================================== */
+
+function ambilWaktuServer() {
+
+  google.script.run
+
+    .withSuccessHandler(
+      function(data) {
+
+        document.getElementById(
+          'tanggal'
+        ).innerText =
+          data.tanggal;
+
+        document.getElementById(
+          'waktu'
+        ).innerText =
+          data.waktu;
+
+      }
+    )
+
+    .withFailureHandler(
+      function(error) {
+
+        console.error(
+          error
+        );
+
+      }
+    )
+
+    .getServerTime();
+
+}
+
+
+/* ==================================================
+   AMBIL DOSEN
+================================================== */
+
+function ambilDosen() {
+
+  google.script.run
+
+    .withSuccessHandler(function(data) {
+
+      const select =
+        document.getElementById('dosen');
+
+      select.innerHTML =
+        '<option value="">-- Pilih Dosen --</option>';
+
+      if (!data || data.length === 0) {
+
+        const option =
+          document.createElement('option');
+
+        option.value = '';
+        option.textContent =
+          'Tidak ada dosen aktif';
+
+        select.appendChild(option);
+
+        return;
+      }
+
+      data.forEach(function(item) {
+
+        const option =
+          document.createElement('option');
+
+        /*
+         * VALUE = NIDN
+         * YANG DITAMPILKAN = NAMA DOSEN
+         */
+
+        option.value =
+          String(item.nidn).trim();
+
+        option.textContent =
+          item.nama;
+
+        select.appendChild(option);
+
+      });
+
+    })
+
+    .withFailureHandler(function(error) {
+
+      console.error(error);
+
+      tampilPesan(
+        'Gagal mengambil data dosen: ' +
+        error.message,
+        false
+      );
+
+    })
+
+    .getDosen();
+
+}
+
+
+/* ==================================================
+   CARI MAHASISWA
+================================================== */
+
+function cariMahasiswa() {
+
+  const nim =
+    document.getElementById(
+      'nim'
+    ).value.trim();
+
+
+  if (!nim) {
+
+    tampilPesan(
+      'Silakan masukkan NIM.',
+      false
+    );
+
+    return;
+
+  }
+
+
+  const button =
+    document.getElementById(
+      'btnCari'
+    );
+
+
+  button.disabled =
+    true;
+
+  button.innerText =
+    '...';
+
+
+  google.script.run
+
+    .withSuccessHandler(
+      function(data) {
+
+        button.disabled =
+          false;
+
+        button.innerText =
+          'Cek';
+
+
+        if (!data.ditemukan) {
+
+          mahasiswa =
+            null;
+
+
+          document
+            .getElementById(
+              'dataMahasiswa'
+            )
+            .classList
+            .add('hidden');
+
+
+          tampilPesan(
+            'NIM tidak ditemukan.',
+            false
+          );
+
+          return;
+
+        }
+
+
+        mahasiswa =
+          data;
+
+
+        document.getElementById(
+          'nama'
+        ).innerText =
+          data.nama;
+
+
+        document.getElementById(
+          'nimTampil'
+        ).innerText =
+          data.nim;
+
+
+        document.getElementById(
+          'prodi'
+        ).innerText =
+          data.prodi;
+
+
+        document
+          .getElementById(
+            'dataMahasiswa'
+          )
+          .classList
+          .remove('hidden');
+
+
+        bersihkanPesan();
+
+
+        cekPresensiHariIni();
+
+        ambilGPS();
+
+      }
+    )
+
+    .withFailureHandler(
+      function(error) {
+
+        button.disabled =
+          false;
+
+        button.innerText =
+          'Cek';
+
+
+        tampilPesan(
+          error.message,
+          false
+        );
+
+      }
+    )
+
+    .getMahasiswa(nim);
+
+}
+
+
+/* ==================================================
+   CEK PRESENSI HARI INI
+================================================== */
+
+function cekPresensiHariIni() {
+
+  google.script.run
+
+    .withSuccessHandler(
+      function(data) {
+
+        if (data.sudah) {
+
+          const button =
+            document.getElementById(
+              'btnPresensi'
+            );
+
+
+          button.disabled =
+            true;
+
+
+          button.innerText =
+            'SUDAH PRESENSI';
+
+
+          tampilPesan(
+
+            'Anda sudah melakukan presensi hari ini ' +
+
+            'pada pukul ' +
+
+            data.waktu +
+
+            '.',
+
+            true
+
+          );
+
+        }
+
+      }
+    )
+
+    .cekPresensiHariIni(
+      mahasiswa.nim
+    );
+
+}
+
+
+/* ==================================================
+   GPS
+================================================== */
+
+function ambilGPS() {
+
+  if (!navigator.geolocation) {
+
+    tampilPesan(
+      'Browser tidak mendukung GPS.',
+      false
+    );
+
+    return;
+
+  }
+
+
+  lokasiSedangDiproses =
+    true;
+
+
+  lokasiValid =
+    false;
+
+
+  document.getElementById(
+    'textLokasi'
+  ).innerText =
+    'Mengambil lokasi GPS...';
+
+
+  document.getElementById(
+    'statusLokasi'
+  ).className =
+    'location-status';
+
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+      posisi = {
+
+        latitude:
+          position.coords.latitude,
+
+        longitude:
+          position.coords.longitude,
+
+        accuracy:
+          position.coords.accuracy
+
+      };
+
+
+      tampilkanMap();
+
+      cekLokasiServer();
+
+    },
+
+
+    function(error) {
+
+      lokasiSedangDiproses =
+        false;
+
+
+      document.getElementById(
+        'textLokasi'
+      ).innerText =
+        'GPS tidak dapat diperoleh.';
+
+
+      document.getElementById(
+        'statusLokasi'
+      ).className =
+        'location-status location-invalid';
+
+
+      tampilPesan(
+
+        'Aktifkan izin lokasi/GPS pada perangkat kemudian coba lagi.',
+
+        false
+
+      );
+
+    },
+
+
+    {
+
+      enableHighAccuracy:
+        true,
+
+      timeout:
+        15000,
+
+      maximumAge:
+        0
+
+    }
+
+  );
+
+}
+
+
+/* ==================================================
+   CEK LOKASI KE SERVER
+================================================== */
+
+function cekLokasiServer() {
+
+  google.script.run
+
+    .withSuccessHandler(
+      function(data) {
+
+        lokasiSedangDiproses =
+          false;
+
+
+        const status =
+          document.getElementById(
+            'statusLokasi'
+          );
+
+
+        const text =
+          document.getElementById(
+            'textLokasi'
+          );
+
+
+        const jarak =
+          document.getElementById(
+            'jarak'
+          );
+
+
+        jarak.innerText =
+
+          'Jarak dari kampus: ' +
+
+          data.jarak +
+
+          ' meter';
+
+
+        if (data.valid) {
+
+          lokasiValid =
+            true;
+
+
+          status.className =
+            'location-status location-valid';
+
+
+          text.innerText =
+            '✓ Anda berada di area kampus';
+
+
+          document.getElementById(
+            'btnPresensi'
+          ).disabled =
+            false;
+
+
+        } else {
+
+          lokasiValid =
+            false;
+
+
+          status.className =
+            'location-status location-invalid';
+
+
+          text.innerText =
+            '✕ Di luar area kampus';
+
+
+          document.getElementById(
+            'btnPresensi'
+          ).disabled =
+            true;
+
+
+          tampilPesan(
+
+            'Presensi belum dapat dilakukan. ' +
+
+            'Jarak Anda ' +
+
+            data.jarak +
+
+            ' meter. Maksimal ' +
+
+            data.radius +
+
+            ' meter.',
+
+            false
+
+          );
+
+        }
+
+      }
+    )
+
+    .withFailureHandler(
+      function(error) {
+
+        lokasiSedangDiproses =
+          false;
+
+        tampilPesan(
+          error.message,
+          false
+        );
+
+      }
+    )
+
+    .cekLokasi(
+
+      posisi.latitude,
+
+      posisi.longitude
+
+    );
+
+}
+
+
+/* ==================================================
+   GOOGLE MAPS
+================================================== */
+
+function tampilkanMap() {
+
+  if (!posisi) {
+    return;
+  }
+
+
+  const lat =
+    posisi.latitude;
+
+  const lng =
+    posisi.longitude;
+
+
+  const url =
+
+    'https://www.google.com/maps?q=' +
+
+    lat +
+
+    ',' +
+
+    lng +
+
+    '&z=17&output=embed';
+
+
+  document.getElementById(
+    'mapFrame'
+  ).src =
+    url;
+
+}
+
+
+/* ==================================================
+   PRESENSI
+================================================== */
+
+function presensi() {
+
+  if (!mahasiswa) {
+
+    tampilPesan(
+      'Data mahasiswa belum tersedia.',
+      false
+    );
+
+    return;
+
+  }
+
+
+  if (!posisi) {
+
+    tampilPesan(
+      'Lokasi GPS belum tersedia.',
+      false
+    );
+
+    return;
+
+  }
+
+
+  if (!lokasiValid) {
+
+    tampilPesan(
+      'Anda berada di luar area kampus.',
+      false
+    );
+
+    return;
+
+  }
+
+
+  const selectDosen =
+    document.getElementById(
+      'dosen'
+    );
+
+
+  const nidn =
+    selectDosen.value;
+
+
+  if (!nidn) {
+
+    tampilPesan(
+      'Silakan pilih dosen.',
+      false
+    );
+
+    return;
+
+  }
+
+
+  const button =
+    document.getElementById(
+      'btnPresensi'
+    );
+
+
+  button.disabled =
+    true;
+
+  button.innerText =
+    'MENYIMPAN...';
+
+
+  google.script.run
+
+    .withSuccessHandler(
+      function(data) {
+
+        button.innerText =
+          '✓ PRESENSI BERHASIL';
+
+
+        button.disabled =
+          true;
+
+
+        tampilPesan(
+
+          '<b>Presensi berhasil!</b><br><br>' +
+
+          'Nama: ' +
+          data.nama +
+          '<br>' +
+
+          'NIM: ' +
+          data.nim +
+          '<br>' +
+
+          'Dosen: ' +
+          data.dosen +
+          '<br>' +
+
+          'Waktu: ' +
+          data.waktu +
+          '<br>' +
+
+          'Jarak: ' +
+          data.jarak +
+          ' meter',
+
+          true
+
+        );
+
+      }
+    )
+
+    .withFailureHandler(
+      function(error) {
+
+        button.disabled =
+          false;
+
+        button.innerText =
+          'PRESENSI SEKARANG';
+
+
+        tampilPesan(
+          error.message,
+          false
+        );
+
+      }
+    )
+
+    .simpanPresensi({
+
+      nim:
+        mahasiswa.nim,
+
+      nidn:
+        nidn,
+
+      latitude:
+        posisi.latitude,
+
+      longitude:
+        posisi.longitude
+
+    });
+
+}
+
+
+/* ==================================================
+   PESAN
+================================================== */
+
+function tampilPesan(
+  pesan,
+  sukses
+) {
+
+  const element =
+    document.getElementById(
+      'pesan'
+    );
+
+
+  element.innerHTML =
+    pesan;
+
+
+  element.className =
+    'pesan ' +
+
+    (
+      sukses
+        ? 'pesan-success'
+        : 'pesan-error'
+    );
+
+
+  element.classList.remove(
+    'hidden'
+  );
+
+}
+
+
+function bersihkanPesan() {
+
+  const element =
+    document.getElementById(
+      'pesan'
+    );
+
+
+  element.innerHTML =
+    '';
+
+
+  element.className =
+    'pesan hidden';
+
+}
+
+
+</script>
