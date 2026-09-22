@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistem Informasi</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        .header {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: #666;
+            min-height: 40px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #1565c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .button:hover {
+            background: #0d47a1;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .menu {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Sistem Informasi</h1>
+        <p>Portal Aplikasi Terintegrasi</p>
+    </div>
+
+    <div class="container">
+
+        <h2>Menu Aplikasi</h2>
+
+        <div class="menu">
+
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>Presensi</h3>
+                <p>Sistem pengelolaan presensi.</p>
+                <a href="#" class="button">Buka Aplikasi</a>
+            </div>
+
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>Penggajian</h3>
+                <p>Sistem pengelolaan penggajian.</p>
+                <a href="#" class="button">Buka Aplikasi</a>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎓</div>
+                <h3>Akademik</h3>
+                <p>Sistem informasi akademik.</p>
+                <a href="#" class="button">Buka Aplikasi</a>
+            </div>
+
+            <div class="card">
+                <div class="icon">📜</div>
+                <h3>Sertifikat</h3>
+                <p>Sistem verifikasi sertifikat.</p>
+                <a href="#" class="button">Buka Aplikasi</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Sistem Informasi
+    </div>
+
+</body>
+</html>
+
