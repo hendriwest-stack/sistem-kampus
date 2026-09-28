@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,11 +19,14 @@
             color: #333;
         }
 
+        /* =========================
+           HEADER
+        ========================== */
         .header {
             background: #1565c0;
             color: white;
             text-align: center;
-            padding: 35px 20px;
+            padding: 30px 20px;
         }
 
         .header h1 {
@@ -36,6 +39,76 @@
             font-size: 16px;
         }
 
+        /* =========================
+           NAVBAR
+        ========================== */
+        .navbar {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .nav-item > a:hover {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 190px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 14px 18px;
+            text-decoration: none;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .dropdown a:hover {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================== */
         .container {
             max-width: 1000px;
             margin: 40px auto;
@@ -47,6 +120,9 @@
             margin-bottom: 30px;
         }
 
+        /* =========================
+           CARD
+        ========================== */
         .menu {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -94,6 +170,9 @@
             background: #0d47a1;
         }
 
+        /* =========================
+           FOOTER
+        ========================== */
         .footer {
             text-align: center;
             padding: 25px;
@@ -101,9 +180,47 @@
             font-size: 14px;
         }
 
-        @media (max-width: 600px) {
+        /* =========================
+           MOBILE
+        ========================== */
+        @media (max-width: 700px) {
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-item > a {
+                padding: 14px 12px;
+                font-size: 14px;
+            }
+
             .menu {
                 grid-template-columns: 1fr;
+            }
+
+            .dropdown {
+                position: absolute;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .nav-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .nav-item {
+                flex-shrink: 0;
             }
         }
     </style>
@@ -111,73 +228,253 @@
 
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
     <div class="header">
         <h1>Sistem Informasi</h1>
         <p>Portal Aplikasi Terintegrasi</p>
     </div>
 
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <!-- BERANDA -->
+            <div class="nav-item">
+                <a href="index.html">🏠 Beranda</a>
+            </div>
+
+
+            <!-- JADWAL KULIAH -->
+            <div class="nav-item">
+
+                <a href="#">
+                    📅 Jadwal Kuliah ▾
+                </a>
+
+                <div class="dropdown">
+
+                    <!-- GANTI LINK DI SINI NANTI -->
+                    <a href="LINK_JADWAL_PAGI">
+                        ☀️ Jadwal Pagi
+                    </a>
+
+                    <!-- GANTI LINK DI SINI NANTI -->
+                    <a href="LINK_JADWAL_SORE">
+                        🌙 Jadwal Sore
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PL -->
+            <div class="nav-item">
+                <!-- GANTI LINK PL NANTI -->
+                <a href="LINK_PL">
+                    🎓 PL
+                </a>
+            </div>
+
+
+            <!-- CPL -->
+            <div class="nav-item">
+                <!-- GANTI LINK CPL NANTI -->
+                <a href="LINK_CPL">
+                    📚 CPL
+                </a>
+            </div>
+
+
+            <!-- CPMK -->
+            <div class="nav-item">
+                <!-- GANTI LINK CPMK NANTI -->
+                <a href="LINK_CPMK">
+                    📝 CPMK
+                </a>
+            </div>
+
+
+            <!-- ASISTEN AI -->
+            <div class="nav-item">
+                <!-- GANTI DENGAN LINK GAS ASISTEN AI -->
+                <a href="LINK_ASISTEN_AI" target="_blank">
+                    🤖 Asisten AI
+                </a>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         CONTENT
+    ========================== -->
     <div class="container">
 
         <h2>Menu Aplikasi</h2>
 
         <div class="menu">
 
+
+            <!-- PRESENSI -->
             <div class="card">
+
                 <div class="icon">📋</div>
+
                 <h3>Presensi</h3>
-                <p>Sistem pengelolaan presensi.</p>
-                <a href="https://script.google.com/macros/s/AKfycbzf0mmA_AwqZk2m2zIKcEBWMn46_7itLszgfYY58NLAL1OKLSgEVHFzGhPN2FpCirh0/exec" class="button">Buka Aplikasi</a>
+
+                <p>
+                    Sistem pengelolaan presensi.
+                </p>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbzf0mmA_AwqZk2m2zIKcEBWMn46_7itLszgfYY58NLAL1OKLSgEVHFzGhPN2FpCirh0/exec"
+                    class="button">
+                    Buka Aplikasi
+                </a>
+
             </div>
 
+
+            <!-- UPLOAD DOKUMEN -->
             <div class="card">
+
                 <div class="icon">💰</div>
+
                 <h3>Upload Dokumen</h3>
-                <p>Kelengkapan Dokumen Pengajaran.</p>
-                <a href="https://script.google.com/macros/s/AKfycbxFjzPiJ2UwuL03fZmeKWWeDaq2bUeQUXdsaQt8mdwal3LSiOK2EkszZDG74qsvkB8_/exec" class="button">Buka Aplikasi</a>
+
+                <p>
+                    Kelengkapan Dokumen Pengajaran.
+                </p>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbxFjzPiJ2UwuL03fZmeKWWeDaq2bUeQUXdsaQt8mdwal3LSiOK2EkszZDG74qsvkB8_/exec"
+                    class="button">
+                    Buka Aplikasi
+                </a>
+
             </div>
 
+
+            <!-- PENELITIAN -->
             <div class="card">
+
                 <div class="icon">🎓</div>
+
                 <h3>Penelitian</h3>
-                <p>Informasi Dokumen Penelitian.</p>
-                <a href="https://script.google.com/macros/s/AKfycbymAk3wOjRWiGrerpCX4NWYggvjO2f8UWCGXwECypDG8B3PiVaUzwJz7H4f1Eiq1fww/exec" class="button">Buka Aplikasi</a>
+
+                <p>
+                    Informasi Dokumen Penelitian.
+                </p>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbymAk3wOjRWiGrerpCX4NWYggvjO2f8UWCGXwECypDG8B3PiVaUzwJz7H4f1Eiq1fww/exec"
+                    class="button">
+                    Buka Aplikasi
+                </a>
+
             </div>
 
+
+            <!-- PENGABDIAN -->
             <div class="card">
+
                 <div class="icon">📜</div>
+
                 <h3>Pengabdian</h3>
-                <p>Informasi Dokumen Pengabdian.</p>
-                <a href="https://script.google.com/macros/s/AKfycbwJRwXFfflJii-PgS1L9lrQvPw3CwLVX3_Au_6lKQteHtn0xWEVP8JMCVsyD9oH-z71aA/exec" class="button">Buka Aplikasi</a>
+
+                <p>
+                    Informasi Dokumen Pengabdian.
+                </p>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbwJRwXFfflJii-PgS1L9lrQvPw3CwLVX3_Au_6lKQteHtn0xWEVP8JMCVsyD9oH-z71aA/exec"
+                    class="button">
+                    Buka Aplikasi
+                </a>
+
             </div>
 
+
+            <!-- RPS PRODI -->
             <div class="card">
+
                 <div class="icon">📜</div>
+
                 <h3>Dokumen RPS Prodi</h3>
-                <p>Informasi Dokumen RPS</p>
-                <a href="https://script.google.com/macros/s/AKfycbyGB1pq6OAE1ECk0TZFwiiVpNvxu6vrcwp7Kjv4PSIi3odnNArBog1BOYrDu2cL-zRkRQ/exec" class="button">Buka Aplikasi</a>
+
+                <p>
+                    Informasi Dokumen RPS
+                </p>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbyGB1pq6OAE1ECk0TZFwiiVpNvxu6vrcwp7Kjv4PSIi3odnNArBog1BOYrDu2cL-zRkRQ/exec"
+                    class="button">
+                    Buka Aplikasi
+                </a>
+
             </div>
 
+
+            <!-- PROGRAM STUDI -->
             <div class="card">
+
                 <div class="icon">📜</div>
+
                 <h3>Program Studi</h3>
-                <p>Dokumentasi Hasil Kegiatan Program Studi.</p>
-                <a href="https://script.google.com/macros/s/AKfycbxftYxcZgGWiAn5l-vgikQUZjwOohMTtyViqHkBottMmbqAFarhMoZwz5X42G6Lx8g/exec" class="button">Buka Aplikasi</a>
+
+                <p>
+                    Dokumentasi Hasil Kegiatan Program Studi.
+                </p>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbxftYxcZgGWiAn5l-vgikQUZjwOohMTtyViqHkBottMmbqAFarhMoZwz5X42G6Lx8g/exec"
+                    class="button">
+                    Buka Aplikasi
+                </a>
+
             </div>
 
+
+            <!-- ARSIP -->
             <div class="card">
+
                 <div class="icon">📜</div>
+
                 <h3>ARSIP</h3>
-                <p>ARSIP berupa SK Rektor, SK Dekan, dan LPM.</p>
-                <a href="https://script.google.com/macros/s/AKfycbzN8yxf6oq0SNjFDg7Jm3QHIxOEa4W31XUOgFa1WTSsBRFX1wppR7mLicLQUa1wsH9d/exec" class="button">Buka Aplikasi</a>
+
+                <p>
+                    ARSIP berupa SK Rektor, SK Dekan, dan LPM.
+                </p>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbzN8yxf6oq0SNjFDg7Jm3QHIxOEa4W31XUOgFa1WTSsBRFX1wppR7mLicLQUa1wsH9d/exec"
+                    class="button">
+                    Buka Aplikasi
+                </a>
+
             </div>
-            
+
         </div>
+
     </div>
 
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
     <div class="footer">
         © 2026 Sistem Informasi
     </div>
 
 </body>
 </html>
-
+```
