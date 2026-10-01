@@ -1,1 +1,1293 @@
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Akademik | Sistem Komputer
+    </title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d47a1 0%,
+                    #1565c0 55%,
+                    #1976d2 100%
+                );
+
+            color: white;
+
+            padding:
+                55px
+                20px
+                65px;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            top: -150px;
+
+            right: -80px;
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            bottom: -130px;
+
+            left: -60px;
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            padding:
+                8px
+                15px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.14);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.2);
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 {
+
+            margin: 0;
+
+            font-size: 40px;
+
+            line-height: 1.15;
+        }
+
+
+        .hero p {
+
+            max-width: 720px;
+
+            margin:
+                15px
+                0
+                0;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color:
+                rgba(255,255,255,0.88);
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(255,255,255,0.96);
+
+            backdrop-filter:
+                blur(10px);
+
+            box-shadow:
+                0 2px 15px
+                rgba(0,0,0,0.08);
+        }
+
+
+        .nav-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            min-height: 64px;
+
+            padding:
+                0
+                20px;
+        }
+
+
+        .nav-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #0d47a1;
+
+            font-weight: 700;
+
+            font-size: 17px;
+
+            white-space: nowrap;
+        }
+
+
+        .brand-icon {
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 10px;
+
+            background: #e3f2fd;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 4px;
+        }
+
+
+        .nav-menu a {
+
+            color: #374151;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            padding:
+                10px
+                13px;
+
+            border-radius: 8px;
+
+            transition:
+                0.2s;
+        }
+
+
+        .nav-menu a:hover {
+
+            background:
+                #e3f2fd;
+
+            color:
+                #1565c0;
+        }
+
+
+        .active {
+
+            background:
+                #e3f2fd !important;
+
+            color:
+                #1565c0 !important;
+        }
+
+
+        .nav-ai {
+
+            background:
+                #1565c0 !important;
+
+            color:
+                white !important;
+        }
+
+
+        .nav-ai:hover {
+
+            background:
+                #0d47a1 !important;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                50px
+                20px
+                70px;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .section-title h2 {
+
+            margin:
+                0
+                0
+                10px;
+
+            font-size: 28px;
+
+            color:
+                #172033;
+        }
+
+
+        .section-title p {
+
+            margin: 0;
+
+            color:
+                #6b7280;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           AKADEMIK GRID
+        ===================================================== */
+
+        .academic-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .academic-card {
+
+            position: relative;
+
+            background:
+                white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            min-height: 245px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 20px
+                rgba(15,23,42,0.06);
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .academic-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(15,23,42,0.11);
+        }
+
+
+        .academic-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            background:
+                #f0f7ff;
+
+            right: -45px;
+
+            bottom: -45px;
+        }
+
+
+        .academic-icon {
+
+            width: 58px;
+            height: 58px;
+
+            border-radius: 15px;
+
+            background:
+                #e3f2fd;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 29px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .academic-card h3 {
+
+            margin:
+                0
+                0
+                9px;
+
+            font-size: 20px;
+
+            color:
+                #172033;
+        }
+
+
+        .academic-card p {
+
+            margin: 0;
+
+            color:
+                #6b7280;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+
+            max-width: 470px;
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .button-group {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+            margin-top: 20px;
+
+            position: relative;
+
+            z-index: 3;
+        }
+
+
+        .button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                10px
+                16px;
+
+            border-radius: 9px;
+
+            background:
+                #1565c0;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            transition:
+                0.2s;
+        }
+
+
+        .button:hover {
+
+            background:
+                #0d47a1;
+        }
+
+
+        .button-secondary {
+
+            background:
+                #eef5fc;
+
+            color:
+                #1565c0;
+        }
+
+
+        .button-secondary:hover {
+
+            background:
+                #dcecfb;
+        }
+
+
+        /* =====================================================
+           INFORMATION BOX
+        ===================================================== */
+
+        .info-box {
+
+            margin-top: 45px;
+
+            padding: 25px;
+
+            background:
+                #eaf4ff;
+
+            border:
+                1px solid #cfe7ff;
+
+            border-radius: 16px;
+
+            display: flex;
+
+            gap: 18px;
+
+            align-items: center;
+        }
+
+
+        .info-icon {
+
+            width: 48px;
+            height: 48px;
+
+            flex-shrink: 0;
+
+            border-radius: 12px;
+
+            background:
+                white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+
+        .info-box h3 {
+
+            margin:
+                0
+                0
+                5px;
+
+            font-size: 16px;
+
+            color:
+                #0d47a1;
+        }
+
+
+        .info-box p {
+
+            margin: 0;
+
+            color:
+                #526273;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+
+            background:
+                #172033;
+
+            color:
+                #aeb7c5;
+
+            text-align: center;
+
+            padding:
+                28px
+                20px;
+
+            font-size: 13px;
+        }
+
+
+        .footer strong {
+
+            color:
+                white;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .academic-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .nav-container {
+
+                overflow-x: auto;
+
+                justify-content:
+                    flex-start;
+            }
+
+
+            .nav-brand {
+
+                display: none;
+            }
+
+
+            .nav-menu {
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                white-space: nowrap;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+
+                font-size: 30px;
+            }
+
+
+            .hero p {
+
+                font-size: 14px;
+            }
+
+
+            .container {
+
+                padding-top: 40px;
+            }
+
+
+            .academic-card {
+
+                min-height: auto;
+
+                padding: 24px;
+            }
+
+
+            .info-box {
+
+                align-items:
+                    flex-start;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            📅 Portal Akademik
+        </div>
+
+
+        <h1>
+            Akademik
+        </h1>
+
+
+        <p>
+            Pusat informasi akademik Program Studi
+            Sistem Komputer. Akses jadwal kuliah,
+            kalender akademik, dan dokumen akademik
+            melalui satu portal.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+
+        <a
+            href="index.html"
+            class="nav-brand">
+
+            <div class="brand-icon">
+                💻
+            </div>
+
+            Sistem Komputer
+
+        </a>
+
+
+        <div class="nav-menu">
+
+
+            <a href="index.html">
+                🏠 Beranda
+            </a>
+
+
+            <a href="dosen.html">
+                👨‍🏫 Dosen
+            </a>
+
+
+            <a href="mahasiswa.html">
+                👨‍🎓 Mahasiswa
+            </a>
+
+
+            <a
+                href="jadwal.html"
+                class="active">
+
+                📅 Akademik
+
+            </a>
+
+
+            <a href="pl.html">
+                🎓 Kurikulum
+            </a>
+
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbwDBR9Kj0DDMEeOk7MCErZtwFu9Rxo_kUv3QN9juWAaXF2Z6zYwpoe3_7Pe32HBXSVlKA/exec"
+                target="_blank"
+                class="nav-ai">
+
+                🤖 Asisten AI
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main class="container">
+
+
+    <div class="section-title">
+
+        <h2>
+            Layanan Akademik
+        </h2>
+
+        <p>
+            Pilih dokumen atau informasi yang ingin Anda akses
+        </p>
+
+    </div>
+
+
+    <div class="academic-grid">
+
+
+        <!-- =================================================
+             JADWAL PAGI
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                ☀️
+            </div>
+
+
+            <h3>
+                Jadwal Kuliah Pagi
+            </h3>
+
+
+            <p>
+                Jadwal perkuliahan untuk kelas pagi
+                Program Studi Sistem Komputer.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="akademik/Jadwal_Pagi.pdf"
+                    download
+                    class="button">
+
+                    📥 Download
+
+                </a>
+
+
+                <a
+                    href="akademik/Jadwal_Pagi.pdf"
+                    target="_blank"
+                    class="button button-secondary">
+
+                    👁 Lihat
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             JADWAL SORE
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                🌙
+            </div>
+
+
+            <h3>
+                Jadwal Kuliah Sore
+            </h3>
+
+
+            <p>
+                Jadwal perkuliahan untuk kelas sore
+                Program Studi Sistem Komputer.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="akademik/Jadwal_Sore.pdf"
+                    download
+                    class="button">
+
+                    📥 Download
+
+                </a>
+
+
+                <a
+                    href="akademik/Jadwal_Sore.pdf"
+                    target="_blank"
+                    class="button button-secondary">
+
+                    👁 Lihat
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             KALENDER AKADEMIK
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                📆
+            </div>
+
+
+            <h3>
+                Kalender Akademik
+            </h3>
+
+
+            <p>
+                Dokumen kalender akademik yang berisi
+                jadwal kegiatan akademik dan periode
+                perkuliahan.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="akademik/Kalender_Akademik.pdf"
+                    download
+                    class="button">
+
+                    📥 Download
+
+                </a>
+
+
+                <a
+                    href="akademik/Kalender_Akademik.pdf"
+                    target="_blank"
+                    class="button button-secondary">
+
+                    👁 Lihat
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PEDOMAN AKADEMIK
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                📘
+            </div>
+
+
+            <h3>
+                Pedoman Akademik
+            </h3>
+
+
+            <p>
+                Dokumen pedoman akademik sebagai
+                referensi pelaksanaan kegiatan akademik
+                Program Studi.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="akademik/Pedoman_Akademik.pdf"
+                    download
+                    class="button">
+
+                    📥 Download
+
+                </a>
+
+
+                <a
+                    href="akademik/Pedoman_Akademik.pdf"
+                    target="_blank"
+                    class="button button-secondary">
+
+                    👁 Lihat
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PL
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                🎓
+            </div>
+
+
+            <h3>
+                Program Learning Outcomes
+            </h3>
+
+
+            <p>
+                Informasi Program Learning Outcomes
+                yang digunakan dalam kurikulum
+                Program Studi Sistem Komputer.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="pl.html"
+                    class="button">
+
+                    🎓 Buka PL →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CPL
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                🎯
+            </div>
+
+
+            <h3>
+                Capaian Pembelajaran Lulusan
+            </h3>
+
+
+            <p>
+                Informasi CPL sebagai bagian dari
+                kurikulum berbasis Outcome Based
+                Education.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="cpl.html"
+                    class="button">
+
+                    📚 Buka CPL →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CPMK
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                📝
+            </div>
+
+
+            <h3>
+                Capaian Pembelajaran Mata Kuliah
+            </h3>
+
+
+            <p>
+                Informasi CPMK dan keterkaitannya
+                dengan pembelajaran mata kuliah.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="cpmk.html"
+                    class="button">
+
+                    📝 Buka CPMK →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PORTAL UTAMA
+        ================================================== -->
+
+        <div class="academic-card">
+
+            <div class="academic-icon">
+                🏠
+            </div>
+
+
+            <h3>
+                Portal Utama
+            </h3>
+
+
+            <p>
+                Kembali ke halaman utama Sistem Informasi
+                Program Studi Sistem Komputer.
+            </p>
+
+
+            <div class="button-group">
+
+
+                <a
+                    href="index.html"
+                    class="button">
+
+                    🏠 Ke Beranda →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         INFO
+    ================================================== -->
+
+    <div class="info-box">
+
+
+        <div class="info-icon">
+            ℹ️
+        </div>
+
+
+        <div>
+
+            <h3>
+                Informasi Dokumen Akademik
+            </h3>
+
+
+            <p>
+                Dokumen PDF ditempatkan pada folder
+                <strong>akademik</strong> di repository GitHub.
+                Tombol <strong>Download</strong> digunakan untuk
+                mengunduh dokumen, sedangkan tombol
+                <strong>Lihat</strong> membuka dokumen pada tab baru.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+    © 2026
+
+    <strong>
+        Sistem Informasi Sistem Komputer
+    </strong>
+
+    <br>
+
+    Portal Akademik
+
+</footer>
+
+
+</body>
+
+</html>
