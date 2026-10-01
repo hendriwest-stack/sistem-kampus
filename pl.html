@@ -1,3 +1,982 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Kurikulum | Sistem Komputer</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f5f8fc;
+    color:#1e293b;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid #e2e8f0;
+
+    padding:14px 6%;
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:#0f4c81;
+    font-size:18px;
+    font-weight:700;
+}
+
+.brand-icon{
+    width:38px;
+    height:38px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+
+    color:white;
+}
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:5px;
+
+    list-style:none;
+}
+
+.nav-menu a{
+    display:block;
+
+    padding:9px 13px;
+
+    border-radius:9px;
+
+    color:#475569;
+
+    font-size:14px;
+    font-weight:500;
+
+    transition:.2s;
+}
+
+.nav-menu a:hover{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.nav-menu a.active{
+    background:#2563eb;
+    color:white;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:65px 6% 80px;
+
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255,255,255,.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0f4c81,
+            #2563eb 55%,
+            #0ea5e9
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:1200px;
+    margin:auto;
+}
+
+.hero-badge{
+    display:inline-flex;
+
+    padding:7px 13px;
+
+    margin-bottom:18px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.2);
+
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:clamp(34px,5vw,54px);
+    line-height:1.15;
+
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:760px;
+
+    color:rgba(255,255,255,.9);
+
+    font-size:17px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main{
+    position:relative;
+    z-index:5;
+
+    max-width:1200px;
+
+    margin:-35px auto 0;
+
+    padding:0 20px 60px;
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.summary{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+
+    padding:22px;
+
+    margin-bottom:35px;
+
+    background:white;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 15px 40px rgba(15,23,42,.08);
+}
+
+.summary-item{
+    padding:18px;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+}
+
+.summary-number{
+    margin-bottom:3px;
+
+    color:#2563eb;
+
+    font-size:28px;
+    font-weight:800;
+}
+
+.summary-label{
+    color:#64748b;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin:35px 0 18px;
+}
+
+.section-title h2{
+    color:#0f172a;
+
+    font-size:24px;
+}
+
+.section-title p{
+    margin-top:3px;
+
+    color:#64748b;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   PROFIL LULUSAN
+===================================================== */
+
+.pl-wrapper{
+    overflow:hidden;
+
+    margin-bottom:40px;
+
+    background:white;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.05);
+}
+
+.pl-scroll{
+    overflow-x:auto;
+}
+
+.pl-table{
+    width:100%;
+    min-width:1450px;
+
+    border-collapse:collapse;
+}
+
+.pl-table thead{
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f8fafc
+        );
+}
+
+.pl-table th{
+    padding:15px;
+
+    color:#475569;
+
+    text-align:left;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+    letter-spacing:.35px;
+
+    border-bottom:1px solid #dbe4ef;
+}
+
+.pl-table td{
+    padding:17px 15px;
+
+    color:#475569;
+
+    vertical-align:top;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    border-bottom:1px solid #eef2f7;
+}
+
+.pl-table tbody tr:hover{
+    background:#f8fbff;
+}
+
+.pl-code{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:55px;
+
+    padding:6px 10px;
+
+    border-radius:9px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.pl-tag{
+    display:inline-block;
+
+    margin:2px;
+
+    padding:5px 9px;
+
+    border-radius:7px;
+
+    background:#f1f5f9;
+
+    color:#475569;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+   FILTER SEMESTER
+===================================================== */
+
+.filter-box{
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+    background:white;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.04);
+}
+
+.filter-btn{
+    padding:9px 14px;
+
+    border:1px solid #dbe4ef;
+
+    border-radius:9px;
+
+    background:#f8fafc;
+
+    color:#475569;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    transition:.2s;
+}
+
+.filter-btn:hover{
+    border-color:#2563eb;
+    color:#2563eb;
+}
+
+.filter-btn.active{
+    background:#2563eb;
+
+    border-color:#2563eb;
+
+    color:white;
+}
+
+
+/* =====================================================
+   MK TABLE
+===================================================== */
+
+.semester-table{
+    margin-bottom:25px;
+}
+
+.table-wrapper{
+    overflow:hidden;
+
+    background:white;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.05);
+}
+
+.table-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 20px;
+
+    border-bottom:1px solid #e2e8f0;
+}
+
+.semester-title{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.semester-number{
+    width:35px;
+    height:35px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-weight:800;
+}
+
+.table-header h3{
+    color:#0f172a;
+
+    font-size:18px;
+}
+
+.total-sks{
+    padding:5px 11px;
+
+    border-radius:20px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.table-scroll{
+    overflow-x:auto;
+}
+
+.mk-table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:650px;
+}
+
+.mk-table thead{
+    background:#f8fafc;
+}
+
+.mk-table th{
+    padding:12px 15px;
+
+    color:#64748b;
+
+    text-align:left;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    border-bottom:1px solid #e2e8f0;
+}
+
+.mk-table td{
+    padding:12px 15px;
+
+    color:#334155;
+
+    font-size:14px;
+
+    border-bottom:1px solid #eef2f7;
+}
+
+.mk-table tbody tr:hover{
+    background:#f8fbff;
+}
+
+.mk-table tbody tr:last-child td{
+    border-bottom:none;
+}
+
+.kode{
+    color:#2563eb !important;
+
+    font-weight:700;
+
+    white-space:nowrap;
+}
+
+.sks{
+    color:#0f4c81 !important;
+
+    text-align:center;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+   PEMINATAN
+===================================================== */
+
+.concentration{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+}
+
+.concentration-card{
+    overflow:hidden;
+
+    background:white;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.05);
+}
+
+.concentration-header{
+    padding:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f8fafc
+        );
+
+    border-bottom:1px solid #e2e8f0;
+}
+
+.concentration-header h3{
+    color:#0f4c81;
+
+    font-size:17px;
+}
+
+.concentration-header p{
+    margin-top:4px;
+
+    color:#64748b;
+
+    font-size:13px;
+}
+
+.concentration-body{
+    padding:10px 20px 18px;
+}
+
+.mk-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eef2f7;
+}
+
+.mk-item:last-child{
+    border-bottom:none;
+}
+
+.mk-code{
+    margin-bottom:2px;
+
+    color:#2563eb;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.mk-name{
+    color:#334155;
+
+    font-size:14px;
+}
+
+.mk-sks{
+    flex-shrink:0;
+
+    height:max-content;
+
+    padding:4px 8px;
+
+    border-radius:7px;
+
+    background:#eff6ff;
+
+    color:#0f4c81;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:30px 20px;
+
+    background:#0f172a;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+    font-size:13px;
+}
+
+footer strong{
+    color:white;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:850px){
+
+    .nav-container{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .nav-menu{
+        width:100%;
+
+        overflow-x:auto;
+    }
+
+    .summary{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .concentration{
+        grid-template-columns:1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .hero{
+        padding:50px 20px 70px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    main{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .summary{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        padding:14px;
+    }
+
+    .summary-item{
+        padding:14px;
+    }
+
+    .summary-number{
+        font-size:23px;
+    }
+
+    .section-title{
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+    .filter-box{
+        overflow-x:auto;
+
+        flex-wrap:nowrap;
+    }
+
+    .filter-btn{
+        flex-shrink:0;
+        white-space:nowrap;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+<div class="nav-container">
+
+<a href="index.html" class="brand">
+
+<div class="brand-icon">
+🎓
+</div>
+
+Sistem Komputer
+
+</a>
+
+
+<ul class="nav-menu">
+
+<li>
+<a href="index.html">
+Beranda
+</a>
+</li>
+
+<li>
+<a href="dosen.html">
+Dosen
+</a>
+</li>
+
+<li>
+<a href="mahasiswa.html">
+Mahasiswa
+</a>
+</li>
+
+<li>
+<a href="jadwal.html">
+Akademik
+</a>
+</li>
+
+<li>
+<a href="pl.html" class="active">
+Kurikulum
+</a>
+</li>
+
+<li>
+<a href="cpl.html">
+CPL
+</a>
+</li>
+
+<li>
+<a href="cpmk.html">
+CPMK
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-badge">
+📚 Kurikulum OBE 2026/2027
+</div>
+
+<h1>
+Profil Lulusan & Mata Kuliah
+</h1>
+
+<p>
+Profil lulusan dan struktur mata kuliah
+Program Studi Sistem Komputer berdasarkan
+Kurikulum OBE Tahun Akademik 2026/2027.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     SUMMARY
+===================================================== -->
+
+<div class="summary">
+
+<div class="summary-item">
+
+<div class="summary-number">
+8
+</div>
+
+<div class="summary-label">
+Semester
+</div>
+
+</div>
+
+
+<div class="summary-item">
+
+<div class="summary-number">
+148
+</div>
+
+<div class="summary-label">
+Total SKS
+</div>
+
+</div>
+
+
+<div class="summary-item">
+
+<div class="summary-number">
+AI
+</div>
+
+<div class="summary-label">
+Peminatan
+</div>
+
+</div>
+
+
+<div class="summary-item">
+
+<div class="summary-number">
+IoT
+</div>
+
+<div class="summary-label">
+Peminatan
+</div>
+
+</div>
+
+</div>
+
 
 <!-- =====================================================
      PROFIL LULUSAN
@@ -5,540 +984,1676 @@
 
 <div class="section-title">
 
-    <div>
+<div>
 
-        <h2>
-            Profil Lulusan
-        </h2>
+<h2>
+Profil Lulusan
+</h2>
 
-        <p>
-            Profil lulusan Program Studi Sistem Komputer
-        </p>
+<p>
+Profil lulusan Program Studi Sistem Komputer
+</p>
 
-    </div>
+</div>
 
 </div>
 
 
 <div class="pl-wrapper">
 
-    <div class="pl-table-scroll">
+<div class="pl-scroll">
 
-        <table class="pl-table">
+<table class="pl-table">
 
-            <thead>
+<thead>
 
-                <tr>
+<tr>
 
-                    <th>Kode PL</th>
+<th>Kode PL</th>
 
-                    <th>Profil Lulusan (PL)</th>
+<th>Profil Lulusan (PL)</th>
 
-                    <th>Keterangan</th>
+<th>Keterangan</th>
 
-                    <th>Sumber</th>
+<th>Sumber</th>
 
-                    <th>Profil Lulusan Profesional / Okupasi</th>
+<th>Profil Lulusan Profesional / Okupasi</th>
 
-                    <th>Bidang Pekerjaan / Peran</th>
+<th>Bidang Pekerjaan / Peran</th>
 
-                </tr>
+</tr>
 
-            </thead>
+</thead>
 
 
-            <tbody>
+<tbody>
 
-                <!-- PL 1 -->
 
-                <tr>
+<tr>
 
-                    <td>
+<td>
+<span class="pl-code">
+PL 1
+</span>
+</td>
 
-                        <span class="pl-code">
-                            PL 1
-                        </span>
+<td>
+Lulusan memiliki sikap profesional,
+beretika, bertanggung jawab, adaptif,
+mampu berkomunikasi dan bekerja sama
+secara efektif, serta memiliki semangat
+pembelajaran sepanjang hayat, inovasi,
+dan kewirausahaan dalam pengembangan
+teknologi Sistem Komputer untuk
+kemaslahatan masyarakat, industri,
+dan pemerintah.
+</td>
 
-                    </td>
+<td>
 
+<span class="pl-tag">
+Sikap
+</span>
 
-                    <td>
+<span class="pl-tag">
+Keterampilan Umum
+</span>
 
-                        Lulusan memiliki sikap profesional,
-                        beretika, bertanggung jawab, adaptif,
-                        mampu berkomunikasi dan bekerja sama
-                        secara efektif, serta memiliki semangat
-                        pembelajaran sepanjang hayat, inovasi,
-                        dan kewirausahaan dalam pengembangan
-                        teknologi Sistem Komputer untuk
-                        kemaslahatan masyarakat, industri,
-                        dan pemerintah.
+</td>
 
-                    </td>
+<td>
+Permendikbudristek No. 53 Tahun 2023;
+KKNI Level 6; APTIKOM
+</td>
 
+<td>
+Profesional Teknologi Informasi /
+Digital Technology Professional
+</td>
 
-                    <td>
+<td>
+Industri TIK, perusahaan teknologi,
+pemerintahan, pendidikan, konsultan
+teknologi, startup
+</td>
 
-                        <span class="pl-tag">
-                            Sikap
-                        </span>
+</tr>
 
-                        <span class="pl-tag">
-                            Keterampilan Umum
-                        </span>
 
-                    </td>
+<tr>
 
+<td>
+<span class="pl-code">
+PL 2
+</span>
+</td>
 
-                    <td>
+<td>
+Lulusan memiliki kemampuan untuk
+menerapkan konsep matematika, sains,
+dasar komputasi, algoritma, arsitektur
+komputer, elektronika, dan sistem
+tertanan dalam menganalisis serta
+memformulasikan solusi permasalahan
+di bidang Sistem Komputer.
+</td>
 
-                        Permendikbudristek No. 53 Tahun 2023;
-                        KKNI Level 6; APTIKOM
+<td>
 
-                    </td>
-
-
-                    <td>
-
-                        Profesional Teknologi Informasi /
-                        Digital Technology Professional
-
-                    </td>
-
-
-                    <td>
-
-                        Industri TIK, perusahaan teknologi,
-                        pemerintahan, pendidikan, konsultan
-                        teknologi, startup
-
-                    </td>
-
-                </tr>
-
-
-                <!-- PL 2 -->
-
-                <tr>
-
-                    <td>
-
-                        <span class="pl-code">
-                            PL 2
-                        </span>
-
-                    </td>
-
-
-                    <td>
-
-                        Lulusan memiliki kemampuan untuk
-                        menerapkan konsep matematika, sains,
-                        dasar komputasi, algoritma, arsitektur
-                        komputer, elektronika, dan sistem
-                        tertanam dalam menganalisis serta
-                        memformulasikan solusi permasalahan
-                        di bidang Sistem Komputer.
-
-                    </td>
-
-
-                    <td>
-
-                        <span class="pl-tag">
-                            Pengetahuan
-                        </span>
-
-                    </td>
-
-
-                    <td>
-
-                        Permendikbudristek No. 53 Tahun 2023;
-                        KKNI Level 6; APTIKOM; ACM/IEEE CE 2016
-
-                    </td>
-
-
-                    <td>
-
-                        Computer Engineer /
-                        System Programmer /
-                        Embedded System Engineer
-
-                    </td>
-
-
-                    <td>
-
-                        Hardware dan digital systems;
-                        programming and software development;
-                        IoT; embedded systems;
-                        integrasi perangkat
-
-                    </td>
-
-                </tr>
-
-
-                <!-- PL 3 -->
-
-                <tr>
-
-                    <td>
-
-                        <span class="pl-code">
-                            PL 3
-                        </span>
-
-                    </td>
-
-
-                    <td>
-
-                        Lulusan memiliki kemampuan untuk
-                        merancang, mengembangkan,
-                        mengintegrasikan, mengimplementasikan,
-                        dan mengevaluasi sistem komputer yang
-                        melibatkan perangkat keras, perangkat
-                        lunak, jaringan komputer, Internet of
-                        Things (IoT), sistem tertanam, serta
-                        teknologi komputasi cerdas sesuai
-                        kebutuhan pengguna.
-
-                    </td>
-
-
-                    <td>
-
-                        <span class="pl-tag">
-                            Keterampilan Khusus
-                        </span>
-
-                    </td>
-
-
-                    <td>
-
-                        KKNI Level 6; APTIKOM;
-                        Peta Okupasi Nasional Bidang TIK;
-                        ACM/IEEE CE 2016
-
-                    </td>
-
-
-                    <td>
-
-                        System/Network Engineer;
-                        Network Administrator;
-                        IoT Engineer;
-                        Cloud Computing Engineer
-
-                    </td>
-
-
-                    <td>
-
-                        Network and Infrastructure;
-                        IT Mobility and Internet of Things;
-                        IT and Computing Facilities;
-                        System Integration
-
-                    </td>
-
-                </tr>
-
-
-                <!-- PL 4 -->
-
-                <tr>
-
-                    <td>
-
-                        <span class="pl-code">
-                            PL 4
-                        </span>
-
-                    </td>
-
-
-                    <td>
-
-                        Lulusan memiliki kemampuan untuk
-                        merancang, mengelola, mengintegrasikan,
-                        mengamankan, serta mengembangkan
-                        infrastruktur komputasi, jaringan
-                        komputer, sistem terdistribusi,
-                        komputasi awan, analisis data, dan
-                        kecerdasan buatan guna menghasilkan
-                        solusi dan inovasi teknologi yang
-                        bernilai tambah.
-
-                    </td>
-
-
-                    <td>
-
-                        <span class="pl-tag">
-                            Keterampilan Khusus
-                        </span>
-
-                    </td>
-
-
-                    <td>
-
-                        KKNI Level 6; APTIKOM;
-                        Peta Okupasi Nasional Bidang TIK;
-                        ACM/IEEE CE 2016
-
-                    </td>
-
-
-                    <td>
-
-                        Data Engineer;
-                        Data Analyst;
-                        AI/ML Engineer;
-                        Software Engineer;
-                        Digital Product Developer;
-                        Technopreneur
-
-                    </td>
-
-
-                    <td>
-
-                        Data Science & Artificial Intelligence;
-                        Digital Product Development;
-                        Programming & Software Development;
-                        IT Services
-
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
+<span class="pl-tag">
+Pengetahuan
+</span>
+
+</td>
+
+<td>
+Permendikbudristek No. 53 Tahun 2023;
+KKNI Level 6; APTIKOM;
+ACM/IEEE CE 2016
+</td>
+
+<td>
+Computer Engineer /
+System Programmer /
+Embedded System Engineer
+</td>
+
+<td>
+Hardware dan digital systems;
+programming and software development;
+IoT; embedded systems;
+integrasi perangkat
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<span class="pl-code">
+PL 3
+</span>
+</td>
+
+<td>
+Lulusan memiliki kemampuan untuk
+merancang, mengembangkan,
+mengintegrasikan, mengimplementasikan,
+dan mengevaluasi sistem komputer yang
+melibatkan perangkat keras, perangkat
+lunak, jaringan komputer, Internet of
+Things (IoT), sistem tertanam, serta
+teknologi komputasi cerdas sesuai
+kebutuhan pengguna.
+</td>
+
+<td>
+
+<span class="pl-tag">
+Keterampilan Khusus
+</span>
+
+</td>
+
+<td>
+KKNI Level 6; APTIKOM;
+Peta Okupasi Nasional Bidang TIK;
+ACM/IEEE CE 2016
+</td>
+
+<td>
+System/Network Engineer;
+Network Administrator;
+IoT Engineer;
+Cloud Computing Engineer
+</td>
+
+<td>
+Network and Infrastructure;
+IT Mobility and Internet of Things;
+IT and Computing Facilities;
+System Integration
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+<span class="pl-code">
+PL 4
+</span>
+</td>
+
+<td>
+Lulusan memiliki kemampuan untuk
+merancang, mengelola, mengintegrasikan,
+mengamankan, serta mengembangkan
+infrastruktur komputasi, jaringan
+komputer, sistem terdistribusi,
+komputasi awan, analisis data, dan
+kecerdasan buatan guna menghasilkan
+solusi dan inovasi teknologi yang
+bernilai tambah.
+</td>
+
+<td>
+
+<span class="pl-tag">
+Keterampilan Khusus
+</span>
+
+</td>
+
+<td>
+KKNI Level 6; APTIKOM;
+Peta Okupasi Nasional Bidang TIK;
+ACM/IEEE CE 2016
+</td>
+
+<td>
+Data Engineer;
+Data Analyst;
+AI/ML Engineer;
+Software Engineer;
+Digital Product Developer;
+Technopreneur
+</td>
+
+<td>
+Data Science & Artificial Intelligence;
+Digital Product Development;
+Programming & Software Development;
+IT Services
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
 
 </div>
 
 
 <!-- =====================================================
-     STYLE PROFIL LULUSAN
+     MATA KULIAH
 ===================================================== -->
 
-<style>
+<div class="section-title">
 
-    .pl-wrapper {
+<div>
 
-        background: white;
+<h2>
+Mata Kuliah
+</h2>
 
-        border: 1px solid #e2e8f0;
+<p>
+Struktur mata kuliah Kurikulum OBE
+Program Studi Sistem Komputer
+</p>
 
-        border-radius: 18px;
+</div>
 
-        overflow: hidden;
+</div>
 
-        box-shadow:
-            0 10px 30px rgba(15,23,42,0.05);
 
-        margin-bottom: 35px;
+<!-- =====================================================
+     FILTER
+===================================================== -->
 
-    }
+<div class="filter-box">
 
+<button class="filter-btn active"
+        onclick="filterSemester('all',this)">
+Semua
+</button>
 
-    .pl-table-scroll {
+<button class="filter-btn"
+        onclick="filterSemester('1',this)">
+Semester 1
+</button>
 
-        overflow-x: auto;
+<button class="filter-btn"
+        onclick="filterSemester('2',this)">
+Semester 2
+</button>
 
-        width: 100%;
+<button class="filter-btn"
+        onclick="filterSemester('3',this)">
+Semester 3
+</button>
 
-    }
+<button class="filter-btn"
+        onclick="filterSemester('4',this)">
+Semester 4
+</button>
 
+<button class="filter-btn"
+        onclick="filterSemester('5',this)">
+Semester 5
+</button>
 
-    .pl-table {
+<button class="filter-btn"
+        onclick="filterSemester('6',this)">
+Semester 6
+</button>
 
-        width: 100%;
+<button class="filter-btn"
+        onclick="filterSemester('7',this)">
+Semester 7
+</button>
 
-        min-width: 1450px;
+<button class="filter-btn"
+        onclick="filterSemester('8',this)">
+Semester 8
+</button>
 
-        border-collapse: collapse;
+</div>
 
-    }
 
+<!-- =====================================================
+     SEMESTER I
+===================================================== -->
 
-    .pl-table thead {
+<div class="semester-table"
+     data-semester="1">
 
-        background:
-            linear-gradient(
-                135deg,
-                #eff6ff,
-                #f8fafc
-            );
+<div class="table-wrapper">
 
-    }
+<div class="table-header">
 
+<div class="semester-title">
 
-    .pl-table th {
+<div class="semester-number">
+1
+</div>
 
-        padding: 15px;
+<h3>
+Semester I
+</h3>
 
-        text-align: left;
+</div>
 
-        font-size: 12px;
+<span class="total-sks">
+20 SKS
+</span>
 
-        text-transform: uppercase;
+</div>
 
-        letter-spacing: .35px;
 
-        color: #475569;
+<div class="table-scroll">
 
-        border-bottom: 1px solid #dbe4ef;
+<table class="mk-table">
 
-        vertical-align: middle;
+<thead>
 
-    }
+<tr>
 
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
 
-    .pl-table td {
+</tr>
 
-        padding: 17px 15px;
+</thead>
 
-        vertical-align: top;
+<tbody>
 
-        font-size: 13px;
+<tr>
+<td>1</td>
+<td class="kode">SK101</td>
+<td>Pengantar Sistem Komputer</td>
+<td class="sks">3</td>
+</tr>
 
-        line-height: 1.7;
+<tr>
+<td>2</td>
+<td class="kode">SK102</td>
+<td>Organisasi dan Arsitektur Komputer</td>
+<td class="sks">3</td>
+</tr>
 
-        color: #475569;
+<tr>
+<td>3</td>
+<td class="kode">SK103</td>
+<td>Aljabar Linier</td>
+<td class="sks">3</td>
+</tr>
 
-        border-bottom: 1px solid #eef2f7;
+<tr>
+<td>4</td>
+<td class="kode">SK104</td>
+<td>Fisika</td>
+<td class="sks">3</td>
+</tr>
 
-    }
+<tr>
+<td>5</td>
+<td class="kode">SK105</td>
+<td>Algoritma dan Pemrograman</td>
+<td class="sks">3</td>
+</tr>
 
+<tr>
+<td>6</td>
+<td class="kode">SK106</td>
+<td>Elektronika</td>
+<td class="sks">3</td>
+</tr>
 
-    .pl-table tbody tr {
+<tr>
+<td>7</td>
+<td class="kode">MKWU001</td>
+<td>Pendidikan Agama</td>
+<td class="sks">2</td>
+</tr>
 
-        transition: .2s;
+</tbody>
 
-    }
+</table>
 
+</div>
 
-    .pl-table tbody tr:hover {
+</div>
 
-        background: #f8fbff;
+</div>
 
-    }
 
+<!-- =====================================================
+     SEMESTER II
+===================================================== -->
 
-    .pl-table tbody tr:last-child td {
+<div class="semester-table"
+     data-semester="2">
 
-        border-bottom: none;
+<div class="table-wrapper">
 
-    }
+<div class="table-header">
 
+<div class="semester-title">
 
-    .pl-code {
+<div class="semester-number">
+2
+</div>
 
-        display: inline-flex;
+<h3>
+Semester II
+</h3>
 
-        align-items: center;
+</div>
 
-        justify-content: center;
+<span class="total-sks">
+19 SKS
+</span>
 
-        min-width: 52px;
+</div>
 
-        padding: 6px 10px;
 
-        border-radius: 9px;
+<div class="table-scroll">
 
-        background: #eff6ff;
+<table class="mk-table">
 
-        color: #2563eb;
+<thead>
 
-        font-weight: 800;
+<tr>
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+</tr>
 
-        font-size: 13px;
+</thead>
 
-        white-space: nowrap;
+<tbody>
 
-    }
+<tr>
+<td>1</td>
+<td class="kode">SK107</td>
+<td>Kalkulus I</td>
+<td class="sks">3</td>
+</tr>
 
+<tr>
+<td>2</td>
+<td class="kode">SK108</td>
+<td>Statistik dan Probabilitas</td>
+<td class="sks">3</td>
+</tr>
 
-    .pl-tag {
+<tr>
+<td>3</td>
+<td class="kode">SK109</td>
+<td>Struktur Data</td>
+<td class="sks">3</td>
+</tr>
 
-        display: inline-block;
+<tr>
+<td>4</td>
+<td class="kode">SK110</td>
+<td>Matematika Diskret</td>
+<td class="sks">3</td>
+</tr>
 
-        margin: 2px 3px 4px 0;
+<tr>
+<td>5</td>
+<td class="kode">SK111</td>
+<td>Sistem Digital</td>
+<td class="sks">2</td>
+</tr>
 
-        padding: 5px 9px;
+<tr>
+<td>6</td>
+<td class="kode">SK111P</td>
+<td>Pr. Sistem Digital</td>
+<td class="sks">1</td>
+</tr>
 
-        border-radius: 7px;
+<tr>
+<td>7</td>
+<td class="kode">SK112</td>
+<td>Komunikasi Data dan Internet</td>
+<td class="sks">2</td>
+</tr>
 
-        background: #f1f5f9;
+<tr>
+<td>8</td>
+<td class="kode">MKWU006</td>
+<td>Literasi Digital dan Teknologi Informasi</td>
+<td class="sks">2</td>
+</tr>
 
-        color: #475569;
+</tbody>
 
-        font-size: 11px;
+</table>
 
-        font-weight: 600;
+</div>
 
-        white-space: nowrap;
+</div>
 
-    }
+</div>
 
 
-    /* Lebar kolom */
+<!-- =====================================================
+     SEMESTER III
+===================================================== -->
 
-    .pl-table th:nth-child(1),
-    .pl-table td:nth-child(1) {
+<div class="semester-table"
+     data-semester="3">
 
-        width: 80px;
+<div class="table-wrapper">
 
-    }
+<div class="table-header">
 
+<div class="semester-title">
 
-    .pl-table th:nth-child(2),
-    .pl-table td:nth-child(2) {
+<div class="semester-number">
+3
+</div>
 
-        width: 420px;
+<h3>
+Semester III
+</h3>
 
-    }
+</div>
 
+<span class="total-sks">
+22 SKS
+</span>
 
-    .pl-table th:nth-child(3),
-    .pl-table td:nth-child(3) {
+</div>
 
-        width: 170px;
 
-    }
+<div class="table-scroll">
 
+<table class="mk-table">
 
-    .pl-table th:nth-child(4),
-    .pl-table td:nth-child(4) {
+<thead>
 
-        width: 270px;
+<tr>
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+</tr>
 
-    }
+</thead>
 
+<tbody>
 
-    .pl-table th:nth-child(5),
-    .pl-table td:nth-child(5) {
+<tr>
+<td>1</td>
+<td class="kode">SK113</td>
+<td>Kalkulus II</td>
+<td class="sks">3</td>
+</tr>
 
-        width: 280px;
+<tr>
+<td>2</td>
+<td class="kode">SK114</td>
+<td>Basis Data</td>
+<td class="sks">3</td>
+</tr>
 
-    }
+<tr>
+<td>3</td>
+<td class="kode">SK115</td>
+<td>Sistem Operasi</td>
+<td class="sks">2</td>
+</tr>
 
+<tr>
+<td>4</td>
+<td class="kode">SK116</td>
+<td>Rangkaian Listrik</td>
+<td class="sks">3</td>
+</tr>
 
-    .pl-table th:nth-child(6),
-    .pl-table td:nth-child(6) {
+<tr>
+<td>5</td>
+<td class="kode">SK117</td>
+<td>Konsep Embedded System</td>
+<td class="sks">3</td>
+</tr>
 
-        width: 300px;
+<tr>
+<td>6</td>
+<td class="kode">SK118</td>
+<td>Jaringan Komputer</td>
+<td class="sks">2</td>
+</tr>
 
-    }
+<tr>
+<td>7</td>
+<td class="kode">SK118P</td>
+<td>Pr. Jaringan Komputer</td>
+<td class="sks">1</td>
+</tr>
 
-</style>
+<tr>
+<td>8</td>
+<td class="kode">SK119</td>
+<td>Mikroprosesor</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td class="kode">SK119P</td>
+<td>Pr. Mikroprosesor</td>
+<td class="sks">1</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td class="kode">MKWU005</td>
+<td>Bahasa Inggris</td>
+<td class="sks">2</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     SEMESTER IV
+===================================================== -->
+
+<div class="semester-table"
+     data-semester="4">
+
+<div class="table-wrapper">
+
+<div class="table-header">
+
+<div class="semester-title">
+
+<div class="semester-number">
+4
+</div>
+
+<h3>
+Semester IV
+</h3>
+
+</div>
+
+<span class="total-sks">
+21 SKS
+</span>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table class="mk-table">
+
+<thead>
+
+<tr>
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td class="kode">SK120</td>
+<td>Interaksi Manusia dan Komputer</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td class="kode">SK121</td>
+<td>Sistem Kendali</td>
+<td class="sks">3</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td class="kode">SK122</td>
+<td>Perancangan Embedded System</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td class="kode">SK122P</td>
+<td>Pr. Perancangan Embedded System</td>
+<td class="sks">1</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td class="kode">SK123</td>
+<td>Antar Muka Periferal</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td class="kode">SK124</td>
+<td>Keamanan Siber</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td class="kode">SK124P</td>
+<td>Pr. Keamanan Siber</td>
+<td class="sks">1</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td class="kode">SK125</td>
+<td>Sensor dan Sistem Akuisisi Data</td>
+<td class="sks">3</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td class="kode">SK126</td>
+<td>IoT Platform</td>
+<td class="sks">3</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td class="kode">MKWU004</td>
+<td>Bahasa Indonesia</td>
+<td class="sks">2</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     SEMESTER V
+===================================================== -->
+
+<div class="semester-table"
+     data-semester="5">
+
+<div class="table-wrapper">
+
+<div class="table-header">
+
+<div class="semester-title">
+
+<div class="semester-number">
+5
+</div>
+
+<h3>
+Semester V
+</h3>
+
+</div>
+
+<span class="total-sks">
+22 SKS
+</span>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table class="mk-table">
+
+<thead>
+
+<tr>
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td class="kode">MKWK002</td>
+<td>Metode Berpikir Sistem Teknik</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td class="kode">SK127</td>
+<td>Pemrograman Berorientasi Objek</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td class="kode">SK127P</td>
+<td>Pr. Pemrograman Berorientasi Objek</td>
+<td class="sks">1</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td class="kode">SK128</td>
+<td>Reliability Engineering Sistem Komputer</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td class="kode">SK129</td>
+<td>Pengolahan Sinyal Digital</td>
+<td class="sks">3</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td class="kode">SK130</td>
+<td>AI dan Machine Learning</td>
+<td class="sks">3</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td class="kode">MKWU007</td>
+<td>Bisnis dan Kewirausahaan</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td class="kode">SK131</td>
+<td>Sistem Terdistribusi dan Komputasi Paralel</td>
+<td class="sks">3</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td class="kode">MKWFO001</td>
+<td>Pengantar Rekayasa dan Profesi Engineering</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td class="kode">MKWU002</td>
+<td>Pendidikan Pancasila</td>
+<td class="sks">2</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     SEMESTER VI
+===================================================== -->
+
+<div class="semester-table"
+     data-semester="6">
+
+<div class="table-wrapper">
+
+<div class="table-header">
+
+<div class="semester-title">
+
+<div class="semester-number">
+6
+</div>
+
+<h3>
+Semester VI
+</h3>
+
+</div>
+
+<span class="total-sks">
+20 SKS
+</span>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table class="mk-table">
+
+<thead>
+
+<tr>
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td class="kode">SK132</td>
+<td>Pemrograman Web</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td class="kode">SK133</td>
+<td>Analisa Kinerja Sistem</td>
+<td class="sks">3</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td class="kode">SK134</td>
+<td>Robotika</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td class="kode">SK134P</td>
+<td>Pr. Robotika</td>
+<td class="sks">1</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td class="kode">SK135</td>
+<td>Big Data Engineering</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td class="kode">SK136</td>
+<td>Applied Data Analytics</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td class="kode">SK137</td>
+<td>Project Management</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td class="kode">MKWU003</td>
+<td>Pendidikan Kewarganegaraan</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td class="kode">-</td>
+<td>MK Pilihan Konsentrasi</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td class="kode">-</td>
+<td>MK Pilihan Konsentrasi</td>
+<td class="sks">2</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     SEMESTER VII
+===================================================== -->
+
+<div class="semester-table"
+     data-semester="7">
+
+<div class="table-wrapper">
+
+<div class="table-header">
+
+<div class="semester-title">
+
+<div class="semester-number">
+7
+</div>
+
+<h3>
+Semester VII
+</h3>
+
+</div>
+
+<span class="total-sks">
+18 SKS
+</span>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table class="mk-table">
+
+<thead>
+
+<tr>
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td class="kode">SK138</td>
+<td>Mobile Computing</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td class="kode">SK139</td>
+<td>Capstone Project</td>
+<td class="sks">4</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td class="kode">SK140</td>
+<td>Deep Learning</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td class="kode">SK141</td>
+<td>Kerja Praktik</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td class="kode">MKWU008</td>
+<td>Kepemimpinan dan Komunikasi Profesi</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td class="kode">MKWFO003</td>
+<td>Technopreneurship</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td class="kode">-</td>
+<td>MK Pilihan Konsentrasi</td>
+<td class="sks">2</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td class="kode">-</td>
+<td>MK Pilihan Konsentrasi</td>
+<td class="sks">2</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     SEMESTER VIII
+===================================================== -->
+
+<div class="semester-table"
+     data-semester="8">
+
+<div class="table-wrapper">
+
+<div class="table-header">
+
+<div class="semester-title">
+
+<div class="semester-number">
+8
+</div>
+
+<h3>
+Semester VIII
+</h3>
+
+</div>
+
+<span class="total-sks">
+6 SKS
+</span>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table class="mk-table">
+
+<thead>
+
+<tr>
+<th>No</th>
+<th>Kode MK</th>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td class="kode">SK146</td>
+<td>Skripsi</td>
+<td class="sks">6</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PEMINATAN
+===================================================== -->
+
+<div class="section-title">
+
+<div>
+
+<h2>
+Mata Kuliah Peminatan
+</h2>
+
+<p>
+Mata kuliah pilihan berdasarkan konsentrasi
+</p>
+
+</div>
+
+</div>
+
+
+<div class="concentration">
+
+
+<!-- =====================================================
+     AI
+===================================================== -->
+
+<div class="concentration-card">
+
+<div class="concentration-header">
+
+<h3>
+🤖 Artificial Intelligence and Data Analytics
+</h3>
+
+<p>
+Peminatan AI
+</p>
+
+</div>
+
+
+<div class="concentration-body">
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKAI01
+</div>
+
+<div class="mk-name">
+Computer Vision
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKAI02
+</div>
+
+<div class="mk-name">
+Edge AI
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKAI03
+</div>
+
+<div class="mk-name">
+Generative AI
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKAI04
+</div>
+
+<div class="mk-name">
+Natural Language Processing
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKAI05
+</div>
+
+<div class="mk-name">
+Reinforcement Learning
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKAI06
+</div>
+
+<div class="mk-name">
+Explainable AI dan AI Ethics
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     IOT
+===================================================== -->
+
+<div class="concentration-card">
+
+<div class="concentration-header">
+
+<h3>
+🌐 Internet of Things and Embedded System
+</h3>
+
+<p>
+Peminatan IoT
+</p>
+
+</div>
+
+
+<div class="concentration-body">
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKIOT01
+</div>
+
+<div class="mk-name">
+Cloud Computing dan Virtualisasi
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKIOT02
+</div>
+
+<div class="mk-name">
+IoT Security dan Edge Computing
+</div>
+
+</div>
+
+<div class="mk-sks">
+4 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKIOT03
+</div>
+
+<div class="mk-name">
+Industrial Internet of Thing (IIoT)
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKIOT04
+</div>
+
+<div class="mk-name">
+Smart Sensor Networks
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKIOT05
+</div>
+
+<div class="mk-name">
+Digital Twin System
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+<div class="mk-item">
+
+<div>
+
+<div class="mk-code">
+SKIOT06
+</div>
+
+<div class="mk-name">
+TinyML dan Embedded Intelligence
+</div>
+
+</div>
+
+<div class="mk-sks">
+2 SKS
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<strong>
+Program Studi Sistem Komputer
+</strong>
+
+<br>
+
+Universitas Surakarta
+
+<br><br>
+
+Kurikulum OBE 2026/2027
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT FILTER
+===================================================== -->
+
+<script>
+
+function filterSemester(semester,button){
+
+    const buttons =
+        document.querySelectorAll(".filter-btn");
+
+    buttons.forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+
+    const tables =
+        document.querySelectorAll(".semester-table");
+
+
+    tables.forEach(function(table){
+
+        const nomor =
+            table.getAttribute("data-semester");
+
+
+        if(
+            semester === "all" ||
+            nomor === semester
+        ){
+
+            table.style.display = "block";
+
+        }else{
+
+            table.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```
+
+**Jadi sekarang MK-nya lengkap**, sesuai tabel dokumen:
+
+* Semester I — **20 SKS**
+* Semester II — **19 SKS**
+* Semester III — **22 SKS**
+* Semester IV — **21 SKS**
+* Semester V — **22 SKS**
+* Semester VI — **20 SKS**
+* Semester VII — **18 SKS**
+* Semester VIII — **6 SKS**
+* **Total 148 SKS**
+* Peminatan **AI**
+* Peminatan **IoT**
+
+Dan saya koreksi juga detail yang sebelumnya keliru: pada dokumen, **SKIOT02 IoT Security dan Edge Computing = 4 SKS**, bukan 2 SKS.
