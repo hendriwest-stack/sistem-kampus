@@ -1,1 +1,734 @@
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portal Dosen | Sistem Komputer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, #0d47a1 0%, #1565c0 55%, #1976d2 100%);
+            color: white;
+            padding: 55px 20px 65px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+            top: -150px;
+            right: -80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 40px;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 15px 0 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.88);
+        }
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 64px;
+            padding: 0 20px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0d47a1;
+            font-weight: 700;
+            font-size: 17px;
+            white-space: nowrap;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-menu a {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 13px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .nav-menu a:hover {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .active {
+            background: #e3f2fd !important;
+            color: #1565c0 !important;
+        }
+
+        .nav-ai {
+            background: #1565c0 !important;
+            color: white !important;
+        }
+
+        .nav-ai:hover {
+            background: #0d47a1 !important;
+        }
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px 70px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            color: #172033;
+        }
+
+        .section-title p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        /* =====================================================
+           SERVICE GRID
+        ===================================================== */
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 17px;
+            padding: 25px;
+            min-height: 230px;
+            box-shadow: 0 5px 20px rgba(15,23,42,0.06);
+            transition: 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.11);
+        }
+
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin: 0 0 9px;
+            font-size: 18px;
+            color: #172033;
+        }
+
+        .service-card p {
+            margin: 0;
+            color: #6b7280;
+            line-height: 1.55;
+            font-size: 13px;
+            min-height: 42px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 18px;
+            padding: 9px 16px;
+            background: #1565c0;
+            color: white;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #0d47a1;
+        }
+
+        /* =====================================================
+           INFO
+        ===================================================== */
+
+        .info-box {
+            margin-top: 45px;
+            padding: 25px;
+            background: #eaf4ff;
+            border: 1px solid #cfe7ff;
+            border-radius: 16px;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .info-box h3 {
+            margin: 0 0 5px;
+            font-size: 16px;
+            color: #0d47a1;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #526273;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            background: #172033;
+            color: #aeb7c5;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 13px;
+        }
+
+        .footer strong {
+            color: white;
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-container {
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            .nav-brand {
+                display: none;
+            }
+
+            .nav-menu {
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                min-height: auto;
+            }
+
+            .info-box {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            👨‍🏫 Portal Dosen
+        </div>
+
+        <h1>
+            Layanan Dosen
+        </h1>
+
+        <p>
+            Pusat akses berbagai layanan akademik, dokumentasi,
+            penelitian, pengabdian, dan administrasi dosen
+            Program Studi Sistem Komputer.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="nav-brand">
+
+            <div class="brand-icon">
+                💻
+            </div>
+
+            Sistem Komputer
+
+        </a>
+
+
+        <div class="nav-menu">
+
+            <a href="index.html">
+                🏠 Beranda
+            </a>
+
+            <a href="dosen.html" class="active">
+                👨‍🏫 Dosen
+            </a>
+
+            <a href="mahasiswa.html">
+                👨‍🎓 Mahasiswa
+            </a>
+
+            <a href="jadwal.html">
+                📅 Akademik
+            </a>
+
+            <a href="pl.html">
+                🎓 Kurikulum
+            </a>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbwDBR9Kj0DDMEeOk7MCErZtwFu9Rxo_kUv3QN9juWAaXF2Z6zYwpoe3_7Pe32HBXSVlKA/exec"
+                target="_blank"
+                class="nav-ai">
+                🤖 Asisten AI
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main class="container">
+
+
+    <div class="section-title">
+
+        <h2>
+            Layanan Dosen
+        </h2>
+
+        <p>
+            Pilih layanan yang ingin Anda akses
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <!-- PRESENSI -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                📋
+            </div>
+
+            <h3>
+                Presensi
+            </h3>
+
+            <p>
+                Sistem pengelolaan presensi
+                perkuliahan.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbzf0mmA_AwqZk2m2zIKcEBWMn46_7itLszgfYY58NLAL1OKLSgEVHFzGhPN2FpCirh0/exec"
+                target="_blank"
+                class="button">
+                Buka Aplikasi →
+            </a>
+
+        </div>
+
+
+        <!-- UPLOAD DOKUMEN -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                📁
+            </div>
+
+            <h3>
+                Dokumen Pengajaran
+            </h3>
+
+            <p>
+                Kelengkapan dokumen pengajaran
+                dan administrasi perkuliahan.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbxFjzPiJ2UwuL03fZmeKWWeDaq2bUeQUXdsaQt8mdwal3LSiOK2EkszZDG74qsvkB8_/exec"
+                target="_blank"
+                class="button">
+                Buka Aplikasi →
+            </a>
+
+        </div>
+
+
+        <!-- PENELITIAN -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🔬
+            </div>
+
+            <h3>
+                Penelitian
+            </h3>
+
+            <p>
+                Informasi dan dokumentasi
+                kegiatan penelitian dosen.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbymAk3wOjRWiGrerpCX4NWYggvjO2f8UWCGXwECypDG8B3PiVaUzwJz7H4f1Eiq1fww/exec"
+                target="_blank"
+                class="button">
+                Buka Aplikasi →
+            </a>
+
+        </div>
+
+
+        <!-- PENGABDIAN -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🤝
+            </div>
+
+            <h3>
+                Pengabdian
+            </h3>
+
+            <p>
+                Dokumentasi kegiatan pengabdian
+                kepada masyarakat.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbwJRwXFfflJii-PgS1L9lrQvPw3CwLVX3_Au_6lKQteHtn0xWEVP8JMCVsyD9oH-z71aA/exec"
+                target="_blank"
+                class="button">
+                Buka Aplikasi →
+            </a>
+
+        </div>
+
+
+        <!-- RPS -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                📖
+            </div>
+
+            <h3>
+                Dokumen RPS Prodi
+            </h3>
+
+            <p>
+                Informasi dan dokumentasi
+                Rencana Pembelajaran Semester.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbyGB1pq6OAE1ECk0TZFwiiVpNvxu6vrcwp7Kjv4PSIi3odnNArBog1BOYrDu2cL-zRkRQ/exec"
+                target="_blank"
+                class="button">
+                Buka Aplikasi →
+            </a>
+
+        </div>
+
+
+        <!-- PROGRAM STUDI -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Program Studi
+            </h3>
+
+            <p>
+                Dokumentasi hasil kegiatan
+                Program Studi.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbxftYxcZgGWiAn5l-vgikQUZjwOohMTtyViqHkBottMmbqAFarhMoZwz5X42G6Lx8g/exec"
+                target="_blank"
+                class="button">
+                Buka Aplikasi →
+            </a>
+
+        </div>
+
+
+        <!-- ARSIP -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🗄️
+            </div>
+
+            <h3>
+                Arsip
+            </h3>
+
+            <p>
+                Arsip SK Rektor, SK Dekan,
+                LPM, dan dokumen lainnya.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbzN8yxf6oq0SNjFDg7Jm3QHIxOEa4W31XUOgFa1WTSsBRFX1wppR7mLicLQUa1wsH9d/exec"
+                target="_blank"
+                class="button">
+                Buka Aplikasi →
+            </a>
+
+        </div>
+
+
+        <!-- ASISTEN AI -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🤖
+            </div>
+
+            <h3>
+                Asisten AI
+            </h3>
+
+            <p>
+                Akses asisten berbasis AI
+                untuk membantu pekerjaan akademik.
+            </p>
+
+            <a
+                href="https://script.google.com/macros/s/AKfycbwDBR9Kj0DDMEeOk7MCErZtwFu9Rxo_kUv3QN9juWAaXF2Z6zYwpoe3_7Pe32HBXSVlKA/exec"
+                target="_blank"
+                class="button">
+                Buka Asisten →
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- INFO -->
+
+    <div class="info-box">
+
+        <div class="info-icon">
+            ℹ️
+        </div>
+
+        <div>
+
+            <h3>
+                Portal Layanan Dosen
+            </h3>
+
+            <p>
+                Halaman ini menjadi pusat akses layanan dosen.
+                Gunakan menu Beranda untuk kembali ke portal utama
+                atau pilih layanan sesuai kebutuhan.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+    © 2026
+    <strong>Sistem Informasi Sistem Komputer</strong>
+    <br>
+    Portal Layanan Dosen
+
+</footer>
+
+
+</body>
+
+</html>
