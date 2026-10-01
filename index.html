@@ -1,53 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sistem Informasi</title>
+    <title>Sistem Informasi | Sistem Komputer</title>
 
     <style>
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
-            color: #333;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
         }
 
-        /* =========================
-           HEADER
-        ========================== */
-        .header {
-            background: #1565c0;
+        a {
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           HEADER / HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, #0d47a1 0%, #1565c0 55%, #1976d2 100%);
             color: white;
-            text-align: center;
-            padding: 30px 20px;
+            padding: 70px 20px 85px;
         }
 
-        .header h1 {
-            margin: 0 0 8px;
-            font-size: 32px;
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+            top: -150px;
+            right: -80px;
         }
 
-        .header p {
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            bottom: -130px;
+            left: -70px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
             margin: 0;
-            font-size: 16px;
+            font-size: 42px;
+            line-height: 1.15;
+            font-weight: 700;
         }
 
-        /* =========================
+        .hero p {
+            max-width: 700px;
+            margin: 18px 0 0;
+            font-size: 17px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.88);
+        }
+
+        /* =====================================================
            NAVBAR
-        ========================== */
+        ===================================================== */
+
         .navbar {
-            background: #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
         }
 
         .nav-container {
@@ -55,258 +112,425 @@
             margin: auto;
             display: flex;
             align-items: center;
-            justify-content: center;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-item > a {
-            display: block;
-            padding: 18px 20px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .nav-item > a:hover {
-            background: #e3f2fd;
-            color: #1565c0;
-        }
-
-        /* Dropdown */
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 190px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            border-radius: 0 0 8px 8px;
-            overflow: hidden;
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 14px 18px;
-            text-decoration: none;
-            color: #333;
-            font-weight: normal;
-        }
-
-        .dropdown a:hover {
-            background: #e3f2fd;
-            color: #1565c0;
-        }
-
-        .nav-item:hover .dropdown {
-            display: block;
-        }
-
-        /* =========================
-           CONTAINER
-        ========================== */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
+            justify-content: space-between;
+            min-height: 64px;
             padding: 0 20px;
         }
 
-        .container h2 {
-            text-align: center;
-            margin-bottom: 30px;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0d47a1;
+            font-weight: 700;
+            font-size: 17px;
+            white-space: nowrap;
         }
 
-        /* =========================
-           CARD
-        ========================== */
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-menu a {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 13px;
+            border-radius: 8px;
             transition: 0.2s;
         }
 
-        .card:hover {
+        .nav-menu a:hover {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .nav-ai {
+            background: #1565c0 !important;
+            color: white !important;
+        }
+
+        .nav-ai:hover {
+            background: #0d47a1 !important;
+        }
+
+        /* =====================================================
+           MAIN CONTAINER
+        ===================================================== */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 20px 70px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-title h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            color: #172033;
+        }
+
+        .section-title p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        /* =====================================================
+           PORTAL CARDS
+        ===================================================== */
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .portal-card {
+            position: relative;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 30px;
+            min-height: 220px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(15,23,42,0.06);
+            transition: 0.25s ease;
+        }
+
+        .portal-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.11);
         }
 
-        .icon {
-            font-size: 45px;
-            margin-bottom: 15px;
+        .portal-card::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #f0f7ff;
+            right: -45px;
+            bottom: -45px;
         }
 
-        .card h3 {
-            margin: 10px 0;
+        .portal-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 15px;
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 29px;
+            margin-bottom: 20px;
         }
 
-        .card p {
-            color: #666;
-            min-height: 40px;
+        .portal-card h3 {
+            margin: 0 0 10px;
+            font-size: 21px;
+            color: #172033;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 25px;
+        .portal-card p {
+            margin: 0;
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 14px;
+            max-width: 430px;
+        }
+
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 22px;
+            padding: 10px 18px;
+            border-radius: 9px;
             background: #1565c0;
             color: white;
-            text-decoration: none;
-            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            transition: 0.2s;
         }
 
-        .button:hover {
+        .portal-button:hover {
             background: #0d47a1;
         }
 
-        /* =========================
-           FOOTER
-        ========================== */
-        .footer {
-            text-align: center;
-            padding: 25px;
-            color: #777;
-            font-size: 14px;
+        /* =====================================================
+           QUICK ACCESS
+        ===================================================== */
+
+        .quick-section {
+            margin-top: 55px;
         }
 
-        /* =========================
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .quick-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 22px 15px;
+            text-align: center;
+            transition: 0.2s;
+            color: #374151;
+        }
+
+        .quick-card:hover {
+            border-color: #90caf9;
+            background: #f8fbff;
+            transform: translateY(-3px);
+        }
+
+        .quick-icon {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .quick-card h4 {
+            margin: 0 0 5px;
+            font-size: 15px;
+        }
+
+        .quick-card span {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* =====================================================
+           INFO
+        ===================================================== */
+
+        .info-box {
+            margin-top: 55px;
+            padding: 28px;
+            background: #eaf4ff;
+            border: 1px solid #cfe7ff;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .info-box h3 {
+            margin: 0 0 6px;
+            font-size: 17px;
+            color: #0d47a1;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #526273;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            background: #172033;
+            color: #aeb7c5;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 13px;
+        }
+
+        .footer strong {
+            color: white;
+        }
+
+        /* =====================================================
            MOBILE
-        ========================== */
-        @media (max-width: 700px) {
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .hero {
+                padding: 55px 20px 65px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
 
             .nav-container {
-                flex-wrap: wrap;
+                overflow-x: auto;
+                justify-content: flex-start;
             }
 
-            .nav-item > a {
-                padding: 14px 12px;
-                font-size: 14px;
+            .nav-brand {
+                display: none;
             }
 
-            .menu {
+            .nav-menu {
+                width: 100%;
+                justify-content: flex-start;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .portal-grid {
                 grid-template-columns: 1fr;
             }
 
-            .dropdown {
-                position: absolute;
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 500px) {
 
-            .header h1 {
-                font-size: 25px;
+            .hero h1 {
+                font-size: 28px;
             }
 
-            .header p {
+            .hero p {
                 font-size: 14px;
             }
 
-            .nav-container {
-                justify-content: flex-start;
-                overflow-x: auto;
-                flex-wrap: nowrap;
+            .container {
+                padding-top: 40px;
             }
 
-            .nav-item {
-                flex-shrink: 0;
+            .section-title h2 {
+                font-size: 24px;
+            }
+
+            .portal-card {
+                padding: 24px;
+                min-height: auto;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .info-box {
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-    <div class="header">
-        <h1>Sistem Informasi</h1>
-        <p>Portal Aplikasi Terintegrasi</p>
-    </div>
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                💻 Sistem Informasi Terintegrasi
+            </div>
+
+            <h1>
+                Sistem Informasi<br>
+                Sistem Komputer
+            </h1>
+
+            <p>
+                Portal utama untuk mengakses berbagai layanan akademik,
+                administrasi, dokumentasi, dan informasi Program Studi
+                Sistem Komputer secara terintegrasi.
+            </p>
+
+        </div>
+
+    </header>
 
 
-    <!-- =========================
+    <!-- =====================================================
          NAVBAR
-    ========================== -->
+    ====================================================== -->
+
     <nav class="navbar">
 
         <div class="nav-container">
 
-            <!-- BERANDA -->
-            <div class="nav-item">
-                <a href="index.html">🏠 Beranda</a>
-            </div>
+            <a href="index.html" class="nav-brand">
 
-
-            <!-- JADWAL KULIAH -->
-            <div class="nav-item">
-
-                <a href="#">
-                    📅 Jadwal Kuliah ▾
-                </a>
-
-                <div class="dropdown">
-
-                    <!-- GANTI LINK DI SINI NANTI -->
-                    <a href="LINK_JADWAL_PAGI">
-                        ☀️ Jadwal Pagi
-                    </a>
-
-                    <!-- GANTI LINK DI SINI NANTI -->
-                    <a href="LINK_JADWAL_SORE">
-                        🌙 Jadwal Sore
-                    </a>
-
+                <div class="brand-icon">
+                    💻
                 </div>
 
-            </div>
+                Sistem Komputer
+
+            </a>
 
 
-            <!-- PL -->
-            <div class="nav-item">
-                <!-- GANTI LINK PL NANTI -->
-                <a href="LINK_PL">
-                    🎓 PL
+            <div class="nav-menu">
+
+                <a href="index.html">
+                    🏠 Beranda
                 </a>
-            </div>
 
-
-            <!-- CPL -->
-            <div class="nav-item">
-                <!-- GANTI LINK CPL NANTI -->
-                <a href="LINK_CPL">
-                    📚 CPL
+                <a href="dosen.html">
+                    👨‍🏫 Dosen
                 </a>
-            </div>
 
-
-            <!-- CPMK -->
-            <div class="nav-item">
-                <!-- GANTI LINK CPMK NANTI -->
-                <a href="LINK_CPMK">
-                    📝 CPMK
+                <a href="mahasiswa.html">
+                    👨‍🎓 Mahasiswa
                 </a>
-            </div>
 
+                <a href="jadwal.html">
+                    📅 Akademik
+                </a>
 
-            <!-- ASISTEN AI -->
-            <div class="nav-item">
-                <!-- GANTI DENGAN LINK GAS ASISTEN AI -->
-                <a href="https://script.google.com/macros/s/AKfycbwDBR9Kj0DDMEeOk7MCErZtwFu9Rxo_kUv3QN9juWAaXF2Z6zYwpoe3_7Pe32HBXSVlKA/exec" target="_blank">
+                <a href="pl.html">
+                    🎓 Kurikulum
+                </a>
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbwDBR9Kj0DDMEeOk7MCErZtwFu9Rxo_kUv3QN9juWAaXF2Z6zYwpoe3_7Pe32HBXSVlKA/exec"
+                    target="_blank"
+                    class="nav-ai">
                     🤖 Asisten AI
                 </a>
+
             </div>
 
         </div>
@@ -314,166 +538,407 @@
     </nav>
 
 
-    <!-- =========================
-         CONTENT
-    ========================== -->
-    <div class="container">
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-        <h2>Menu Aplikasi</h2>
-
-        <div class="menu">
+    <main class="container">
 
 
-            <!-- PRESENSI -->
-            <div class="card">
+        <!-- =================================================
+             PORTAL UTAMA
+        ================================================== -->
 
-                <div class="icon">📋</div>
+        <section>
 
-                <h3>Presensi</h3>
+            <div class="section-title">
+
+                <h2>
+                    Portal Utama
+                </h2>
 
                 <p>
-                    Sistem pengelolaan presensi.
+                    Pilih layanan yang ingin Anda akses
                 </p>
+
+            </div>
+
+
+            <div class="portal-grid">
+
+
+                <!-- DOSEN -->
+
+                <div class="portal-card">
+
+                    <div class="portal-icon">
+                        👨‍🏫
+                    </div>
+
+                    <h3>
+                        Portal Dosen
+                    </h3>
+
+                    <p>
+                        Akses layanan dan informasi yang berkaitan
+                        dengan kegiatan dosen, dokumen pengajaran,
+                        penelitian, pengabdian, RPS, dan administrasi.
+                    </p>
+
+                    <a
+                        href="dosen.html"
+                        class="portal-button">
+
+                        Buka Portal
+                        →
+                    </a>
+
+                </div>
+
+
+                <!-- MAHASISWA -->
+
+                <div class="portal-card">
+
+                    <div class="portal-icon">
+                        👨‍🎓
+                    </div>
+
+                    <h3>
+                        Portal Mahasiswa
+                    </h3>
+
+                    <p>
+                        Akses layanan mahasiswa seperti presensi,
+                        jadwal perkuliahan, informasi akademik,
+                        dan berbagai layanan pendukung perkuliahan.
+                    </p>
+
+                    <a
+                        href="mahasiswa.html"
+                        class="portal-button">
+
+                        Buka Portal
+                        →
+
+                    </a>
+
+                </div>
+
+
+                <!-- AKADEMIK -->
+
+                <div class="portal-card">
+
+                    <div class="portal-icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        Akademik
+                    </h3>
+
+                    <p>
+                        Informasi jadwal kuliah, perkuliahan,
+                        mata kuliah, serta layanan akademik
+                        Program Studi Sistem Komputer.
+                    </p>
+
+                    <a
+                        href="jadwal.html"
+                        class="portal-button">
+
+                        Buka Akademik
+                        →
+
+                    </a>
+
+                </div>
+
+
+                <!-- KURIKULUM -->
+
+                <div class="portal-card">
+
+                    <div class="portal-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Kurikulum OBE
+                    </h3>
+
+                    <p>
+                        Informasi Program Learning Outcomes,
+                        CPL, CPMK, dan berbagai komponen
+                        kurikulum berbasis Outcome Based Education.
+                    </p>
+
+                    <a
+                        href="pl.html"
+                        class="portal-button">
+
+                        Buka Kurikulum
+                        →
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK ACCESS
+        ================================================== -->
+
+        <section class="quick-section">
+
+            <div class="section-title">
+
+                <h2>
+                    Akses Cepat
+                </h2>
+
+                <p>
+                    Beberapa layanan yang sering digunakan
+                </p>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+
+                <!-- PRESENSI -->
 
                 <a
                     href="https://script.google.com/macros/s/AKfycbzf0mmA_AwqZk2m2zIKcEBWMn46_7itLszgfYY58NLAL1OKLSgEVHFzGhPN2FpCirh0/exec"
-                    class="button">
-                    Buka Aplikasi
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        📋
+                    </div>
+
+                    <h4>
+                        Presensi
+                    </h4>
+
+                    <span>
+                        Sistem presensi
+                    </span>
+
                 </a>
 
-            </div>
 
-
-            <!-- UPLOAD DOKUMEN -->
-            <div class="card">
-
-                <div class="icon">💰</div>
-
-                <h3>Upload Dokumen</h3>
-
-                <p>
-                    Kelengkapan Dokumen Pengajaran.
-                </p>
+                <!-- DOKUMEN -->
 
                 <a
                     href="https://script.google.com/macros/s/AKfycbxFjzPiJ2UwuL03fZmeKWWeDaq2bUeQUXdsaQt8mdwal3LSiOK2EkszZDG74qsvkB8_/exec"
-                    class="button">
-                    Buka Aplikasi
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        📁
+                    </div>
+
+                    <h4>
+                        Dokumen
+                    </h4>
+
+                    <span>
+                        Dokumen pengajaran
+                    </span>
+
                 </a>
 
-            </div>
 
-
-            <!-- PENELITIAN -->
-            <div class="card">
-
-                <div class="icon">🎓</div>
-
-                <h3>Penelitian</h3>
-
-                <p>
-                    Informasi Dokumen Penelitian.
-                </p>
+                <!-- PENELITIAN -->
 
                 <a
                     href="https://script.google.com/macros/s/AKfycbymAk3wOjRWiGrerpCX4NWYggvjO2f8UWCGXwECypDG8B3PiVaUzwJz7H4f1Eiq1fww/exec"
-                    class="button">
-                    Buka Aplikasi
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        🔬
+                    </div>
+
+                    <h4>
+                        Penelitian
+                    </h4>
+
+                    <span>
+                        Dokumen penelitian
+                    </span>
+
                 </a>
 
-            </div>
 
-
-            <!-- PENGABDIAN -->
-            <div class="card">
-
-                <div class="icon">📜</div>
-
-                <h3>Pengabdian</h3>
-
-                <p>
-                    Informasi Dokumen Pengabdian.
-                </p>
+                <!-- PENGABDIAN -->
 
                 <a
                     href="https://script.google.com/macros/s/AKfycbwJRwXFfflJii-PgS1L9lrQvPw3CwLVX3_Au_6lKQteHtn0xWEVP8JMCVsyD9oH-z71aA/exec"
-                    class="button">
-                    Buka Aplikasi
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        🤝
+                    </div>
+
+                    <h4>
+                        Pengabdian
+                    </h4>
+
+                    <span>
+                        Kegiatan pengabdian
+                    </span>
+
                 </a>
 
-            </div>
 
-
-            <!-- RPS PRODI -->
-            <div class="card">
-
-                <div class="icon">📜</div>
-
-                <h3>Dokumen RPS Prodi</h3>
-
-                <p>
-                    Informasi Dokumen RPS
-                </p>
+                <!-- RPS -->
 
                 <a
                     href="https://script.google.com/macros/s/AKfycbyGB1pq6OAE1ECk0TZFwiiVpNvxu6vrcwp7Kjv4PSIi3odnNArBog1BOYrDu2cL-zRkRQ/exec"
-                    class="button">
-                    Buka Aplikasi
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        📖
+                    </div>
+
+                    <h4>
+                        RPS
+                    </h4>
+
+                    <span>
+                        Dokumen RPS Prodi
+                    </span>
+
                 </a>
 
-            </div>
 
-
-            <!-- PROGRAM STUDI -->
-            <div class="card">
-
-                <div class="icon">📜</div>
-
-                <h3>Program Studi</h3>
-
-                <p>
-                    Dokumentasi Hasil Kegiatan Program Studi.
-                </p>
+                <!-- PROGRAM STUDI -->
 
                 <a
                     href="https://script.google.com/macros/s/AKfycbxftYxcZgGWiAn5l-vgikQUZjwOohMTtyViqHkBottMmbqAFarhMoZwz5X42G6Lx8g/exec"
-                    class="button">
-                    Buka Aplikasi
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        🏛️
+                    </div>
+
+                    <h4>
+                        Program Studi
+                    </h4>
+
+                    <span>
+                        Dokumentasi kegiatan
+                    </span>
+
                 </a>
 
-            </div>
 
-
-            <!-- ARSIP -->
-            <div class="card">
-
-                <div class="icon">📜</div>
-
-                <h3>ARSIP</h3>
-
-                <p>
-                    ARSIP berupa SK Rektor, SK Dekan, dan LPM.
-                </p>
+                <!-- ARSIP -->
 
                 <a
                     href="https://script.google.com/macros/s/AKfycbzN8yxf6oq0SNjFDg7Jm3QHIxOEa4W31XUOgFa1WTSsBRFX1wppR7mLicLQUa1wsH9d/exec"
-                    class="button">
-                    Buka Aplikasi
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        🗄️
+                    </div>
+
+                    <h4>
+                        Arsip
+                    </h4>
+
+                    <span>
+                        SK dan dokumen arsip
+                    </span>
+
                 </a>
+
+
+                <!-- AI -->
+
+                <a
+                    href="https://script.google.com/macros/s/AKfycbwDBR9Kj0DDMEeOk7MCErZtwFu9Rxo_kUv3QN9juWAaXF2Z6zYwpoe3_7Pe32HBXSVlKA/exec"
+                    target="_blank"
+                    class="quick-card">
+
+                    <div class="quick-icon">
+                        🤖
+                    </div>
+
+                    <h4>
+                        Asisten AI
+                    </h4>
+
+                    <span>
+                        Bantuan berbasis AI
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             INFORMASI
+        ================================================== -->
+
+        <div class="info-box">
+
+            <div class="info-icon">
+                ℹ️
+            </div>
+
+            <div>
+
+                <h3>
+                    Portal Sistem Informasi Terintegrasi
+                </h3>
+
+                <p>
+                    Portal ini menjadi halaman utama untuk mengakses
+                    berbagai sistem informasi Program Studi Sistem Komputer.
+                    Layanan dosen dan mahasiswa ditempatkan pada portal
+                    masing-masing agar akses sistem lebih terstruktur.
+                </p>
 
             </div>
 
         </div>
 
-    </div>
+
+    </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
-    <div class="footer">
-        © 2026 Sistem Informasi
-    </div>
+    ====================================================== -->
+
+    <footer class="footer">
+
+        © 2026
+        <strong>Sistem Informasi Sistem Komputer</strong>
+        <br>
+        Portal Aplikasi Terintegrasi
+
+    </footer>
+
 
 </body>
+
 </html>
