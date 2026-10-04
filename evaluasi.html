@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silabus Mata Kuliah Sistem Komputer</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ padding:25px;
+ font-family:"Segoe UI",Arial,sans-serif;
+ background:#f5f8fc;
+ color:#1e293b;
+}
+.header{
+ background:linear-gradient(135deg,#0f4c81,#2563eb,#0ea5e9);
+ color:white;
+ padding:35px;
+ border-radius:18px;
+ margin-bottom:20px;
+}
+.header h1{margin:0;font-size:34px}
+.header p{margin-top:10px}
+
+.search-box{
+ background:white;
+ padding:20px;
+ border-radius:16px;
+ border:1px solid #e2e8f0;
+ margin-bottom:20px;
+}
+input{
+ width:100%;
+ padding:14px;
+ border:1px solid #cbd5e1;
+ border-radius:10px;
+ font-size:15px;
+}
+
+.card{
+ background:white;
+ border-radius:18px;
+ overflow:hidden;
+ border:1px solid #e2e8f0;
+}
+
+.table-wrap{
+ width:100%;
+ overflow-x:auto;
+}
+
+table{
+ width:100%;
+ min-width:1500px;
+ border-collapse:collapse;
+}
+
+th{
+ background:#2563eb;
+ color:white;
+ padding:14px;
+ text-align:left;
+ white-space:nowrap;
+}
+
+td{
+ padding:12px;
+ border-bottom:1px solid #e5e7eb;
+ vertical-align:top;
+ font-size:13px;
+ line-height:1.5;
+}
+
+.mk{
+ font-weight:700;
+ color:#0f4c81;
+}
+
+tr:hover{background:#f8fafc}
+
+footer{
+ text-align:center;
+ color:#64748b;
+ padding:25px;
+}
+</style>
+
+<script>
+function cariMK(){
+ let key=document.getElementById("search").value.toLowerCase();
+ let rows=document.querySelectorAll("#data tr");
+
+ rows.forEach(function(row){
+   row.style.display=row.innerText.toLowerCase().includes(key) ? "" : "none";
+ });
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>Silabus Mata Kuliah</h1>
+<p>Program Studi Sistem Komputer - Kurikulum OBE</p>
+</div>
+
+<div class="search-box">
+<b>Cari Mata Kuliah</b>
+<input id="search" onkeyup="cariMK()" placeholder="Masukkan nama mata kuliah...">
+</div>
+
+<div class="card">
+<div class="table-wrap">
+
+<table>
+<thead>
+<tr>
+<th>Mata Kuliah</th>
+<th>SKS</th>
+<th>Fokus / Sasaran MK</th>
+<th>Materi Ajar 1</th>
+<th>Materi Ajar 2</th>
+<th>Materi Ajar 3</th>
+<th>Materi Ajar 4</th>
+<th>Materi Ajar 5</th>
+<th>Materi Ajar 6</th>
+<th>Batas Cakupan / Anti-Overlap</th>
+</tr>
+</thead>
+
+<tbody id="data">
+<tr><td class="mk">Pengantar Sistem Komputer</td><td>3</td><td>Orientasi   menyeluruh Sistem Komputer sebagai integrasi hardware, software, data, dan   jaringan.</td><td>Komponen dan   fungsi sistem komputer</td><td>Representasi   data dan alur pemrosesan informasi</td><td>Hubungan   hardware–software–firmware</td><td>Perangkat   input/output dan penyimpanan</td><td>Gambaran sistem   operasi, jaringan, embedded, IoT, dan AI</td><td>Studi kasus   sistem komputer terintegrasi</td><td>Pengantar   tingkat sistem; tidak membahas detail ISA/cache, logika digital, pemrograman   mikroprosesor, atau desain embedded.</td></tr>
+<tr><td class="mk">Organisasi dan   Arsitektur Komputer</td><td>3</td><td>Struktur internal komputer dan mekanisme eksekusi   instruksi.</td><td>Model von Neumann dan organisasi komputer</td><td>Instruction Set Architecture dan siklus instruksi</td><td>Datapath, control unit, dan pipelining dasar</td><td>Hierarki memori: register, cache, RAM, storage</td><td>Sistem I/O, bus, interrupt, dan DMA</td><td>Kinerja arsitektur dan trade-off desain</td><td>Tidak membahas desain gerbang/rangkaian digital (SK111)   atau pemrograman/periferal mikroprosesor secara implementatif (SK119).</td></tr>
+<tr><td class="mk">Aljabar Linier</td><td>3</td><td>Fondasi aljabar   linier untuk komputasi, data, sinyal, dan AI.</td><td>Vektor dan   operasi vektor</td><td>Matriks dan   operasi matriks</td><td>Sistem   persamaan linear</td><td>Determinan,   rank, dan invers</td><td>Ruang vektor,   basis, dan transformasi linear</td><td>Nilai/eigenvektor   dan aplikasi komputasi</td><td>Tidak membahas   kalkulus kontinu (SK107/SK113) atau statistika/probabilitas (SK108).</td></tr>
+<tr><td class="mk">Fisika</td><td>3</td><td>Prinsip fisika yang menjadi dasar elektronika, sensor, dan   sistem komputasi fisik.</td><td>Besaran, satuan, vektor, dan pengukuran</td><td>Mekanika dasar dan energi</td><td>Listrik statis, medan, dan potensial</td><td>Arus, tegangan, daya, dan energi listrik</td><td>Gelombang, osilasi, dan dasar elektromagnetik</td><td>Penerapan fisika pada perangkat, sensor, dan sistem   komputer</td><td>Tidak masuk analisis rangkaian rinci (SK116), komponen   elektronika mendalam (SK106), atau sensor/akuisisi (SK125).</td></tr>
+<tr><td class="mk">Algoritma dan Pemrograman</td><td>3</td><td>Fondasi   pemecahan masalah algoritmik dan pemrograman prosedural.</td><td>Problem   solving, algoritma, flowchart/pseudocode</td><td>Tipe data,   operator, input/output</td><td>Percabangan dan   perulangan</td><td>Fungsi/prosedur   dan modularisasi</td><td>Array/string   serta pengolahan data dasar</td><td>File sederhana,   debugging, dan mini project prosedural</td><td>Tidak membahas   struktur data abstrak mendalam (SK109), paradigma OOP (SK127), atau web   (SK132).</td></tr>
+<tr><td class="mk">Elektronika</td><td>3</td><td>Komponen elektronika dan rangkaian dasar yang menopang   perangkat Sistem Komputer.</td><td>Semikonduktor dan karakteristik dioda</td><td>Transistor BJT/MOSFET sebagai saklar/penguat</td><td>Catu daya, regulator, dan proteksi dasar</td><td>Penguat operasional dan rangkaian analog dasar</td><td>Antarmuka level tegangan dan driver sederhana</td><td>Aplikasi elektronika pada perangkat komputasi</td><td>Tidak membahas teori rangkaian secara matematis mendalam   (SK116), logika digital (SK111), atau sensor/akuisisi (SK125).</td></tr>
+<tr><td class="mk">Pendidikan Agama</td><td>2</td><td>Pembentukan   sikap religius, moral, kemanusiaan, dan etika akademik/profesional.</td><td>Nilai ketuhanan   dan tanggung jawab manusia</td><td>Moral dan etika   dalam kehidupan akademik</td><td>Kemanusiaan,   toleransi, dan keberagaman</td><td>Etika   penggunaan ilmu dan teknologi</td><td>Integritas   akademik dan tanggung jawab sosial</td><td>Refleksi nilai   agama dalam profesi teknologi</td><td>Tidak   menggantikan Pendidikan Pancasila/Kewarganegaraan atau etika profesi   engineering; fokus pada fondasi nilai keagamaan dan moral.</td></tr>
+<tr><td class="mk">Kalkulus I</td><td>3</td><td>Kalkulus diferensial dan integral satu variabel untuk model   teknik dan komputasi.</td><td>Fungsi, limit, dan kontinuitas</td><td>Turunan dan aturan diferensiasi</td><td>Aplikasi turunan dan optimasi</td><td>Integral tak tentu dan tentu</td><td>Teknik integrasi dasar</td><td>Aplikasi integral pada masalah teknik</td><td>Tidak membahas kalkulus multivariabel/lanjut (SK113) atau   aljabar linier (SK103).</td></tr>
+<tr><td class="mk">Statistik dan Probabilitas</td><td>3</td><td>Statistika dan   probabilitas sebagai dasar analisis data dan ketidakpastian.</td><td>Statistika   deskriptif dan visualisasi data</td><td>Konsep   probabilitas dan aturan peluang</td><td>Variabel acak   dan distribusi probabilitas</td><td>Ekspektasi,   variansi, dan kovariansi</td><td>Sampling dan   estimasi parameter</td><td>Pengujian   hipotesis dan pengantar regresi</td><td>Tidak membahas   pipeline analitik terapan (SK136P), big data (SK136), atau algoritma ML   (SK130).</td></tr>
+<tr><td class="mk">Struktur Data</td><td>3</td><td>Struktur data dan analisis efisiensi untuk pemecahan   masalah komputasi.</td><td>Analisis kompleksitas dasar Big-O</td><td>Array dinamis, linked list</td><td>Stack dan queue</td><td>Tree dan binary search tree</td><td>Hashing dan tabel hash</td><td>Graph dasar dan pemilihan struktur data</td><td>Tidak mengulang sintaks dasar (SK105) dan tidak membahas   desain OOP (SK127) atau algoritma AI.</td></tr>
+<tr><td class="mk">Matematika Diskrit</td><td>3</td><td>Matematika   diskrit untuk logika, struktur, dan pemodelan komputasi.</td><td>Logika   proposisional dan predikat</td><td>Himpunan,   relasi, dan fungsi</td><td>Teknik   pembuktian dan induksi</td><td>Kombinatorika   dasar</td><td>Teori graf dan   pohon</td><td>Relasi   rekurensi dan aplikasi komputasi</td><td>Tidak membahas   implementasi struktur data graf/tree (SK109) atau sistem digital gerbang   (SK111).</td></tr>
+<tr><td class="mk">Sistem Digital</td><td>2</td><td>Teori logika digital dan perancangan rangkaian   kombinasi/sekuensial.</td><td>Sistem bilangan dan kode digital</td><td>Aljabar Boolean dan gerbang logika</td><td>Penyederhanaan logika dan Karnaugh map</td><td>Rangkaian kombinasi: adder, mux, decoder</td><td>Flip-flop, register, counter</td><td>Finite State Machine dan pengantar perancangan digital</td><td>Tidak membahas arsitektur CPU (SK102) atau pemrograman   mikroprosesor (SK119).</td></tr>
+<tr><td class="mk">Pr. Sistem Digital</td><td>1</td><td>Implementasi   dan verifikasi rangkaian digital dari konsep SK111.</td><td>Penggunaan alat   ukur/simulator logika</td><td>Implementasi   gerbang dan pembuktian tabel kebenaran</td><td>Rangkaian   kombinasi</td><td>Flip-flop dan   rangkaian sekuensial</td><td>Counter/register   dan FSM sederhana</td><td>Mini project   sistem digital</td><td>Berfokus   praktik; teori logika berada di SK111. Tidak masuk   mikrokontroler/mikroprosesor.</td></tr>
+<tr><td class="mk">Komunikasi Data dan   Internet</td><td>2</td><td>Dasar transmisi data dan protokol Internet sebelum desain   jaringan.</td><td>Model komunikasi data dan media transmisi</td><td>Encoding, bandwidth, noise, dan kapasitas kanal</td><td>Deteksi/koreksi error dan framing</td><td>Model OSI dan TCP/IP</td><td>IP, TCP, UDP, DNS, HTTP secara konseptual</td><td>Prinsip komunikasi nirkabel dan Internet</td><td>Tidak membahas konfigurasi switching/routing/VLAN secara   mendalam (SK118) atau platform IoT (SK126).</td></tr>
+<tr><td class="mk">Literasi Digital dan Teknologi Informasi</td><td>2</td><td>Kemampuan   menggunakan, menilai, dan mengelola informasi/teknologi digital secara   kritis.</td><td>Ekosistem   teknologi informasi dan layanan digital</td><td>Strategi   pencarian informasi digital</td><td>Evaluasi   kredibilitas sumber dan informasi</td><td>Keamanan,   privasi, dan jejak digital dasar</td><td>Produktivitas   dan kolaborasi digital</td><td>Etika digital,   hak cipta, dan pembelajaran mandiri</td><td>Tidak membahas   teknis keamanan siber (SK124), pemrograman, atau desain sistem.</td></tr>
+<tr><td class="mk">Kalkulus II</td><td>3</td><td>Kalkulus lanjut untuk pemodelan multivariabel dan persamaan   teknik.</td><td>Fungsi multivariabel dan turunan parsial</td><td>Gradien dan optimasi multivariabel</td><td>Integral lipat</td><td>Deret dan aproksimasi</td><td>Persamaan diferensial biasa dasar</td><td>Aplikasi kalkulus lanjut pada model teknik</td><td>Melanjutkan SK107; tidak membahas statistik (SK108) atau   DSP transform-domain (SK129).</td></tr>
+<tr><td class="mk">Basis Data</td><td>3</td><td>Perancangan dan   pengelolaan basis data relasional untuk aplikasi.</td><td>Model data dan   arsitektur DBMS</td><td>ERD dan   pemodelan konseptual</td><td>Model   relasional dan normalisasi</td><td>SQL DDL/DML dan   query</td><td>Transaksi,   integritas, indexing dasar</td><td>Desain basis   data aplikasi dan keamanan dasar</td><td>Tidak membahas   distributed big-data pipeline (SK136) atau analitik data (SK136P).</td></tr>
+<tr><td class="mk">Sistem Operasi</td><td>2</td><td>Konsep pengelolaan sumber daya komputer oleh sistem   operasi.</td><td>Struktur dan layanan sistem operasi</td><td>Process, thread, dan scheduling</td><td>Sinkronisasi dan concurrency dasar</td><td>Manajemen memori dan virtual memory</td><td>File system dan storage management</td><td>I/O, proteksi, dan virtualisasi pengantar</td><td>Tidak membahas algoritma terdistribusi/parallel mendalam   (SK131), cloud (SKIOT01), atau keamanan siber khusus (SK124).</td></tr>
+<tr><td class="mk">Rangkaian Listrik</td><td>3</td><td>Analisis   rangkaian listrik sebagai fondasi sistem elektronik.</td><td>Hukum Ohm dan   Kirchhoff</td><td>Analisis node   dan mesh</td><td>Teorema   rangkaian ekuivalen</td><td>Rangkaian   RC/RL/RLC</td><td>Respons   transien dan keadaan tunak</td><td>Daya,   impedansi, dan aplikasi rangkaian pada sistem komputer</td><td>Tidak membahas   karakteristik komponen semikonduktor mendalam (SK106) atau sistem kendali   (SK121).</td></tr>
+<tr><td class="mk">Konsep Embedded   System</td><td>3</td><td>Konsep dan arsitektur sistem tertanam sebagai jembatan   hardware–software.</td><td>Karakteristik dan klasifikasi embedded system</td><td>Arsitektur MCU/SoC secara konseptual</td><td>Firmware, driver, dan software stack embedded</td><td>Timing, interrupt, concurrency, dan real-time constraints</td><td>Komunikasi/periferal embedded secara konseptual</td><td>Proses desain embedded berbasis requirement dan trade-off</td><td>Tidak membahas implementasi detail antarmuka periferal   (SK123) atau lifecycle proyek embedded penuh (SK122).</td></tr>
+<tr><td class="mk">Jaringan Komputer</td><td>2</td><td>Perancangan dan   konfigurasi jaringan komputer LAN/WAN.</td><td>Addressing   IPv4/IPv6 dan subnetting</td><td>Ethernet,   switching, dan VLAN</td><td>Routing statik   dan dinamik dasar</td><td>Wireless LAN   dan akses jaringan</td><td>Layanan   jaringan dan network management dasar</td><td>Perancangan   topologi, troubleshooting, dan dokumentasi jaringan</td><td>Fondasi   protokol/transmisi berada di SK112; keamanan jaringan mendalam di SK124.</td></tr>
+<tr><td class="mk">Pr. Jaringan Komputer</td><td>1</td><td>Praktik konfigurasi, pengujian, dan troubleshooting   jaringan.</td><td>Pengkabelan/topologi dan konfigurasi host</td><td>Subnetting dan konfigurasi IP</td><td>Switching dan VLAN</td><td>Routing dan inter-VLAN routing</td><td>Layanan jaringan serta monitoring</td><td>Troubleshooting dan mini project jaringan</td><td>Tidak mengulang teori komunikasi SK112/SK118; fokus   kompetensi konfigurasi dan verifikasi.</td></tr>
+<tr><td class="mk">Mikroprosesor</td><td>2</td><td>Arsitektur dan   pemrograman mikroprosesor/mikrokontroler.</td><td>Arsitektur   mikroprosesor dan register</td><td>Instruction set   dan pemrograman low-level</td><td>Memory map dan   organisasi memori</td><td>GPIO, timer,   counter, dan interrupt</td><td>ADC, PWM, dan   komunikasi serial dasar</td><td>Aplikasi   mikroprosesor pada kontrol perangkat</td><td>Tidak membahas   metodologi desain embedded tingkat sistem (SK122) atau periferal secara luas   (SK123).</td></tr>
+<tr><td class="mk">Pr. Mikroprosesor</td><td>1</td><td>Praktik pemrograman dan interfacing mikroprosesor.</td><td>Toolchain dan pemrograman dasar board</td><td>GPIO dan digital I/O</td><td>Timer, counter, dan interrupt</td><td>ADC/PWM</td><td>UART/I2C/SPI dasar</td><td>Mini project mikroprosesor</td><td>Fokus implementasi SK119; tidak menggantikan SK123 atau   SK122P.</td></tr>
+<tr><td class="mk">Bahasa Inggris</td><td>2</td><td>Komunikasi   Bahasa Inggris untuk konteks akademik dan teknologi.</td><td>Technical   vocabulary dan reading</td><td>Membaca   datasheet/manual/artikel teknis</td><td>Menulis   paragraf dan ringkasan teknis</td><td>Email dan   komunikasi profesional</td><td>Presentasi   teknis dalam Bahasa Inggris</td><td>Diskusi dan   argumentasi teknis</td><td>Tidak membahas   kaidah penulisan ilmiah Bahasa Indonesia (MKWU004) atau kepemimpinan profesi   (MKWU008).</td></tr>
+<tr><td class="mk">Interaksi Manusia dan   Komputer</td><td>2</td><td>Perancangan interaksi berbasis kebutuhan pengguna dan   evaluasi usability.</td><td>Prinsip HCI dan faktor manusia</td><td>User research, persona, dan task analysis</td><td>Requirement antarmuka dan information architecture</td><td>Wireframe, prototyping, dan interaction design</td><td>Usability principles dan accessibility</td><td>Usability testing dan evaluasi UX</td><td>Tidak membahas implementasi web secara teknis (SK132);   fokus pada desain dan evaluasi pengalaman pengguna.</td></tr>
+<tr><td class="mk">Sistem Kendali</td><td>3</td><td>Teori pemodelan   dan pengendalian sistem dinamis.</td><td>Pemodelan   sistem dinamis dan transfer function</td><td>Respons waktu   dan karakteristik sistem</td><td>Stabilitas   sistem</td><td>Diagram blok   dan analisis feedback</td><td>Kontrol PID dan   tuning dasar</td><td>Implementasi   konsep kendali pada sistem komputasi/robotik</td><td>Tidak membahas   kinematika/arsitektur robot (SK134) atau sensor acquisition detail (SK125).</td></tr>
+<tr><td class="mk">Perancangan Embedded   System</td><td>2</td><td>Perancangan embedded system end-to-end berdasarkan   requirement.</td><td>Analisis kebutuhan dan spesifikasi embedded</td><td>Pemilihan MCU/SoC, memori, dan periferal</td><td>Arsitektur firmware dan pembagian fungsi hardware-software</td><td>Integrasi driver, komunikasi, dan timing</td><td>Manajemen daya, reliability, dan design constraints</td><td>Verifikasi, validasi, dokumentasi, dan design review</td><td>SK117 memberi konsep; SK122 fokus proses desain.   Implementasi laboratorium utama berada di SK122P.</td></tr>
+<tr><td class="mk">Pr. Perancangan Embedded System</td><td>1</td><td>Implementasi   prototipe dari desain embedded SK122.</td><td>Setup toolchain   dan prototype architecture</td><td>Implementasi   driver/peripheral</td><td>Integrasi   sensor/aktuator dan komunikasi</td><td>Timing,   interrupt, dan task sederhana</td><td>Debugging,   testing, dan troubleshooting</td><td>Prototype final   dan demo</td><td>Tidak mengulang   teori desain; fokus implementasi, pengujian, dan dokumentasi.</td></tr>
+<tr><td class="mk">Antar Muka Periferal</td><td>2</td><td>Teknik interfacing periferal antara prosesor dan perangkat   eksternal.</td><td>Electrical interfacing, logic level, dan signal integrity   dasar</td><td>GPIO dan debouncing</td><td>UART, SPI, I2C secara implementatif</td><td>Interfacing display, keypad, memory, dan peripheral umum</td><td>Driver actuator dan proteksi antarmuka</td><td>Device driver sederhana dan troubleshooting interface</td><td>Tidak membahas karakteristik sensor/kalibrasi (SK125) atau   arsitektur IoT (SK126).</td></tr>
+<tr><td class="mk">Keamanan Siber</td><td>2</td><td>Prinsip   keamanan siber pada host, jaringan, aplikasi, dan data.</td><td>CIA triad,   asset, threat, vulnerability, risk</td><td>Kriptografi   dasar, hashing, dan PKI</td><td>Authentication,   authorization, dan access control</td><td>Network/host   security dan hardening</td><td>Secure   software, web security, dan vulnerability basics</td><td>Incident   response, governance, dan security risk assessment</td><td>Tidak membahas   IoT-specific security/edge (SKIOT02) atau etika AI (SKAI06).</td></tr>
+<tr><td class="mk">Pr. Keamanan Siber</td><td>1</td><td>Praktik hardening, assessment, monitoring, dan respons   keamanan.</td><td>Lab environment dan security hygiene</td><td>Hardening host dan account security</td><td>Vulnerability scanning dan remediation</td><td>Network traffic/security monitoring</td><td>Penggunaan crypto/security tools dasar</td><td>Mini security assessment dan incident exercise</td><td>Fokus praktik terkontrol; konsep umum berada di SK124.</td></tr>
+<tr><td class="mk">Sensor dan Sistem Akuisisi Data</td><td>3</td><td>Sensor,   instrumentasi, dan akuisisi data dari dunia fisik.</td><td>Karakteristik   sensor dan transduser</td><td>Signal   conditioning: amplification/filtering</td><td>Sampling, ADC,   resolusi, dan error</td><td>Kalibrasi,   akurasi, presisi, dan uncertainty</td><td>Akuisisi   multi-sensor dan sinkronisasi</td><td>Desain   subsistem sensor dan validasi kualitas data</td><td>Tidak membahas   platform/messaging IoT (SK126) atau DSP algoritmik (SK129).</td></tr>
+<tr><td class="mk">IoT Platform</td><td>3</td><td>Platform dan arsitektur aplikasi IoT dari perangkat ke   layanan data.</td><td>Arsitektur IoT device–gateway–platform</td><td>MQTT/CoAP dan messaging IoT</td><td>Device provisioning dan device management</td><td>Data ingestion, storage, dashboard, dan rules</td><td>Edge–cloud integration dan remote control</td><td>Prototype IoT end-to-end serta evaluasi   reliability/konektivitas</td><td>Sensor hardware berada di SK125; networking dasar di   SK112/SK118; keamanan IoT lanjutan di SKIOT02.</td></tr>
+<tr><td class="mk">Bahasa Indonesia</td><td>2</td><td>Komunikasi dan   penulisan Bahasa Indonesia akademik/profesional.</td><td>Ragam bahasa   akademik dan kalimat efektif</td><td>Paragraf,   kohesi, dan koherensi</td><td>Ringkasan,   abstrak, dan tulisan teknis</td><td>Kutipan,   parafrase, referensi, dan anti-plagiarisme</td><td>Struktur karya   ilmiah dan laporan teknis</td><td>Presentasi/komunikasi   ilmiah dalam Bahasa Indonesia</td><td>Tidak   menggantikan metodologi skripsi; fokus pada kompetensi bahasa dan komunikasi   ilmiah.</td></tr>
+<tr><td class="mk">Metode Berpikir   Sistem Teknik</td><td>2</td><td>Systems thinking untuk memformulasikan masalah rekayasa   kompleks sebelum memilih solusi.</td><td>Konsep sistem, boundary, stakeholder, dan environment</td><td>Causal loop dan hubungan sebab-akibat</td><td>Feedback, delay, emergence, dan complexity</td><td>Requirement, constraint, dan trade-off</td><td>Functional decomposition dan system modeling</td><td>Pengambilan keputusan sistem dan evaluasi alternatif</td><td>Tidak membahas project schedule/cost (SK137) atau   reliability kuantitatif (SK128).</td></tr>
+<tr><td class="mk">Pemrograman Berorientasi Objek</td><td>2</td><td>Paradigma   pemrograman berorientasi objek untuk desain software modular.</td><td>Class, object,   encapsulation</td><td>Constructor,   method, dan object relationship</td><td>Inheritance dan   polymorphism</td><td>Abstract class,   interface, dan composition</td><td>Exception,   collection, file/I-O pada OOP</td><td>Prinsip desain   modular dan mini application</td><td>Tidak mengulang   algoritma dasar SK105/struktur data SK109 dan tidak fokus web framework   SK132.</td></tr>
+<tr><td class="mk">Pr. Pemrograman   Berorientasi Objek</td><td>1</td><td>Implementasi OOP melalui latihan dan proyek perangkat   lunak.</td><td>Class/object implementation</td><td>Inheritance dan polymorphism lab</td><td>Interface/composition</td><td>Exception dan persistence sederhana</td><td>Unit testing/refactoring dasar</td><td>Mini project OOP</td><td>Fokus praktik SK127; bukan pengembangan aplikasi web.</td></tr>
+<tr><td class="mk">Reliability Engineering Sistem Komputer</td><td>2</td><td>Keandalan dan   dependability Sistem Komputer.</td><td>Konsep failure,   fault, error, reliability, availability</td><td>Failure rate,   MTBF, MTTF, MTTR</td><td>Reliability   block diagram dan model seri/paralel</td><td>FMEA/FMECA dan   fault tree dasar</td><td>Redundancy,   fault tolerance, maintainability</td><td>Reliability   planning, testing, dan improvement</td><td>Tidak membahas   latency/throughput/resource performance (SK133) atau security risk sebagai   fokus utama (SK124).</td></tr>
+<tr><td class="mk">Pengolahan Sinyal   Digital</td><td>3</td><td>Pengolahan sinyal digital untuk transformasi dan filtering   data sinyal.</td><td>Sinyal/waktu diskrit dan sistem diskrit</td><td>Sampling dan aliasing</td><td>Convolution dan response system</td><td>DFT/FFT dan analisis spektrum</td><td>FIR/IIR filtering dasar</td><td>Aplikasi DSP pada data sensor/audio sederhana</td><td>Tidak membahas instrumentasi sensor (SK125) atau model   AI/ML (SK130).</td></tr>
+<tr><td class="mk">AI dan Machine Learning</td><td>3</td><td>Fondasi AI dan   machine learning klasik untuk pemecahan masalah berbasis data.</td><td>Ruang lingkup   AI, problem formulation, dan intelligent agents</td><td>Persiapan data,   fitur, train/validation/test</td><td>Supervised   learning: regression/classification</td><td>Unsupervised   learning: clustering/dimensionality reduction</td><td>Model   evaluation, overfitting, feature selection</td><td>ML pipeline dan   studi kasus Sistem Komputer</td><td>Tidak membahas   deep neural network mendalam (SK140), CV/NLP khusus, atau big-data   infrastructure (SK136).</td></tr>
+<tr><td class="mk">Bisnis dan   Kewirausahaan</td><td>2</td><td>Dasar bisnis dan kewirausahaan untuk memahami peluang dan   kelayakan usaha.</td><td>Mindset kewirausahaan dan identifikasi peluang</td><td>Customer problem dan value proposition</td><td>Model bisnis dasar</td><td>Analisis pasar dan kompetitor</td><td>Biaya, pendapatan, BEP, dan kelayakan sederhana</td><td>Rencana usaha dan pitch dasar</td><td>Tidak membahas komersialisasi teknologi/MVP/IP secara   mendalam (MKWF003) atau manajemen proyek (SK137).</td></tr>
+<tr><td class="mk">Sistem Terdistribusi dan Komputasi Paralel</td><td>3</td><td>Konsep sistem   terdistribusi dan komputasi paralel pada level arsitektur/algoritmik.</td><td>Karakteristik   sistem terdistribusi dan parallel computing</td><td>Process/thread,   concurrency, dan synchronization lanjutan</td><td>Communication   models dan RPC/message passing</td><td>Clock,   ordering, consistency, dan coordination dasar</td><td>Parallel   decomposition dan speedup</td><td>Fault handling   dan desain aplikasi terdistribusi dasar</td><td>Tidak membahas   cloud service deployment/virtualization spesifik (SKIOT01) atau network   configuration (SK118).</td></tr>
+<tr><td class="mk">Pengantar Rekayasa   dan Profesi Engineering</td><td>2</td><td>Prinsip rekayasa, profesi engineering, standar, dan   tanggung jawab profesional.</td><td>Engineering problem dan engineering design process</td><td>Requirement, constraint, safety, dan sustainability</td><td>Standar, dokumentasi, quality, dan traceability</td><td>Profesi engineering, kompetensi, dan tanggung jawab</td><td>Etika profesi dan konflik kepentingan</td><td>Studi kasus keputusan rekayasa dan dampak sosial</td><td>Tidak membahas project planning detail (SK137) atau   kewirausahaan teknologi (MKWF003).</td></tr>
+<tr><td class="mk">Pendidikan Pancasila</td><td>2</td><td>Nilai Pancasila   sebagai landasan etika publik, kebangsaan, dan pengembangan ilmu.</td><td>Sejarah dan   kedudukan Pancasila</td><td>Pancasila   sebagai sistem nilai dan filsafat</td><td>Pancasila dalam   kehidupan berbangsa</td><td>Demokrasi,   keadilan sosial, dan keberagaman</td><td>Pancasila dalam   pengembangan ilmu dan teknologi</td><td>Analisis kasus   etika publik berbasis nilai Pancasila</td><td>Tidak   menggantikan Pendidikan Kewarganegaraan yang fokus konstitusi/hak-kewajiban   warga.</td></tr>
+<tr><td class="mk">Pemrograman Web</td><td>2</td><td>Pengembangan aplikasi web sebagai antarmuka sistem dan   layanan data.</td><td>Arsitektur web, HTTP, client-server</td><td>HTML/CSS dan responsive interface dasar</td><td>JavaScript dan DOM/event</td><td>Backend/server-side fundamentals</td><td>REST API, authentication, dan integrasi basis data</td><td>Deployment dasar, testing, dan mini web application</td><td>Tidak membahas usability research (SK120), desain basis   data mendalam (SK114), atau mobile native (SK138).</td></tr>
+<tr><td class="mk">Analisa Kinerja Sistem</td><td>3</td><td>Pengukuran dan   analisis performa Sistem Komputer.</td><td>Performance   metrics: latency, throughput, utilization</td><td>Workload   characterization dan benchmarking</td><td>Profiling CPU,   memory, storage, dan network</td><td>Bottleneck   analysis</td><td>Queueing/performance   model dasar</td><td>Eksperimen,   interpretasi, tuning, dan capacity planning</td><td>Tidak membahas   failure reliability (SK128) atau security testing (SK124).</td></tr>
+<tr><td class="mk">Robotika</td><td>2</td><td>Konsep robotika: struktur, kinematika, sensing, actuation,   dan kontrol.</td><td>Arsitektur sistem robot</td><td>Aktuator, sensor, dan drive system robot</td><td>Koordinat, transformasi, dan kinematika dasar</td><td>Odometry/localization dasar</td><td>Motion/control integration</td><td>Perencanaan gerak sederhana dan aplikasi robotika</td><td>Kontrol matematis dibahas di SK121; implementasi hardware   berada di SK135.</td></tr>
+<tr><td class="mk">Pr. Robotika</td><td>1</td><td>Implementasi   robotika melalui integrasi sensor, aktuator, kontrol, dan software.</td><td>Setup platform   robot</td><td>Motor driver   dan actuator control</td><td>Integrasi   sensor dan acquisition</td><td>Odometry/kinematics   implementation</td><td>Closed-loop   control dan path following dasar</td><td>Mini project   robot dan evaluasi</td><td>Fokus praktik   SK134/SK121; tidak memperluas teori robotika baru.</td></tr>
+<tr><td class="mk">Big Data Engineering</td><td>2</td><td>Rekayasa pipeline dan infrastruktur data berskala besar.</td><td>Karakteristik big data dan data architecture</td><td>Data lake, warehouse, dan storage terdistribusi</td><td>ETL/ELT dan data pipeline</td><td>Distributed batch processing</td><td>Streaming/event data pipeline</td><td>Data quality, governance, observability, dan pipeline   project</td><td>Tidak membahas analisis statistik/visualisasi sebagai fokus   (SK136P) atau algoritma ML (SK130).</td></tr>
+<tr><td class="mk">Applied Data Analytics</td><td>2</td><td>Analitik data   terapan untuk menghasilkan insight dari dataset.</td><td>Data   understanding dan data cleaning</td><td>Exploratory   Data Analysis</td><td>Visualisasi   data dan storytelling</td><td>Statistical   analysis dan hypothesis testing terapan</td><td>Feature/metric   analysis dan segmentasi sederhana</td><td>Analytic   report/dashboard dan interpretasi keputusan</td><td>Tidak membahas   engineering pipeline skala besar (SK136) atau algoritma ML secara mendalam   (SK130).</td></tr>
+<tr><td class="mk">Project Management</td><td>2</td><td>Perencanaan dan pengendalian proyek teknologi.</td><td>Project charter, scope, dan WBS</td><td>Schedule, milestone, dan estimation</td><td>Resource/cost management dasar</td><td>Risk dan quality management</td><td>Team, communication, procurement/stakeholder</td><td>Monitoring, change control, closing, dan agile overview</td><td>Tidak membahas systems thinking (MKWF002), engineering   ethics (MKWF001), atau business venture (MKWF003).</td></tr>
+<tr><td class="mk">Pendidikan Kewarganegaraan</td><td>2</td><td>Hak, kewajiban,   konstitusi, demokrasi, dan bela negara sebagai warga negara.</td><td>Identitas   nasional dan kewarganegaraan</td><td>Konstitusi dan   sistem hukum dasar</td><td>Hak dan   kewajiban warga negara</td><td>Demokrasi dan   partisipasi publik</td><td>Geopolitik,   wawasan nusantara, dan ketahanan nasional</td><td>Kewargaan   digital dan tanggung jawab profesi terhadap negara</td><td>Tidak mengulang   filsafat/nilai Pancasila secara mendalam (MKWU002).</td></tr>
+<tr><td class="mk">Mobile Computing</td><td>2</td><td>Komputasi bergerak: arsitektur mobile, konektivitas, data,   dan aplikasi mobile.</td><td>Arsitektur platform dan lifecycle aplikasi mobile</td><td>Mobile UI dan resource constraints</td><td>Local storage, permission, sensor/device API</td><td>Wireless/mobile connectivity dan context awareness</td><td>API integration, sync, offline-first, dan security dasar</td><td>Testing, performance, deployment, dan mini mobile app</td><td>Tidak membahas web app (SK132) atau routing/switching   jaringan (SK118).</td></tr>
+<tr><td class="mk">Capstone Project</td><td>4</td><td>Integrasi   capaian teknis dan profesional melalui proyek Sistem Komputer end-to-end.</td><td>Problem   statement, stakeholder, dan requirement</td><td>System   architecture dan detailed design</td><td>Project   planning, teamwork, ethics, dan documentation</td><td>Implementation   dan hardware–software/network integration</td><td>Testing,   verification, performance/reliability evaluation</td><td>Demo,   validation pengguna, value proposition, dan final documentation</td><td>Tidak menjadi   tempat mengajarkan teori dasar baru; seluruh materi merupakan integrasi dan   penerapan MK sebelumnya.</td></tr>
+<tr><td class="mk">Deep Learning</td><td>2</td><td>Deep learning sebagai kelanjutan ML, fokus model neural dan   training.</td><td>Neural network, activation, loss, backpropagation</td><td>Optimization, initialization, normalization, regularization</td><td>CNN fundamentals</td><td>Sequence models: RNN/LSTM dan pengantar attention</td><td>Training pipeline, transfer learning, dan hyperparameter   tuning</td><td>Evaluasi, interpretasi dasar, dan proyek deep learning</td><td>CV/NLP/generative application mendalam ada di MK peminatan;   deployment edge ada di SKAI02/SKIOT06.</td></tr>
+<tr><td class="mk">Kerja Praktik</td><td>2</td><td>Penerapan   kompetensi Sistem Komputer dalam lingkungan kerja profesional.</td><td>Orientasi   organisasi dan keselamatan/etika kerja</td><td>Pemahaman   proses bisnis/teknologi tempat kerja</td><td>Pelaksanaan   tugas teknis sesuai penempatan</td><td>Komunikasi,   kolaborasi, dan dokumentasi profesional</td><td>Problem solving   dan adaptasi teknologi di lapangan</td><td>Laporan,   seminar, dan refleksi kompetensi</td><td>Tidak digunakan   untuk menyampaikan teori kurikulum baru; fokus experiential learning dan   profesionalisme.</td></tr>
+<tr><td class="mk">Kepemimpinan dan   Komunikasi Profesi</td><td>2</td><td>Kepemimpinan, komunikasi profesional, negosiasi, dan   kolaborasi tim.</td><td>Gaya kepemimpinan dan self-leadership</td><td>Komunikasi interpersonal dan profesional</td><td>Team dynamics, conflict, dan feedback</td><td>Meeting, negotiation, dan decision communication</td><td>Presentasi profesional dan technical briefing</td><td>Etika kepemimpinan dan kolaborasi multidisiplin</td><td>Tidak membahas project scheduling/cost (SK137) atau Bahasa   Inggris/Indonesia dasar.</td></tr>
+<tr><td class="mk">Technopreneurship</td><td>2</td><td>Kewirausahaan   berbasis teknologi dari validasi solusi hingga komersialisasi.</td><td>Technology   opportunity dan problem-solution fit</td><td>Customer   discovery dan market validation</td><td>MVP/prototype   dan product-market fit</td><td>Business model   teknologi, pricing, dan go-to-market</td><td>IP, regulasi,   pendanaan, dan scaling</td><td>Tech venture   pitch, roadmap, dan commercialization plan</td><td>Melanjutkan   MKWU007; tidak mengulang dasar kewirausahaan umum atau project management.</td></tr>
+<tr><td class="mk">Skripsi</td><td>6</td><td>Penelitian/pengembangan mandiri yang membuktikan kemampuan   analitis, ilmiah, dan rekayasa.</td><td>Identifikasi gap/masalah dan kajian literatur</td><td>Rumusan masalah, tujuan, dan kontribusi</td><td>Metodologi penelitian/rekayasa dan experimental design</td><td>Implementasi/eksperimen serta pengumpulan data</td><td>Analisis, validasi, pembahasan, dan keterbatasan</td><td>Penulisan naskah, presentasi, dan pertanggungjawaban ilmiah</td><td>Tidak menjadi mata kuliah pengajaran teori baru; topik   teknis berasal dari domain yang telah dipelajari dan fokus pada metode   ilmiah/rekayasa.</td></tr>
+<tr><td class="mk">Computer Vision</td><td>2</td><td>Penerapan deep   learning dan metode vision untuk memahami citra/video.</td><td>Representasi   citra dan preprocessing</td><td>Feature   extraction dan image descriptors dasar</td><td>CNN untuk   klasifikasi citra</td><td>Object   detection</td><td>Image   segmentation</td><td>Evaluasi vision   model dan proyek aplikasi</td><td>SK140 hanya   memberi CNN dasar; SKAI01 fokus problem vision, bukan NLP/generative.</td></tr>
+<tr><td class="mk">Edge AI</td><td>2</td><td>Deployment dan optimasi model AI pada perangkat edge.</td><td>Edge AI architecture dan deployment pipeline</td><td>Model compression dan pruning</td><td>Quantization dan low-precision inference</td><td>Hardware accelerator/NPU/GPU edge</td><td>Latency, memory, energy, dan benchmarking</td><td>Secure/robust deployment dan project edge inference</td><td>Tidak membahas TinyML ultra-constrained MCU secara mendalam   (SKIOT06) atau cloud virtualization (SKIOT01).</td></tr>
+<tr><td class="mk">Generative AI</td><td>2</td><td>Model generatif   dan aplikasi generative AI.</td><td>Konsep   generative modeling dan latent representation</td><td>Autoencoder/VAE</td><td>GAN   fundamentals</td><td>Transformer/LLM   sebagai model generatif</td><td>Diffusion model   fundamentals</td><td>Prompting/RAG   overview, evaluation, safety, dan project</td><td>NLP umum ada di   SKAI04; fokus di sini adalah generasi konten/model generatif lintas modality.</td></tr>
+<tr><td class="mk">Natural Language   Processing</td><td>2</td><td>Pemrosesan bahasa alami dari representasi teks hingga model   tugas NLP.</td><td>Text preprocessing, tokenization, dan corpus</td><td>Bag-of-words/TF-IDF dan classical NLP</td><td>Word embedding dan semantic representation</td><td>Sequence modeling untuk NLP</td><td>Transformer untuk classification/sequence tasks</td><td>Evaluation dan aplikasi NLP</td><td>Generative LLM/RAG dibahas di SKAI03; fokus SKAI04 pada   pemahaman/pemrosesan bahasa.</td></tr>
+<tr><td class="mk">Reinforcement Learning</td><td>2</td><td>Pengambilan   keputusan sekuensial melalui reinforcement learning.</td><td>Markov Decision   Process</td><td>Value function   dan Bellman equation</td><td>Monte Carlo dan   Temporal Difference</td><td>Q-learning dan   SARSA</td><td>Policy   gradient/actor-critic pengantar</td><td>Exploration,   evaluation, safety, dan project RL</td><td>Tidak membahas   supervised/deep learning umum kecuali sebagai prasyarat model fungsi.</td></tr>
+<tr><td class="mk">Explainable AI dan AI   Ethics</td><td>2</td><td>Interpretabilitas, fairness, etika, dan governance sistem   AI.</td><td>Need for explainability dan transparency</td><td>Global/local explanation methods</td><td>Feature attribution dan model interpretation</td><td>Bias, fairness, dan discrimination</td><td>Privacy, accountability, human oversight</td><td>AI risk, governance, documentation, dan ethical case study</td><td>Tidak mengajarkan algoritma AI baru; fokus evaluasi,   penjelasan, risiko, dan etika.</td></tr>
+<tr><td class="mk">Cloud Computing dan Virtualisasi</td><td>2</td><td>Implementasi   infrastruktur cloud dan virtualisasi untuk layanan Sistem Komputer/IoT.</td><td>Virtual machine   dan hypervisor</td><td>Container dan   image management</td><td>Cloud service   models dan cloud networking</td><td>Storage,   compute, dan identity services</td><td>Orchestration,   scaling, monitoring, dan availability</td><td>Cloud   architecture, cost, deployment, dan project</td><td>SK131 membahas   teori distributed/parallel; SKIOT01 fokus implementasi platform   cloud/virtualization.</td></tr>
+<tr><td class="mk">IoT Security dan Edge   Computing</td><td>2</td><td>Keamanan sistem IoT dan edge secara khusus.</td><td>IoT/edge threat model dan attack surface</td><td>Device identity, secure boot, dan hardware root of trust</td><td>Lightweight crypto dan secure communication</td><td>Key/certificate lifecycle dan access control IoT</td><td>Secure firmware update, device lifecycle, dan edge   isolation</td><td>IoT security assessment, monitoring, dan incident response</td><td>Keamanan umum berada di SK124; SKIOT02 fokus constraint dan   lifecycle perangkat IoT/edge.</td></tr>
+<tr><td class="mk">Industrial Internet of Thing (IIoT)</td><td>2</td><td>Arsitektur dan   integrasi Industrial IoT dalam lingkungan industri.</td><td>IIoT   architecture dan industrial use cases</td><td>Industrial   sensors, gateways, dan edge</td><td>Industrial   protocols: Modbus, OPC UA, MQTT</td><td>SCADA/MES/enterprise   integration</td><td>Condition   monitoring dan predictive maintenance workflow</td><td>Reliability,   safety, interoperability, dan IIoT project</td><td>Tidak membahas   WSN energy/topology detail (SKIOT04) atau digital twin lifecycle (SKIOT05).</td></tr>
+<tr><td class="mk">Smart Sensor Networks</td><td>2</td><td>Jaringan sensor cerdas dengan fokus distribusi node,   energi, dan komunikasi.</td><td>WSN architecture dan sensor node</td><td>Low-power communication dan MAC concepts</td><td>Topology, routing, clustering, dan energy efficiency</td><td>Time synchronization dan localization</td><td>Data aggregation dan sensor fusion dasar</td><td>Network lifetime, reliability, security considerations, dan   project</td><td>Sensor instrumentasi fisik berada di SK125; platform IoT   cloud berada di SK126.</td></tr>
+<tr><td class="mk">Digital Twin System</td><td>2</td><td>Digital twin   untuk representasi, sinkronisasi, dan simulasi aset/sistem fisik.</td><td>Konsep digital   twin dan lifecycle</td><td>Physical asset   model dan virtual representation</td><td>Data   acquisition dan synchronization pipeline</td><td>Simulation/model   calibration</td><td>Analytics,   what-if, dan condition monitoring</td><td>Twin   integration, validation, governance, dan use-case project</td><td>Tidak membahas   sensor hardware detail (SK125) atau IIoT protocol fokus (SKIOT03).</td></tr>
+<tr><td class="mk">TinyML dan Embedded   Intelligence</td><td>2</td><td>Machine learning pada microcontroller/perangkat sangat   terbatas.</td><td>TinyML workflow dan constrained-device architecture</td><td>Dataset sensor dan feature extraction ringan</td><td>Model selection untuk MCU</td><td>Quantization dan memory optimization</td><td>Deployment inference pada microcontroller</td><td>Energy/latency evaluation dan TinyML project</td><td>Edge AI (SKAI02) lebih luas pada edge accelerator; SKIOT06   khusus MCU/memory/power sangat terbatas.</td></tr>
+
+</tbody>
+
+</table>
+
+</div>
+</div>
+
+<footer>
+Program Studi Sistem Komputer - Kurikulum OBE
+</footer>
+
+</body>
+</html>
 
