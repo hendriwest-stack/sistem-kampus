@@ -1,1 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>MK CPL CPMK Sub-CPMK</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f5f8fc;padding:25px}
+h1{color:#0f4c81}
+table{border-collapse:collapse;width:100%;background:white}
+th{background:#2563eb;color:white;padding:12px}
+td{border:1px solid #ddd;padding:10px;vertical-align:top}
+tr:nth-child(even){background:#f8fafc}
 
+.search-box{
+    background:white;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+.search-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+</style>
+
+<script>
+function cariMK(){
+    let input = document.getElementById("searchMK");
+    let filter = input.value.toLowerCase();
+    let table = document.querySelector("table");
+    let rows = table.getElementsByTagName("tr");
+
+    for(let i=1;i<rows.length;i++){
+        let text = rows[i].innerText.toLowerCase();
+        if(text.includes(filter)){
+            rows[i].style.display="";
+        }else{
+            rows[i].style.display="none";
+        }
+    }
+}
+</script>
+
+</head>
+<body>
+<h1>Mata Kuliah - CPL - CPMK - Sub-CPMK - Rumusan Sub-CPMK</h1>
+<div class="search-box">
+<b>Cari Mata Kuliah</b><br><br>
+<input type="text" id="searchMK" onkeyup="cariMK()" 
+placeholder="Ketik nama Mata Kuliah, CPL, CPMK, atau Sub-CPMK...">
+</div>
+
+<table>
+<tr>
+<th>Mata Kuliah</th>
+<th>CPL</th>
+<th>CPMK</th>
+<th>Sub-CPMK</th>
+<th>Rumusan Sub-CPMK</th>
+</tr>
+<tr><td rowspan="5"><b>Pengantar Sistem Komputer</b></td><td rowspan="5">CPL04</td><td rowspan="5">CPMK4.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Pengantar Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Pengantar Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Pengantar Sistem Komputer untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Pengantar Sistem Komputer dalam solusi Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi berbasis Pengantar Sistem Komputer berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="5"><b>Organisasi dan Arsitektur Komputer</b></td><td rowspan="5">CPL04</td><td rowspan="5">CPMK4.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Organisasi dan Arsitektur Komputer.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Organisasi dan Arsitektur Komputer.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Organisasi dan Arsitektur Komputer untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Organisasi dan Arsitektur Komputer dalam solusi Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi berbasis Organisasi dan Arsitektur Komputer berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="5"><b>Aljabar Linier</b></td><td rowspan="5">CPL03</td><td rowspan="5">CPMK3.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan notasi utama pada Aljabar Linier.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyelesaikan persoalan dasar Aljabar Linier dengan prosedur yang benar.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Aljabar Linier pada kasus komputasi atau rekayasa sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis hasil penyelesaian dan memeriksa ketepatan model/perhitungan pada Aljabar Linier.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menyelesaikan kasus terintegrasi menggunakan Aljabar Linier dan menginterpretasikan hasilnya.</td></tr>
+<tr><td rowspan="7"><b>Fisika</b></td><td rowspan="7">CPL03</td><td rowspan="2">CPMK3.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Fisika.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Fisika.</td></tr>
+<tr><td rowspan="1">CPMK3.3</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Fisika untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPMK3.1</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Fisika dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPMK3.3</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Fisika dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPMK3.1</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Fisika berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPMK3.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Fisika berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="7"><b>Algoritma dan Pemrograman</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan struktur dasar Algoritma dan Pemrograman.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang algoritma atau struktur solusi untuk permasalahan pada Algoritma dan Pemrograman.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-3</td><td>Mengimplementasikan solusi Algoritma dan Pemrograman menggunakan teknik dan perangkat yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-4</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Algoritma dan Pemrograman.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-5</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Algoritma dan Pemrograman.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-6</td><td>Mengembangkan mini-proyek Algoritma dan Pemrograman yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-7</td><td>Mengembangkan mini-proyek Algoritma dan Pemrograman yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="5"><b>Elektronika</b></td><td rowspan="5">CPL03</td><td rowspan="5">CPMK3.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Elektronika.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Elektronika.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Elektronika untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Elektronika dalam solusi Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi berbasis Elektronika berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="5"><b>Pendidikan Agama</b></td><td rowspan="5">CPL01</td><td rowspan="5">CPMK1.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Pendidikan Agama.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Pendidikan Agama.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Pendidikan Agama dalam situasi akademik atau profesional.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Pendidikan Agama.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengevaluasi penerapan prinsip Pendidikan Agama melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="5"><b>Kalkulus I</b></td><td rowspan="5">CPL03</td><td rowspan="5">CPMK3.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan notasi utama pada Kalkulus I.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyelesaikan persoalan dasar Kalkulus I dengan prosedur yang benar.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Kalkulus I pada kasus komputasi atau rekayasa sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis hasil penyelesaian dan memeriksa ketepatan model/perhitungan pada Kalkulus I.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menyelesaikan kasus terintegrasi menggunakan Kalkulus I dan menginterpretasikan hasilnya.</td></tr>
+<tr><td rowspan="7"><b>Statistik dan Probabilitas</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan notasi utama pada Statistik dan Probabilitas.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyelesaikan persoalan dasar Statistik dan Probabilitas dengan prosedur yang benar.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.2</td><td>Sub-CPMK-3</td><td>Menerapkan metode Statistik dan Probabilitas pada kasus komputasi atau rekayasa sederhana.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.1</td><td>Sub-CPMK-4</td><td>Menganalisis hasil penyelesaian dan memeriksa ketepatan model/perhitungan pada Statistik dan Probabilitas.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.2</td><td>Sub-CPMK-5</td><td>Menganalisis hasil penyelesaian dan memeriksa ketepatan model/perhitungan pada Statistik dan Probabilitas.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.1</td><td>Sub-CPMK-6</td><td>Menyelesaikan kasus terintegrasi menggunakan Statistik dan Probabilitas dan menginterpretasikan hasilnya.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.2</td><td>Sub-CPMK-7</td><td>Menyelesaikan kasus terintegrasi menggunakan Statistik dan Probabilitas dan menginterpretasikan hasilnya.</td></tr>
+<tr><td rowspan="7"><b>Struktur Data</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan struktur dasar Struktur Data.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang algoritma atau struktur solusi untuk permasalahan pada Struktur Data.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-3</td><td>Mengimplementasikan solusi Struktur Data menggunakan teknik dan perangkat yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-4</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Struktur Data.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-5</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Struktur Data.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-6</td><td>Mengembangkan mini-proyek Struktur Data yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-7</td><td>Mengembangkan mini-proyek Struktur Data yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="5"><b>Matematika Diskrit</b></td><td rowspan="5">CPL03</td><td rowspan="5">CPMK3.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan notasi utama pada Matematika Diskrit.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyelesaikan persoalan dasar Matematika Diskrit dengan prosedur yang benar.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Matematika Diskrit pada kasus komputasi atau rekayasa sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis hasil penyelesaian dan memeriksa ketepatan model/perhitungan pada Matematika Diskrit.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menyelesaikan kasus terintegrasi menggunakan Matematika Diskrit dan menginterpretasikan hasilnya.</td></tr>
+<tr><td rowspan="7"><b>Sistem Digital</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Sistem Digital.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Sistem Digital.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Sistem Digital untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.3</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Sistem Digital dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Sistem Digital dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.3</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Sistem Digital berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Sistem Digital berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="7"><b>Pr. Sistem Digital</b></td><td rowspan="2">CPL04</td><td rowspan="2">CPMK4.2</td><td>Sub-CPMK-1</td><td>Menyiapkan perangkat dan prosedur praktikum Sistem Digital.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan percobaan dasar Sistem Digital dengan prosedur yang benar dan aman.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-3</td><td>Mengimplementasikan atau mengintegrasikan komponen pada Sistem Digital.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-4</td><td>Menganalisis hasil dan melakukan troubleshooting pada Sistem Digital.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-5</td><td>Menganalisis hasil dan melakukan troubleshooting pada Sistem Digital.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-6</td><td>Mendemonstrasikan hasil Sistem Digital dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-7</td><td>Mendemonstrasikan hasil Sistem Digital dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="8"><b>Komunikasi Data dan Internet</b></td><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan prinsip utama Komunikasi Data dan Internet.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-2</td><td>Menerapkan konfigurasi atau mekanisme dasar yang relevan dengan Komunikasi Data dan Internet.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-3</td><td>Menganalisis permasalahan kinerja, konektivitas, atau keamanan pada Komunikasi Data dan Internet.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-4</td><td>Merancang solusi Komunikasi Data dan Internet berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-5</td><td>Merancang solusi Komunikasi Data dan Internet berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi Komunikasi Data dan Internet dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi Komunikasi Data dan Internet dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-8</td><td>Menguji dan mengevaluasi solusi Komunikasi Data dan Internet dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="5"><b>Literasi Digital dan Teknologi Informasi</b></td><td rowspan="5">CPL07</td><td rowspan="5">CPMK7.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Literasi Digital dan Teknologi Informasi.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Literasi Digital dan Teknologi Informasi.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Literasi Digital dan Teknologi Informasi dalam situasi akademik atau profesional.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Literasi Digital dan Teknologi Informasi.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengevaluasi penerapan prinsip Literasi Digital dan Teknologi Informasi melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="5"><b>Kalkulus II</b></td><td rowspan="5">CPL03</td><td rowspan="5">CPMK3.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan notasi utama pada Kalkulus II.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyelesaikan persoalan dasar Kalkulus II dengan prosedur yang benar.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Kalkulus II pada kasus komputasi atau rekayasa sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis hasil penyelesaian dan memeriksa ketepatan model/perhitungan pada Kalkulus II.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menyelesaikan kasus terintegrasi menggunakan Kalkulus II dan menginterpretasikan hasilnya.</td></tr>
+<tr><td rowspan="5"><b>Basis Data</b></td><td rowspan="5">CPL10</td><td rowspan="5">CPMK10.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Basis Data.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Basis Data.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Basis Data untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Basis Data menggunakan kriteria yang sesuai.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengembangkan solusi atau studi kasus Basis Data yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="7"><b>Sistem Operasi</b></td><td rowspan="2">CPL04</td><td rowspan="2">CPMK4.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Sistem Operasi.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Sistem Operasi.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Sistem Operasi untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Sistem Operasi dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Sistem Operasi dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Sistem Operasi berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Sistem Operasi berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="5"><b>Rangkaian Listrik</b></td><td rowspan="5">CPL03</td><td rowspan="5">CPMK3.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Rangkaian Listrik.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Rangkaian Listrik.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Rangkaian Listrik untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Rangkaian Listrik dalam solusi Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi berbasis Rangkaian Listrik berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="8"><b>Konsep Embedded System</b></td><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan alur kerja pada Konsep Embedded System.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-2</td><td>Merancang konfigurasi perangkat, antarmuka, atau komunikasi yang diperlukan pada Konsep Embedded System.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-3</td><td>Mengimplementasikan integrasi komponen utama pada Konsep Embedded System.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-4</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Konsep Embedded System.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-5</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Konsep Embedded System.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi Konsep Embedded System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi Konsep Embedded System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-8</td><td>Menguji dan mengevaluasi solusi Konsep Embedded System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="8"><b>Jaringan Komputer</b></td><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan prinsip utama Jaringan Komputer.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-2</td><td>Menerapkan konfigurasi atau mekanisme dasar yang relevan dengan Jaringan Komputer.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-3</td><td>Menganalisis permasalahan kinerja, konektivitas, atau keamanan pada Jaringan Komputer.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-4</td><td>Merancang solusi Jaringan Komputer berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-5</td><td>Merancang solusi Jaringan Komputer berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi Jaringan Komputer dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi Jaringan Komputer dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-8</td><td>Menguji dan mengevaluasi solusi Jaringan Komputer dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="7"><b>Pr. Jaringan Komputer</b></td><td rowspan="2">CPL09</td><td rowspan="2">CPMK9.1</td><td>Sub-CPMK-1</td><td>Menyiapkan perangkat dan prosedur praktikum Jaringan Komputer.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan percobaan dasar Jaringan Komputer dengan prosedur yang benar dan aman.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-3</td><td>Mengimplementasikan atau mengintegrasikan komponen pada Jaringan Komputer.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-4</td><td>Menganalisis hasil dan melakukan troubleshooting pada Jaringan Komputer.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-5</td><td>Menganalisis hasil dan melakukan troubleshooting pada Jaringan Komputer.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-6</td><td>Mendemonstrasikan hasil Jaringan Komputer dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-7</td><td>Mendemonstrasikan hasil Jaringan Komputer dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="8"><b>Mikroprosesor</b></td><td rowspan="2">CPL04</td><td rowspan="1">CPMK4.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Mikroprosesor.</td></tr>
+<tr><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Mikroprosesor.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Mikroprosesor untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="4">CPL04</td><td rowspan="1">CPMK4.1</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Mikroprosesor dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Mikroprosesor dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPMK4.1</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Mikroprosesor berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Mikroprosesor berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-8</td><td>Menguji dan mengevaluasi solusi berbasis Mikroprosesor berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="7"><b>Pr. Mikroprosesor</b></td><td rowspan="2">CPL04</td><td rowspan="2">CPMK4.3</td><td>Sub-CPMK-1</td><td>Menyiapkan perangkat dan prosedur praktikum Mikroprosesor.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan percobaan dasar Mikroprosesor dengan prosedur yang benar dan aman.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-3</td><td>Mengimplementasikan atau mengintegrasikan komponen pada Mikroprosesor.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-4</td><td>Menganalisis hasil dan melakukan troubleshooting pada Mikroprosesor.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-5</td><td>Menganalisis hasil dan melakukan troubleshooting pada Mikroprosesor.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-6</td><td>Mendemonstrasikan hasil Mikroprosesor dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-7</td><td>Mendemonstrasikan hasil Mikroprosesor dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="5"><b>Bahasa Inggris</b></td><td rowspan="5">CPL06</td><td rowspan="5">CPMK6.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Bahasa Inggris.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Bahasa Inggris.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Bahasa Inggris dalam situasi akademik atau profesional.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Bahasa Inggris.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengevaluasi penerapan prinsip Bahasa Inggris melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="7"><b>Interaksi Manusia dan Komputer</b></td><td rowspan="2">CPL05</td><td rowspan="2">CPMK5.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Interaksi Manusia dan Komputer.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Interaksi Manusia dan Komputer.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Interaksi Manusia dan Komputer untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Interaksi Manusia dan Komputer dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Interaksi Manusia dan Komputer dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Interaksi Manusia dan Komputer berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Interaksi Manusia dan Komputer berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="5"><b>Sistem Kendali</b></td><td rowspan="5">CPL08</td><td rowspan="5">CPMK8.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Sistem Kendali.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Sistem Kendali.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Sistem Kendali untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Sistem Kendali dalam solusi Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi berbasis Sistem Kendali berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="8"><b>Perancangan Embedded System</b></td><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan alur kerja pada Perancangan Embedded System.</td></tr>
+<tr><td rowspan="2">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-2</td><td>Merancang konfigurasi perangkat, antarmuka, atau komunikasi yang diperlukan pada Perancangan Embedded System.</td></tr>
+<tr><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-3</td><td>Mengimplementasikan integrasi komponen utama pada Perancangan Embedded System.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-4</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Perancangan Embedded System.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi Perancangan Embedded System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="2">CPL08</td><td rowspan="1">CPMK8.1</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi Perancangan Embedded System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi Perancangan Embedded System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-8</td><td>Menguji dan mengevaluasi solusi Perancangan Embedded System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="7"><b>Pr. Perancangan Embedded System</b></td><td rowspan="2">CPL08</td><td rowspan="2">CPMK8.2</td><td>Sub-CPMK-1</td><td>Menyiapkan perangkat dan prosedur praktikum Perancangan Embedded System.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan percobaan dasar Perancangan Embedded System dengan prosedur yang benar dan aman.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-3</td><td>Mengimplementasikan atau mengintegrasikan komponen pada Perancangan Embedded System.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-4</td><td>Menganalisis hasil dan melakukan troubleshooting pada Perancangan Embedded System.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-5</td><td>Menganalisis hasil dan melakukan troubleshooting pada Perancangan Embedded System.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-6</td><td>Mendemonstrasikan hasil Perancangan Embedded System dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-7</td><td>Mendemonstrasikan hasil Perancangan Embedded System dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="7"><b>Antar Muka Periferal</b></td><td rowspan="2">CPL04</td><td rowspan="2">CPMK4.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Antar Muka Periferal.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Antar Muka Periferal.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Antar Muka Periferal untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Antar Muka Periferal dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Antar Muka Periferal dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL04</td><td rowspan="1">CPMK4.3</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Antar Muka Periferal berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Antar Muka Periferal berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="5"><b>Keamanan Siber</b></td><td rowspan="5">CPL11</td><td rowspan="5">CPMK11.3</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan prinsip utama Keamanan Siber.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menerapkan konfigurasi atau mekanisme dasar yang relevan dengan Keamanan Siber.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menganalisis permasalahan kinerja, konektivitas, atau keamanan pada Keamanan Siber.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Merancang solusi Keamanan Siber berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi Keamanan Siber dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="5"><b>Pr. Keamanan Siber</b></td><td rowspan="5">CPL11</td><td rowspan="5">CPMK11.3</td><td>Sub-CPMK-1</td><td>Menyiapkan perangkat dan prosedur praktikum Keamanan Siber.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan percobaan dasar Keamanan Siber dengan prosedur yang benar dan aman.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Mengimplementasikan atau mengintegrasikan komponen pada Keamanan Siber.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis hasil dan melakukan troubleshooting pada Keamanan Siber.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mendemonstrasikan hasil Keamanan Siber dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="7"><b>Sensor dan Sistem Akuisisi Data</b></td><td rowspan="2">CPL08</td><td rowspan="2">CPMK8.2</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan alur kerja pada Sensor dan Sistem Akuisisi Data.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang konfigurasi perangkat, antarmuka, atau komunikasi yang diperlukan pada Sensor dan Sistem Akuisisi Data.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-3</td><td>Mengimplementasikan integrasi komponen utama pada Sensor dan Sistem Akuisisi Data.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-4</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Sensor dan Sistem Akuisisi Data.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-5</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Sensor dan Sistem Akuisisi Data.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi Sensor dan Sistem Akuisisi Data sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi Sensor dan Sistem Akuisisi Data sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="7"><b>IoT Platform</b></td><td rowspan="7">CPL09</td><td rowspan="2">CPMK9.2</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan alur kerja pada IoT Platform.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang konfigurasi perangkat, antarmuka, atau komunikasi yang diperlukan pada IoT Platform.</td></tr>
+<tr><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-3</td><td>Mengimplementasikan integrasi komponen utama pada IoT Platform.</td></tr>
+<tr><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-4</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi IoT Platform.</td></tr>
+<tr><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-5</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi IoT Platform.</td></tr>
+<tr><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi IoT Platform sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi IoT Platform sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="5"><b>Bahasa Indonesia</b></td><td rowspan="5">CPL06</td><td rowspan="5">CPMK6.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Bahasa Indonesia.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Bahasa Indonesia.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Bahasa Indonesia dalam situasi akademik atau profesional.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Bahasa Indonesia.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengevaluasi penerapan prinsip Bahasa Indonesia melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="7"><b>Metode Berpikir Sistem Teknik</b></td><td rowspan="7">CPL05</td><td rowspan="2">CPMK5.1</td><td>Sub-CPMK-1</td><td>Menjelaskan prinsip dan kerangka kerja utama dalam Metode Berpikir Sistem Teknik.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Mengidentifikasi masalah, kebutuhan, peluang, atau batasan yang relevan dengan Metode Berpikir Sistem Teknik.</td></tr>
+<tr><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-3</td><td>Menyusun rencana atau alternatif solusi berdasarkan pendekatan Metode Berpikir Sistem Teknik.</td></tr>
+<tr><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-4</td><td>Menerapkan pendekatan Metode Berpikir Sistem Teknik dalam kerja individu atau tim pada kasus teknologi.</td></tr>
+<tr><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-5</td><td>Menerapkan pendekatan Metode Berpikir Sistem Teknik dalam kerja individu atau tim pada kasus teknologi.</td></tr>
+<tr><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-6</td><td>Mengevaluasi hasil dan mempresentasikan rekomendasi atau nilai tambah dari penerapan Metode Berpikir Sistem Teknik.</td></tr>
+<tr><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-7</td><td>Mengevaluasi hasil dan mempresentasikan rekomendasi atau nilai tambah dari penerapan Metode Berpikir Sistem Teknik.</td></tr>
+<tr><td rowspan="7"><b>Pemrograman Berorientasi Objek</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan struktur dasar Pemrograman Berorientasi Objek.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang algoritma atau struktur solusi untuk permasalahan pada Pemrograman Berorientasi Objek.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-3</td><td>Mengimplementasikan solusi Pemrograman Berorientasi Objek menggunakan teknik dan perangkat yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-4</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Pemrograman Berorientasi Objek.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-5</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Pemrograman Berorientasi Objek.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-6</td><td>Mengembangkan mini-proyek Pemrograman Berorientasi Objek yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-7</td><td>Mengembangkan mini-proyek Pemrograman Berorientasi Objek yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="7"><b>Pr. Pemrograman Berorientasi Objek</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.2</td><td>Sub-CPMK-1</td><td>Menyiapkan perangkat dan prosedur praktikum Pemrograman Berorientasi Objek.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan percobaan dasar Pemrograman Berorientasi Objek dengan prosedur yang benar dan aman.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-3</td><td>Mengimplementasikan atau mengintegrasikan komponen pada Pemrograman Berorientasi Objek.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-4</td><td>Menganalisis hasil dan melakukan troubleshooting pada Pemrograman Berorientasi Objek.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-5</td><td>Menganalisis hasil dan melakukan troubleshooting pada Pemrograman Berorientasi Objek.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-6</td><td>Mendemonstrasikan hasil Pemrograman Berorientasi Objek dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-7</td><td>Mendemonstrasikan hasil Pemrograman Berorientasi Objek dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="7"><b>Reliability Engineering Sistem Komputer</b></td><td rowspan="2">CPL05</td><td rowspan="2">CPMK5.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Reliability Engineering Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Reliability Engineering Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Reliability Engineering Sistem Komputer untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Reliability Engineering Sistem Komputer dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.2</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Reliability Engineering Sistem Komputer dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Reliability Engineering Sistem Komputer berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.2</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Reliability Engineering Sistem Komputer berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="7"><b>Pengolahan Sinyal Digital</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Pengolahan Sinyal Digital.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Pengolahan Sinyal Digital.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Pengolahan Sinyal Digital untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.1</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Pengolahan Sinyal Digital dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.2</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Pengolahan Sinyal Digital dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.1</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Pengolahan Sinyal Digital berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.2</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Pengolahan Sinyal Digital berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="7"><b>AI dan Machine Learning</b></td><td rowspan="7">CPL10</td><td rowspan="2">CPMK10.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama AI dan Machine Learning.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk AI dan Machine Learning.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-3</td><td>Menerapkan metode AI dan Machine Learning untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td rowspan="1">CPMK10.1</td><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil AI dan Machine Learning menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-5</td><td>Menganalisis dan mengevaluasi hasil AI dan Machine Learning menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPMK10.1</td><td>Sub-CPMK-6</td><td>Mengembangkan solusi atau studi kasus AI dan Machine Learning yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-7</td><td>Mengembangkan solusi atau studi kasus AI dan Machine Learning yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="5"><b>Bisnis dan Kewirausahaan</b></td><td rowspan="5">CPL12</td><td rowspan="5">CPMK12.1</td><td>Sub-CPMK-1</td><td>Menjelaskan prinsip dan kerangka kerja utama dalam Bisnis dan Kewirausahaan.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Mengidentifikasi masalah, kebutuhan, peluang, atau batasan yang relevan dengan Bisnis dan Kewirausahaan.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menyusun rencana atau alternatif solusi berdasarkan pendekatan Bisnis dan Kewirausahaan.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menerapkan pendekatan Bisnis dan Kewirausahaan dalam kerja individu atau tim pada kasus teknologi.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengevaluasi hasil dan mempresentasikan rekomendasi atau nilai tambah dari penerapan Bisnis dan Kewirausahaan.</td></tr>
+<tr><td rowspan="5"><b>Sistem Terdistribusi dan Komputasi Paralel</b></td><td rowspan="5">CPL11</td><td rowspan="5">CPMK11.1</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan prinsip utama Sistem Terdistribusi dan Komputasi Paralel.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menerapkan konfigurasi atau mekanisme dasar yang relevan dengan Sistem Terdistribusi dan Komputasi Paralel.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menganalisis permasalahan kinerja, konektivitas, atau keamanan pada Sistem Terdistribusi dan Komputasi Paralel.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Merancang solusi Sistem Terdistribusi dan Komputasi Paralel berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi Sistem Terdistribusi dan Komputasi Paralel dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="7"><b>Pengantar Rekayasa dan Profesi Engineering</b></td><td rowspan="2">CPL02</td><td rowspan="2">CPMK2.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Pengantar Rekayasa dan Profesi Engineering.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Pengantar Rekayasa dan Profesi Engineering.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Pengantar Rekayasa dan Profesi Engineering dalam situasi akademik atau profesional.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.1</td><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Pengantar Rekayasa dan Profesi Engineering.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.2</td><td>Sub-CPMK-5</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Pengantar Rekayasa dan Profesi Engineering.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.1</td><td>Sub-CPMK-6</td><td>Mengevaluasi penerapan prinsip Pengantar Rekayasa dan Profesi Engineering melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.2</td><td>Sub-CPMK-7</td><td>Mengevaluasi penerapan prinsip Pengantar Rekayasa dan Profesi Engineering melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="5"><b>Pendidikan Pancasila</b></td><td rowspan="5">CPL01</td><td rowspan="5">CPMK1.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Pendidikan Pancasila.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Pendidikan Pancasila.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Pendidikan Pancasila dalam situasi akademik atau profesional.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Pendidikan Pancasila.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengevaluasi penerapan prinsip Pendidikan Pancasila melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="7"><b>Pemrograman Web</b></td><td rowspan="2">CPL03</td><td rowspan="2">CPMK3.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan struktur dasar Pemrograman Web.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang algoritma atau struktur solusi untuk permasalahan pada Pemrograman Web.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-3</td><td>Mengimplementasikan solusi Pemrograman Web menggunakan teknik dan perangkat yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-4</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Pemrograman Web.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-5</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Pemrograman Web.</td></tr>
+<tr><td rowspan="1">CPL03</td><td rowspan="1">CPMK3.2</td><td>Sub-CPMK-6</td><td>Mengembangkan mini-proyek Pemrograman Web yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-7</td><td>Mengembangkan mini-proyek Pemrograman Web yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="8"><b>Analisa Kinerja Sistem</b></td><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Analisa Kinerja Sistem.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Analisa Kinerja Sistem.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Analisa Kinerja Sistem untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Analisa Kinerja Sistem dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-5</td><td>Mengintegrasikan konsep Analisa Kinerja Sistem dalam solusi Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.1</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi berbasis Analisa Kinerja Sistem berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi berbasis Analisa Kinerja Sistem berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.2</td><td>Sub-CPMK-8</td><td>Menguji dan mengevaluasi solusi berbasis Analisa Kinerja Sistem berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="5"><b>Robotika</b></td><td rowspan="5">CPL08</td><td rowspan="5">CPMK8.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, komponen, dan prinsip kerja utama pada Robotika.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis hubungan antarbagian dan mekanisme kerja pada Robotika.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Robotika untuk menyelesaikan kasus teknik sederhana.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengintegrasikan konsep Robotika dalam solusi Sistem Komputer.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi berbasis Robotika berdasarkan kriteria teknis.</td></tr>
+<tr><td rowspan="7"><b>Pr. Robotika</b></td><td rowspan="7">CPL08</td><td rowspan="2">CPMK8.2</td><td>Sub-CPMK-1</td><td>Menyiapkan perangkat dan prosedur praktikum Robotika.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan percobaan dasar Robotika dengan prosedur yang benar dan aman.</td></tr>
+<tr><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-3</td><td>Mengimplementasikan atau mengintegrasikan komponen pada Robotika.</td></tr>
+<tr><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-4</td><td>Menganalisis hasil dan melakukan troubleshooting pada Robotika.</td></tr>
+<tr><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-5</td><td>Menganalisis hasil dan melakukan troubleshooting pada Robotika.</td></tr>
+<tr><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-6</td><td>Mendemonstrasikan hasil Robotika dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-7</td><td>Mendemonstrasikan hasil Robotika dan menyusun laporan teknis.</td></tr>
+<tr><td rowspan="5"><b>Big Data Engineering</b></td><td rowspan="5">CPL10</td><td rowspan="5">CPMK10.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Big Data Engineering.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Big Data Engineering.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Big Data Engineering untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Big Data Engineering menggunakan kriteria yang sesuai.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengembangkan solusi atau studi kasus Big Data Engineering yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="5"><b>Applied Data Analytics</b></td><td rowspan="5">CPL10</td><td rowspan="5">CPMK10.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Applied Data Analytics.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Applied Data Analytics.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Applied Data Analytics untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Applied Data Analytics menggunakan kriteria yang sesuai.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengembangkan solusi atau studi kasus Applied Data Analytics yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="7"><b>Project Management</b></td><td rowspan="2">CPL06</td><td rowspan="2">CPMK6.2</td><td>Sub-CPMK-1</td><td>Menjelaskan prinsip dan kerangka kerja utama dalam Project Management.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Mengidentifikasi masalah, kebutuhan, peluang, atau batasan yang relevan dengan Project Management.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.2</td><td>Sub-CPMK-3</td><td>Menyusun rencana atau alternatif solusi berdasarkan pendekatan Project Management.</td></tr>
+<tr><td rowspan="1">CPL06</td><td rowspan="1">CPMK6.2</td><td>Sub-CPMK-4</td><td>Menerapkan pendekatan Project Management dalam kerja individu atau tim pada kasus teknologi.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.2</td><td>Sub-CPMK-5</td><td>Menerapkan pendekatan Project Management dalam kerja individu atau tim pada kasus teknologi.</td></tr>
+<tr><td rowspan="1">CPL06</td><td rowspan="1">CPMK6.2</td><td>Sub-CPMK-6</td><td>Mengevaluasi hasil dan mempresentasikan rekomendasi atau nilai tambah dari penerapan Project Management.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.2</td><td>Sub-CPMK-7</td><td>Mengevaluasi hasil dan mempresentasikan rekomendasi atau nilai tambah dari penerapan Project Management.</td></tr>
+<tr><td rowspan="5"><b>Pendidikan Kewarganegaraan</b></td><td rowspan="5">CPL01</td><td rowspan="5">CPMK1.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Pendidikan Kewarganegaraan.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Pendidikan Kewarganegaraan.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan prinsip Pendidikan Kewarganegaraan dalam situasi akademik atau profesional.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Pendidikan Kewarganegaraan.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengevaluasi penerapan prinsip Pendidikan Kewarganegaraan melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="7"><b>Mobile Computing</b></td><td rowspan="2">CPL09</td><td rowspan="2">CPMK9.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan struktur dasar Mobile Computing.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang algoritma atau struktur solusi untuk permasalahan pada Mobile Computing.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-3</td><td>Mengimplementasikan solusi Mobile Computing menggunakan teknik dan perangkat yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-4</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Mobile Computing.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-5</td><td>Menguji, menelusuri kesalahan, dan memperbaiki implementasi Mobile Computing.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.1</td><td>Sub-CPMK-6</td><td>Mengembangkan mini-proyek Mobile Computing yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.1</td><td>Sub-CPMK-7</td><td>Mengembangkan mini-proyek Mobile Computing yang berfungsi dan terdokumentasi.</td></tr>
+<tr><td rowspan="10"><b>Capstone Project</b></td><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.2</td><td>Sub-CPMK-1</td><td>Merumuskan kebutuhan pengguna, masalah rekayasa, ruang lingkup, dan target proyek Sistem Komputer.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.2</td><td>Sub-CPMK-2</td><td>Menyusun rancangan solusi, pembagian kerja, jadwal, risiko, dan rencana pengujian proyek.</td></tr>
+<tr><td rowspan="1">CPL06</td><td rowspan="1">CPMK6.2</td><td>Sub-CPMK-3</td><td>Menyusun rancangan solusi, pembagian kerja, jadwal, risiko, dan rencana pengujian proyek.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-4</td><td>Membangun dan mengintegrasikan komponen solusi Sistem Komputer secara kolaboratif dan profesional.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-5</td><td>Membangun dan mengintegrasikan komponen solusi Sistem Komputer secara kolaboratif dan profesional.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi fungsi, kinerja, keandalan, serta kesesuaian solusi terhadap kebutuhan.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi fungsi, kinerja, keandalan, serta kesesuaian solusi terhadap kebutuhan.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-8</td><td>Menguji dan mengevaluasi fungsi, kinerja, keandalan, serta kesesuaian solusi terhadap kebutuhan.</td></tr>
+<tr><td rowspan="1">CPL06</td><td rowspan="1">CPMK6.2</td><td>Sub-CPMK-9</td><td>Mendemonstrasikan produk, menyusun dokumentasi, dan mempertanggungjawabkan nilai tambah solusi.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.3</td><td>Sub-CPMK-10</td><td>Mendemonstrasikan produk, menyusun dokumentasi, dan mempertanggungjawabkan nilai tambah solusi.</td></tr>
+<tr><td rowspan="7"><b>Deep Learning</b></td><td rowspan="7">CPL10</td><td rowspan="2">CPMK10.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Deep Learning.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Deep Learning.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-3</td><td>Menerapkan metode Deep Learning untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td rowspan="1">CPMK10.1</td><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Deep Learning menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-5</td><td>Menganalisis dan mengevaluasi hasil Deep Learning menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPMK10.1</td><td>Sub-CPMK-6</td><td>Mengembangkan solusi atau studi kasus Deep Learning yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-7</td><td>Mengembangkan solusi atau studi kasus Deep Learning yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="9"><b>Kerja Praktik</b></td><td rowspan="2">CPL02</td><td rowspan="2">CPMK2.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konteks organisasi, ruang lingkup pekerjaan, dan etika profesional pada tempat Kerja Praktik.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Melaksanakan tugas profesional sesuai prosedur dan target kerja yang ditetapkan.</td></tr>
+<tr><td rowspan="2">CPL06</td><td rowspan="2">CPMK6.2</td><td>Sub-CPMK-3</td><td>Melaksanakan tugas profesional sesuai prosedur dan target kerja yang ditetapkan.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Berkomunikasi dan bekerja sama secara efektif dengan pembimbing dan tim di lingkungan kerja.</td></tr>
+<tr><td rowspan="3">CPL07</td><td rowspan="1">CPMK7.2</td><td>Sub-CPMK-5</td><td>Berkomunikasi dan bekerja sama secara efektif dengan pembimbing dan tim di lingkungan kerja.</td></tr>
+<tr><td rowspan="1">CPMK7.1</td><td>Sub-CPMK-6</td><td>Menganalisis permasalahan pekerjaan serta menerapkan pengetahuan Sistem Komputer secara adaptif.</td></tr>
+<tr><td rowspan="1">CPMK7.2</td><td>Sub-CPMK-7</td><td>Menganalisis permasalahan pekerjaan serta menerapkan pengetahuan Sistem Komputer secara adaptif.</td></tr>
+<tr><td rowspan="1">CPL06</td><td rowspan="1">CPMK6.2</td><td>Sub-CPMK-8</td><td>Menyusun laporan, mempresentasikan hasil, dan merefleksikan kebutuhan pengembangan kompetensi lanjutan.</td></tr>
+<tr><td rowspan="1">CPL07</td><td rowspan="1">CPMK7.1</td><td>Sub-CPMK-9</td><td>Menyusun laporan, mempresentasikan hasil, dan merefleksikan kebutuhan pengembangan kompetensi lanjutan.</td></tr>
+<tr><td rowspan="8"><b>Kepemimpinan dan Komunikasi Profesi</b></td><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep dan prinsip utama dalam Kepemimpinan dan Komunikasi Profesi.</td></tr>
+<tr><td rowspan="2">CPL06</td><td rowspan="1">CPMK6.1</td><td>Sub-CPMK-2</td><td>Menganalisis kasus yang relevan dengan konteks Kepemimpinan dan Komunikasi Profesi.</td></tr>
+<tr><td rowspan="1">CPMK6.2</td><td>Sub-CPMK-3</td><td>Menerapkan prinsip Kepemimpinan dan Komunikasi Profesi dalam situasi akademik atau profesional.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.1</td><td>Sub-CPMK-4</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Kepemimpinan dan Komunikasi Profesi.</td></tr>
+<tr><td rowspan="1">CPL06</td><td rowspan="1">CPMK6.1</td><td>Sub-CPMK-5</td><td>Mengomunikasikan gagasan dan bekerja sama dalam aktivitas terkait Kepemimpinan dan Komunikasi Profesi.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.1</td><td>Sub-CPMK-6</td><td>Mengevaluasi penerapan prinsip Kepemimpinan dan Komunikasi Profesi melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="2">CPL06</td><td rowspan="1">CPMK6.1</td><td>Sub-CPMK-7</td><td>Mengevaluasi penerapan prinsip Kepemimpinan dan Komunikasi Profesi melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="1">CPMK6.2</td><td>Sub-CPMK-8</td><td>Mengevaluasi penerapan prinsip Kepemimpinan dan Komunikasi Profesi melalui tugas integratif atau refleksi akhir.</td></tr>
+<tr><td rowspan="7"><b>Technopreneurship</b></td><td rowspan="7">CPL12</td><td rowspan="2">CPMK12.1</td><td>Sub-CPMK-1</td><td>Menjelaskan prinsip dan kerangka kerja utama dalam Technopreneurship.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Mengidentifikasi masalah, kebutuhan, peluang, atau batasan yang relevan dengan Technopreneurship.</td></tr>
+<tr><td rowspan="1">CPMK12.3</td><td>Sub-CPMK-3</td><td>Menyusun rencana atau alternatif solusi berdasarkan pendekatan Technopreneurship.</td></tr>
+<tr><td rowspan="1">CPMK12.1</td><td>Sub-CPMK-4</td><td>Menerapkan pendekatan Technopreneurship dalam kerja individu atau tim pada kasus teknologi.</td></tr>
+<tr><td rowspan="1">CPMK12.3</td><td>Sub-CPMK-5</td><td>Menerapkan pendekatan Technopreneurship dalam kerja individu atau tim pada kasus teknologi.</td></tr>
+<tr><td rowspan="1">CPMK12.1</td><td>Sub-CPMK-6</td><td>Mengevaluasi hasil dan mempresentasikan rekomendasi atau nilai tambah dari penerapan Technopreneurship.</td></tr>
+<tr><td rowspan="1">CPMK12.3</td><td>Sub-CPMK-7</td><td>Mengevaluasi hasil dan mempresentasikan rekomendasi atau nilai tambah dari penerapan Technopreneurship.</td></tr>
+<tr><td rowspan="11"><b>Skripsi</b></td><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-1</td><td>Merumuskan masalah penelitian atau pengembangan yang relevan dengan bidang Sistem Komputer berdasarkan kajian literatur.</td></tr>
+<tr><td rowspan="1">CPL07</td><td rowspan="1">CPMK7.1</td><td>Sub-CPMK-2</td><td>Merumuskan masalah penelitian atau pengembangan yang relevan dengan bidang Sistem Komputer berdasarkan kajian literatur.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-3</td><td>Menyusun metodologi, rancangan eksperimen, atau desain solusi yang sistematis dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-4</td><td>Menyusun metodologi, rancangan eksperimen, atau desain solusi yang sistematis dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.2</td><td>Sub-CPMK-5</td><td>Melaksanakan penelitian atau pengembangan, mengumpulkan data, dan mendokumentasikan proses secara mandiri dan beretika.</td></tr>
+<tr><td rowspan="1">CPL07</td><td rowspan="1">CPMK7.2</td><td>Sub-CPMK-6</td><td>Melaksanakan penelitian atau pengembangan, mengumpulkan data, dan mendokumentasikan proses secara mandiri dan beretika.</td></tr>
+<tr><td rowspan="1">CPL05</td><td rowspan="1">CPMK5.2</td><td>Sub-CPMK-7</td><td>Menganalisis serta mengevaluasi hasil penelitian atau solusi berdasarkan metode dan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.3</td><td>Sub-CPMK-8</td><td>Menganalisis serta mengevaluasi hasil penelitian atau solusi berdasarkan metode dan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL06</td><td rowspan="1">CPMK6.1</td><td>Sub-CPMK-9</td><td>Menyusun naskah ilmiah dan mempertahankan hasil penelitian atau pengembangan secara lisan dan tertulis.</td></tr>
+<tr><td rowspan="1">CPL07</td><td rowspan="1">CPMK7.1</td><td>Sub-CPMK-10</td><td>Menyusun naskah ilmiah dan mempertahankan hasil penelitian atau pengembangan secara lisan dan tertulis.</td></tr>
+<tr><td rowspan="1">CPL12</td><td rowspan="1">CPMK12.3</td><td>Sub-CPMK-11</td><td>Menyusun naskah ilmiah dan mempertahankan hasil penelitian atau pengembangan secara lisan dan tertulis.</td></tr>
+<tr><td rowspan="5"><b>Computer Vision</b></td><td rowspan="5">CPL10</td><td rowspan="5">CPMK10.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Computer Vision.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Computer Vision.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Computer Vision untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Computer Vision menggunakan kriteria yang sesuai.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengembangkan solusi atau studi kasus Computer Vision yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="5"><b>Edge AI</b></td><td rowspan="5">CPL10</td><td rowspan="5">CPMK10.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Edge AI.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Edge AI.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Edge AI untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Edge AI menggunakan kriteria yang sesuai.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengembangkan solusi atau studi kasus Edge AI yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="5"><b>Generative AI</b></td><td rowspan="5">CPL10</td><td rowspan="5">CPMK10.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Generative AI.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Generative AI.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Generative AI untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Generative AI menggunakan kriteria yang sesuai.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengembangkan solusi atau studi kasus Generative AI yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="5"><b>Natural Language Processing</b></td><td rowspan="5">CPL10</td><td rowspan="5">CPMK10.3</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Natural Language Processing.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Natural Language Processing.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menerapkan metode Natural Language Processing untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Natural Language Processing menggunakan kriteria yang sesuai.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Mengembangkan solusi atau studi kasus Natural Language Processing yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="7"><b>Reinforcement Learning</b></td><td rowspan="7">CPL10</td><td rowspan="2">CPMK10.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Reinforcement Learning.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Reinforcement Learning.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-3</td><td>Menerapkan metode Reinforcement Learning untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td rowspan="1">CPMK10.1</td><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Reinforcement Learning menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-5</td><td>Menganalisis dan mengevaluasi hasil Reinforcement Learning menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPMK10.1</td><td>Sub-CPMK-6</td><td>Mengembangkan solusi atau studi kasus Reinforcement Learning yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-7</td><td>Mengembangkan solusi atau studi kasus Reinforcement Learning yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="7"><b>Explainable AI dan AI Ethics</b></td><td rowspan="2">CPL02</td><td rowspan="2">CPMK2.1</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama Explainable AI dan AI Ethics.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk Explainable AI dan AI Ethics.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-3</td><td>Menerapkan metode Explainable AI dan AI Ethics untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.1</td><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil Explainable AI dan AI Ethics menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-5</td><td>Menganalisis dan mengevaluasi hasil Explainable AI dan AI Ethics menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL02</td><td rowspan="1">CPMK2.1</td><td>Sub-CPMK-6</td><td>Mengembangkan solusi atau studi kasus Explainable AI dan AI Ethics yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-7</td><td>Mengembangkan solusi atau studi kasus Explainable AI dan AI Ethics yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="5"><b>Cloud Computing dan Virtualisasi</b></td><td rowspan="5">CPL11</td><td rowspan="5">CPMK11.1</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan prinsip utama Cloud Computing dan Virtualisasi.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menerapkan konfigurasi atau mekanisme dasar yang relevan dengan Cloud Computing dan Virtualisasi.</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Menganalisis permasalahan kinerja, konektivitas, atau keamanan pada Cloud Computing dan Virtualisasi.</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Merancang solusi Cloud Computing dan Virtualisasi berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi Cloud Computing dan Virtualisasi dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="7"><b>IoT Security dan Edge Computing</b></td><td rowspan="2">CPL09</td><td rowspan="2">CPMK9.3</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan prinsip utama IoT Security dan Edge Computing.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menerapkan konfigurasi atau mekanisme dasar yang relevan dengan IoT Security dan Edge Computing.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.3</td><td>Sub-CPMK-3</td><td>Menganalisis permasalahan kinerja, konektivitas, atau keamanan pada IoT Security dan Edge Computing.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-4</td><td>Merancang solusi IoT Security dan Edge Computing berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.3</td><td>Sub-CPMK-5</td><td>Merancang solusi IoT Security dan Edge Computing berdasarkan kebutuhan, batasan, dan risiko.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi IoT Security dan Edge Computing dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="1">CPL11</td><td rowspan="1">CPMK11.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi IoT Security dan Edge Computing dari aspek fungsi, kinerja, keandalan, atau keamanan.</td></tr>
+<tr><td rowspan="5"><b>Industrial Internet of Thing (IIoT)</b></td><td rowspan="5">CPL09</td><td rowspan="5">CPMK9.3</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan alur kerja pada Industrial Internet of Thing (IIoT).</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang konfigurasi perangkat, antarmuka, atau komunikasi yang diperlukan pada Industrial Internet of Thing (IIoT).</td></tr>
+<tr><td>Sub-CPMK-3</td><td>Mengimplementasikan integrasi komponen utama pada Industrial Internet of Thing (IIoT).</td></tr>
+<tr><td>Sub-CPMK-4</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Industrial Internet of Thing (IIoT).</td></tr>
+<tr><td>Sub-CPMK-5</td><td>Menguji dan mengevaluasi solusi Industrial Internet of Thing (IIoT) sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="7"><b>Smart Sensor Networks</b></td><td rowspan="7">CPL09</td><td rowspan="2">CPMK9.2</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan alur kerja pada Smart Sensor Networks.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang konfigurasi perangkat, antarmuka, atau komunikasi yang diperlukan pada Smart Sensor Networks.</td></tr>
+<tr><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-3</td><td>Mengimplementasikan integrasi komponen utama pada Smart Sensor Networks.</td></tr>
+<tr><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-4</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Smart Sensor Networks.</td></tr>
+<tr><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-5</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Smart Sensor Networks.</td></tr>
+<tr><td rowspan="1">CPMK9.2</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi Smart Sensor Networks sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi Smart Sensor Networks sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="7"><b>Digital Twin System</b></td><td rowspan="2">CPL09</td><td rowspan="2">CPMK9.3</td><td>Sub-CPMK-1</td><td>Menjelaskan arsitektur, komponen, dan alur kerja pada Digital Twin System.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Merancang konfigurasi perangkat, antarmuka, atau komunikasi yang diperlukan pada Digital Twin System.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-3</td><td>Mengimplementasikan integrasi komponen utama pada Digital Twin System.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-4</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Digital Twin System.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-5</td><td>Menganalisis kinerja, konektivitas, atau hasil implementasi Digital Twin System.</td></tr>
+<tr><td rowspan="1">CPL09</td><td rowspan="1">CPMK9.3</td><td>Sub-CPMK-6</td><td>Menguji dan mengevaluasi solusi Digital Twin System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-7</td><td>Menguji dan mengevaluasi solusi Digital Twin System sesuai kebutuhan pengguna.</td></tr>
+<tr><td rowspan="7"><b>TinyML dan Embedded Intelligence</b></td><td rowspan="2">CPL08</td><td rowspan="2">CPMK8.2</td><td>Sub-CPMK-1</td><td>Menjelaskan konsep, metode, dan ruang lingkup utama TinyML dan Embedded Intelligence.</td></tr>
+<tr><td>Sub-CPMK-2</td><td>Menyiapkan data atau representasi masalah yang sesuai untuk TinyML dan Embedded Intelligence.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-3</td><td>Menerapkan metode TinyML dan Embedded Intelligence untuk menghasilkan solusi berbasis data.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-4</td><td>Menganalisis dan mengevaluasi hasil TinyML dan Embedded Intelligence menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-5</td><td>Menganalisis dan mengevaluasi hasil TinyML dan Embedded Intelligence menggunakan kriteria yang sesuai.</td></tr>
+<tr><td rowspan="1">CPL08</td><td rowspan="1">CPMK8.2</td><td>Sub-CPMK-6</td><td>Mengembangkan solusi atau studi kasus TinyML dan Embedded Intelligence yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+<tr><td rowspan="1">CPL10</td><td rowspan="1">CPMK10.3</td><td>Sub-CPMK-7</td><td>Mengembangkan solusi atau studi kasus TinyML dan Embedded Intelligence yang terdokumentasi dan dapat dipertanggungjawabkan.</td></tr>
+
+</table>
+</body>
+</html>
